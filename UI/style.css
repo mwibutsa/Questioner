@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navigation{
+    width: 100%;
+    background:#0080ff;
+    height: 50px;
+}
+.navigation ul{
+    margin: 0;
+    padding: 0;
+}
+.navigation ul li{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    list-style: none;
+    background:#0080ff;
+    width: 100px;
+}
+.navigation ul li:hover{
+    background: #fff;
+}
+.navigation ul li a{
+    text-decoration:none;
+    color: white;
+    font-size: 24px;
+}
+.navigation ul li ul li{
+    display: none;
+}
+.navigation ul li:hover ul li{
+    display: block;
+}
