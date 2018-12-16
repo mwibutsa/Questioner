@@ -1,7 +1,31 @@
-.body{
+*{
 	margin: 0;
 	padding: 0;
+}
+
+html,body{
+	height: 100%;
 	font-family: sans-serif;
+}
+/*Wrapper*/
+.wrapper{
+	min-height: 100%;
+}
+.main{
+	height: 100%;
+	padding-bottom: 150px;
+	overflow: auto;
+}
+
+/*footer*/
+
+.footer{
+	height: 100px;
+	width: 100%;
+	position: relative;
+	background:#007acc;
+	margin-top: -100px;
+	clear: both;
 }
 
 /*Navigation*/
@@ -10,19 +34,39 @@
 	height: 50px;
 	text-align: center;
 	box-shadow: 0px 1px 3px 0px #333;
-	background: #11ff58;
+	background:#007acc;
+	margin-bottom: 1%;
+	opacity: .9;
+	position: sticky;
+	top: 0;
 }
-
+button,.button{
+padding: 5px;
+height: 35px;
+border: none;
+box-shadow: 1px 1px 1px #aaa;
+border-radius: 4px;
+background: #007acc;
+color: white;
+font-size: 18px;
+transition: all ease-in-out .1s;
+}
+button:hover,.button:hover{
+	background: #1280c9;
+	box-shadow: 1px 2px 8px rgb(1, 31, 65);
+}
 .navigation ul li{
 	float: left;
 	list-style: none;
-	padding: 5px;
 	text-align: center;
-	height: 40px;
-	line-height: 40px;
+	height: 50px;
+	line-height: 50px;
+	width: 80px;
+	background: #007acc;
+
 }
 .navigation ul li:hover{
-	background: #ff8;
+	background: #13334D;
 }
 .navigation ul li a{
 	font-size: 18px;
@@ -32,6 +76,13 @@
 	color: white;
 }
 
+.navigation ul li ul li{
+	display: none;
+	width: 150px;
+}
+.navigation ul li:hover ul li{
+	display: block;
+}
 /* Navigation toggle Icon */
 .nav-icon{
 	display: none;
@@ -40,8 +91,6 @@
 	right: 1%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	height: 40px;
-	line-height: 40px;
 }
 .nav-icon .bar1,.nav-icon .bar2,.nav-icon .bar3{
 	width: 35px;
@@ -79,4 +128,38 @@
 		top: 55px;
 	}
 
+}
+/*FORM STYLES */
+.form-container{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	background: #f5f2f2;
+	padding: 1%;
+	border-radius: 2%;
+}
+.form-input{
+	margin: 5px;
+}
+.text-input{
+	width: 80%;
+}
+.textarea{
+	width: 98%;
+	padding: 1%;
+}
+.text-center{
+	text-align: center;
+}
+.inline-form{
+	display: inline-block;
+}
+/* text containers */
+.text-container{
+	margin-top: 5px;
+	width: 90%;
+	padding: 2%;
+	margin-right: auto;
+	margin-left: auto;
+	background-color:#eef6fc;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner | Top questions</title>
+    <title>Questioner | Login</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
@@ -54,7 +54,19 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                 
+                 <div class="form-container">
+                     <form action="" method="POST">
+                         <div class="forn-input">
+                             <label for="username">Username</label>
+                             <input type="text" name="username" id="username" class="text-input" required>
+                        </div>
+                        <div class="forn-input">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="text-input" required>
+                        </div>
+                        <button type="submit" class="button">Login</button>
+                     </form>
+                 </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
