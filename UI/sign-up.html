@@ -7,6 +7,7 @@
     <title>Questioner | New account</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script src="scripts/register-user.js"></script>
 </head>
 <body>
    
@@ -55,44 +56,44 @@
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
                     <div class="form-container">
-                            <form action="" method="POST">
+                            <form action="" id="signup-form" method="POST" name="signUpForm" onsubmit="return registerUser(this)">
 
                                 <div class="form-input">
-                                    <label for="firstname">Firstname</label>
+                                    <label for="firstname">Firstname</label><span class="error"></span><br>
                                     <input type="text" name="firstname" id="firstname" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="lastname">Lastname</label>
+                                    <label for="lastname">Lastname</label><span class="error"></span><br>
                                     <input type="text" name="lastname" id="lastname" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="othername">Other name</label>
-                                    <input type="text" name="othername" id="othername" class="text-input" required>
+                                    <label for="othername">Other name</label><span class="error"></span><br>
+                                    <input type="text" name="otherName" id="othername" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="email">Email address</label>
+                                    <label for="email">Email address</label><span class="error"></span><br>
                                     <input type="email" name="email" id="email" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="username">username</label>
+                                    <label for="username">username</label><span class="error"></span><br>
                                     <input type="text" name="username" id="username" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="phoneNumber">Phone number</label>
+                                    <label for="phoneNumber">Phone number</label><span class="error"></span><br>
                                     <input type="tel" name="phoneNumber" id="phoneNumber" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                       <label for="password">Password</label>
+                                       <label for="password">Password</label><span class="error"></span><br>
                                        <input type="password" name="password" id="password" class="text-input" required>
                                </div>
                                <div class="form-input">
-                                    <label for="password">Confir Your Password</label>
+                                    <label for="password">Confirm Your Password</label><span class="error"></span><br>
                                     <input type="password" name="cpassword" id="cpassword" class="text-input" required>
                                 </div>
 
