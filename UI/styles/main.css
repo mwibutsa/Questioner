@@ -1,6 +1,8 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 html,body{
@@ -35,7 +37,7 @@ html,body{
 	text-align: center;
 	box-shadow: 0px 1px 3px 0px #333;
 	background:#007acc;
-	margin-bottom: 1%;
+	margin-bottom: 2%;
 	opacity: .9;
 	position: sticky;
 	top: 0;
@@ -115,23 +117,10 @@ button:hover,.button:hover{
 	left: 1%;
 	color:white;
 }
-@media screen and (max-width: 600px) {
-	.navigation .nav ul{
-		display: none;
-	}
-	.nav-icon{
-		display: inline-block;
-	}
-	.nav-collapse{
-		display: block;
-		position: absolute;
-		top: 55px;
-	}
 
-}
 /*FORM STYLES */
 .form-container{
-	width: 60%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	background: #f5f2f2;
@@ -142,7 +131,13 @@ button:hover,.button:hover{
 	margin: 5px;
 }
 .text-input{
-	width: 80%;
+	width: 100%;
+	height: 25px;
+	font-size: 16px;
+	font-family: 'ubuntu';
+}
+.text-input:hover{
+	border-color: #007acc;
 }
 .textarea{
 	width: 98%;
@@ -162,4 +157,30 @@ button:hover,.button:hover{
 	margin-right: auto;
 	margin-left: auto;
 	background-color:#eef6fc;
+}
+
+
+
+/*RESPONSIVENESS MOBILE DEVICE*/
+@media screen and (max-width: 636px) {
+	.navigation .nav ul{
+		display: none;
+	}
+	.nav-icon{
+		display: inline-block;
+	}
+	.nav-collapse{
+		display: block;
+		position: absolute;
+		top: 55px;
+	}
+	.form-container{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		background: #f5f2f2;
+		padding: 1%;
+		border-radius: 2%;
+	}
+
 }

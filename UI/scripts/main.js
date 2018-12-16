@@ -12,7 +12,6 @@ class User{
 var users = [];
 
 function registerUser(form){
-    var form = document.getElementById('signup-form');
     var firstname = form.firstname.value;
     var lastname = form.lastname.value;
     var otheName = form.otherName.value;
@@ -23,5 +22,14 @@ function registerUser(form){
     var cpassword = form.cpassword.value;
     users.push(new User(firstname,lastname,otheName,email,username,phoneNumber,password))
     console.log(users);
+   
+    form.firstname.value = "";
+    form.lastname.value = "";
+    form.otherName.value = "";
+    form.email.value = "";
+    form.username.value = "";
+    form.phoneNumber.value = "";
+    form.password.value = "";
+    form.cpassword.value = "";
     return false;
 }
