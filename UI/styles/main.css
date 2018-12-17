@@ -131,7 +131,7 @@ button:hover,.button:hover{
 }
 /*FORM STYLES */
 .form-container{
-	width: 60%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	background: #f5f2f2;
@@ -142,7 +142,8 @@ button:hover,.button:hover{
 	margin: 5px;
 }
 .text-input{
-	width: 80%;
+	width: 100%;
+	height: 25px;
 }
 .textarea{
 	width: 98%;

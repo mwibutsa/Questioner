@@ -25,3 +25,37 @@ function registerUser(form){
     console.log(users);
     return false;
 }
+function validate(){
+
+}
+function validatename(name,fieldName){
+    var nameError = false;
+    if(name == ""){
+        nameError = feildName+"is required*";
+        
+    }
+    else if(name.length <3){
+        error = feildName +'can not be less than 3 characters';
+    }
+}
+function comparePasswords(password1,password2){
+    if(password1 ===  password2){
+        return true;
+    }
+    else{
+        return 'Passwords are not the same';
+    }
+}
+function validateUsername(username){
+    if(username.length < 5){
+        return 'username can not have less than 5 characters';
+    }
+    else if(username == ""){
+        return "username field is required*";
+    }
+}
+function validateEmail(email){
+    if(email == ""){
+        return "Email is required*";
+    }
+}
