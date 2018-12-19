@@ -55,8 +55,29 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                 
+                <!--SLIDE SHOW CONTAINER-->
+                 <div class="slideshow-container">
+                     <div class="slide fade">
+                         <img src="images/slide1.jpg" alt="">
+                     </div>
+                     <div class="slide fade">
+                        <img src="images/slide2.jpg" alt="">
+                     </div>
+                     <div class="slide fade">
+                        <img src="images/slide3.jpg" alt="">
+                     </div>
+                     <a href="#" class="next" onclick="pushSlides(1)">&#10094</a>
+                     <a href="#" class="prev" onclick="pushSlides(-1)">&#10095</a>
+                     <div class="slide-lists text-center">
+                         <span class="bars" onclick="currentSlide(1)"></span>
+                         <span class="bars" onclick="currentSlide(2)"></span>
+                         <span class="bars" onclick="currentSlide(3)"></span>
+                     </div>
+
+                 </div>
+                 <!--/SLIDE SHOW CONTAINER-->
             </div>
+
             <!--END OF MAIN PAGE CONTENT-->
             
         </div>

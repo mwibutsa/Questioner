@@ -12,7 +12,7 @@ class User{
 var users = [];
 
 function registerUser(form){
-    var form = document.getElementById('signup-form');
+    console.log(document.getElementById('signup-form'))
     var firstname = form.firstname.value;
     var lastname = form.lastname.value;
     var otheName = form.otherName.value;
@@ -25,37 +25,60 @@ function registerUser(form){
     console.log(users);
     return false;
 }
-function validate(){
+/*DOM & ANIMATIONS*/
+function onReady(){
+    showModal();
+}
+function showModal(){
+    var buttons  = document.getElementsByClassName("showModal");
+    var modals = document.getElementsByClassName('modal');
+    var closeButtons = document.getElementsByClassName('close');
 
-}
-function validatename(name,fieldName){
-    var nameError = false;
-    if(name == ""){
-        nameError = feildName+"is required*";
-        
-    }
-    else if(name.length <3){
-        error = feildName +'can not be less than 3 characters';
-    }
-}
-function comparePasswords(password1,password2){
-    if(password1 ===  password2){
-        return true;
-    }
-    else{
-        return 'Passwords are not the same';
+    for (var i = 0; i  < modals.length; i++) {
+       (function(index){
+        /* open modal button*/
+            buttons[index].onclick = function(){
+               modals[index].style.display = "block";
+               console.log(index);
+            }
+            /*span as close button*/
+            closeButtons[index].onclick = function(){
+                modals[index].style.display = "none";
+            }      
+        })(i);
     }
 }
-function validateUsername(username){
-    if(username.length < 5){
-        return 'username can not have less than 5 characters';
-    }
-    else if(username == ""){
-        return "username field is required*";
-    }
+/**
+ * SLIDE SHOW JAVASCRIPT
+ */
+
+ /**SHOW SLIDES */
+ var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
-function validateEmail(email){
-    if(email == ""){
-        return "Email is required*";
-    }
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
 }
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slide");
+  var bars = document.getElementsByClassName("bars");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < bars.length; i++) {
+      bars[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  bars[slideIndex-1].className += " active";
+} 
+

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="scripts/main.js"></script>
+    <script src="scripts/DOM.js"></script>
+    
 </head>
-<body>
+<body onload="onReady();">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -23,13 +27,14 @@
                 <nav class="nav" id="mainNav">
                     <!-- Main navigation -->
                     <!-- site icon -->
-                        <a href="#" class="site-icon">Questioner</h1></a>
+                        <a href="#" class="site-icon"><h1>Questioner</h1></a>
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="meetups.html">Mettups</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Account</a>
+                        <li>
+                            <a href="#">Account</a>
                             <ul>
                                 <li><a href="login.html">Login</a></li>
                                 <li><a href="logout.html">Logout</a></li>
@@ -40,7 +45,7 @@
                     <!-- Emd of navigation links -->
 
                     <!-- navigation toggle icon visible on small devices -->
-                    <div class="nav-icon" onclick="return showNavigation()">
+                    <div class="nav-icon" id="showNavIcon">
                         <div class="bar1"></div>
                         <div class="bar2"></div>
                         <div class="bar3"></div>
@@ -54,55 +59,92 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-             
-                 <section class="meetup-topic">
-                    <h2 class="topic text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel!</h2>
-                    <hr>
-                 </section>
-                 <!--MEET UP QUESTIONS SECTION -->
-                 <section class="meetup-questions">
-
-                     <div class="form-container">
-                         <div class="meetup-form">
-                             <form action="" method="POST">
-                                 <div class="form-input">
-                                    <label for="question">Ask your question:</label><br>
-                                    <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                 </div>
-                                 <input type="submit" value="Ask" class="button">
-                             </form>
+                 <h1 class="text-center">Future meetups</h1>
+                 <hr>
+                 
+                 <div class="text-container" id="meetup-details">
+                     <h2 class="content-header">Meetup 1</h2>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ex optio dicta esse. Deserunt ipsam vel, accusamus incidunt corporis, sit officiis deleniti error minus illum veritatis ab temporibus dolorem a.</p>
+                     <br>
+                     <em>Happening On 01, 01, 2019</em>
+                     <br>
+                     <br>
+                     <button class="showModal">Show Modal</button>
+                 </div>
+                 <div class="modal" >
+                     <div class="modal-content">
+                         <span class="close" id="close">&times</span>
+                         <div class="form-container">
+                            <form action="future-meetup.html" method="POST">
+                                <div class="form-input">
+                                    <h3 class="text-center">Will You be availabe to attend this meetup?</h3>
+                                    <br>
+                                    <input type="radio" name="answer" id="yes" value="1" required><label for="yes">Yes</label>&nbsp;
+                                    <input type="radio" name="answer" id="maybe" value="2" required><label for="maybe">Maybe</label>&nbsp;
+                                    <input type="radio" name="answer" id="no" value="0" required><label for="no">No</label>&nbsp;
+                                </div>
+                                <button type="submit">Reserve</button>
+                            </form>
                          </div>
-                    </div>
-                    <!--/ASK QUESTION FORM CONTAINER-->
-
-                    <div class="text-container">
-                        <br>
-                        <h3>Asked Questions</h3>
-                        <br>
-                        <hr>
-                        <br>
-
-                        <!--ASKED QUESTIONS -->
-                        <section class="text-container">
-                            <p>     
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio odit tempore sunt,
-                                autem pariatur nam aliquam dolor omnis,
-                                consectetur iusto dignissimos vel, vitae quia nemo consequuntur 
-                                incidunt blanditiis molestias. Error.
-                            </p>
-                            <div class="voting-form" >
-                                <form action="#" method="POST" class="inline-form">
-                                    <input type="hidden" name="upvote" value="1">
-                                    <button type="submit">Upvote</button>
-                                </form>
-                                <form action="#" method="POST" class="inline-form">
-                                    <input type="hidden" name="upvote" value="1">
-                                    <button type="submit">Downvote</button>
-                                </form>
-                            </div>
-                        </section>
-                </div>
-                </section>
+                     </div>
+                 </div>
+                 
+                 <hr>
+                 <div class="text-container" id="meetup-details">
+                     <h2 class="content-header">Meetup 2</h2>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ex optio dicta esse. Deserunt ipsam vel, accusamus incidunt corporis, sit officiis deleniti error minus illum veritatis ab temporibus dolorem a.</p>
+                     <br>
+                     <em>Happening On 01, 01, 2019</em>
+                     <br>
+                     <br>
+                     <button class="showModal">Reserve place</button>
+                 </div>
+                 <div class="modal" >
+                     <div class="modal-content">
+                         <span class="close" id="close">&times</span>
+                         <div class="form-container">
+                            <form action="future-meetup.html" method="POST">
+                                <div class="form-input">
+                                    <h3 class="text-center">Will You be availabe to attend this meetup?</h3>
+                                    <br>
+                                    <input type="radio" name="answer" id="yes" value="1" required><label for="yes">Yes</label>&nbsp;
+                                    <input type="radio" name="answer" id="maybe" value="2" required><label for="maybe">Maybe</label>&nbsp;
+                                    <input type="radio" name="answer" id="no" value="0" required><label for="no">No</label>&nbsp;
+                                </div>
+                                <button type="submit">Reserve</button>
+                            </form>
+                         </div>
+                     </div>
+                 </div>
+                 
+                 <hr>
+                 <div class="text-container" id="meetup-details">
+                     <h2 class="content-header">Meetup 3</h2>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ex optio dicta esse. Deserunt ipsam vel, accusamus incidunt corporis, sit officiis deleniti error minus illum veritatis ab temporibus dolorem a.</p>
+                     <br>
+                     <em>Happening On 01, 01, 2019</em>
+                     <br>
+                     <br>
+                     <button class="showModal">Reserve place</button>
+                 </div>
+                 <div class="modal" >
+                     <div class="modal-content">
+                         <span class="close" id="close">&times</span>
+                         <div class="form-container">
+                            <form action="future-meetup.html" method="POST">
+                                <div class="form-input">
+                                    <h3 class="text-center">Will You be availabe to attend this meetup?</h3>
+                                    <br>
+                                    <input type="radio" name="answer" id="yes" value="1" required><label for="yes">Yes</label>&nbsp;
+                                    <input type="radio" name="answer" id="maybe" value="2" required><label for="maybe">Maybe</label>&nbsp;
+                                    <input type="radio" name="answer" id="no" value="0" required><label for="no">No</label>&nbsp;
+                                </div>
+                                <button type="submit">Reserve</button>
+                            </form>
+                         </div>
+                     </div>
+                 </div>
+              
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
@@ -113,7 +155,6 @@
 
      <!--Footer -->
      <footer class="footer">
-
     </footer>
     <!--/Footer-->
     
