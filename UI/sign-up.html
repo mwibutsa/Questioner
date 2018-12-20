@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner | New account</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="scripts/main.js"></script>
     <script src="scripts/register-user.js"></script>
-    <script src="scripts/DOM.js"></script>
 </head>
 <body>
    
@@ -57,52 +57,51 @@
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
                     <div class="form-container">
-                        <br>
-                        <h3 class="text-center">Please fill this form to create a new account</h3>
-                        <span>* indicates required fields</span>
-                        <hr>
+                            <div class="form-header">
+                                <h1 class="text-center">Fill this form to create a new account</h1>
+                            </div>
                             <form action="" id="signup-form" method="POST" name="signUpForm" onsubmit="return registerUser(this)">
 
                                 <div class="form-input">
-                                    <label for="firstname">Firstname</label><span class="error"></span><br>
+                                    <label for="firstname">Firstname *</label><span class="error"></span><br>
                                     <input type="text" name="firstname" id="firstname" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="lastname">Lastname</label><span class="error"></span><br>
+                                    <label for="lastname">Lastname *</label><span class="error"></span><br>
                                     <input type="text" name="lastname" id="lastname" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="othername">Other name</label><span class="error"></span><br>
+                                    <label for="othername">Other name *</label><span class="error"></span><br>
                                     <input type="text" name="otherName" id="othername" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="email">Email address</label><span class="error"></span><br>
+                                    <label for="email">Email address *</label><span class="error"></span><br>
                                     <input type="email" name="email" id="email" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="username">username</label><span class="error"></span><br>
+                                    <label for="username">username *</label><span class="error"></span><br>
                                     <input type="text" name="username" id="username" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                    <label for="phoneNumber">Phone number</label><span class="error"></span><br>
+                                    <label for="phoneNumber">Phone number *</label><span class="error"></span><br>
                                     <input type="tel" name="phoneNumber" id="phoneNumber" class="text-input" required>
                                </div>
 
                                <div class="form-input">
-                                       <label for="password">Password</label><span class="error"></span><br>
+                                       <label for="password">Password *</label><span class="error"></span><br>
                                        <input type="password" name="password" id="password" class="text-input" required>
                                </div>
                                <div class="form-input">
-                                    <label for="password">Confirm Your Password</label><span class="error"></span><br>
+                                    <label for="password">Confirm Your Password *</label><span class="error"></span><br>
                                     <input type="password" name="cpassword" id="cpassword" class="text-input" required>
                                 </div>
 
-                               <button type="submit" class="button">Sign up</button>
+                               <button type="submit" class="button">Sign up *</button>
                             </form>
                         </div>
             </div>

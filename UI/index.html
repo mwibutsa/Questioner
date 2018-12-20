@@ -7,6 +7,7 @@
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
@@ -32,9 +33,9 @@
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Account</a>
                             <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="logout.html">Logout</a></li>
-                                <li><a href="sign-up.html">SignUp</a></li>
+                                <li><a href="UI/login.html">Login</a></li>
+                                <li><a href="UI/logout.html">Logout</a></li>
+                                <li><a href="UI/sign-up.html">SignUp</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -55,29 +56,31 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                <!--SLIDE SHOW CONTAINER-->
-                 <div class="slideshow-container">
-                     <div class="slide fade">
-                         <img src="images/slide1.jpg" alt="">
-                     </div>
-                     <div class="slide fade">
-                        <img src="images/slide2.jpg" alt="">
-                     </div>
-                     <div class="slide fade">
-                        <img src="images/slide3.jpg" alt="">
-                     </div>
-                     <a href="#" class="next" onclick="pushSlides(1)">&#10094</a>
-                     <a href="#" class="prev" onclick="pushSlides(-1)">&#10095</a>
-                     <div class="slide-lists text-center">
-                         <span class="bars" onclick="currentSlide(1)"></span>
-                         <span class="bars" onclick="currentSlide(2)"></span>
-                         <span class="bars" onclick="currentSlide(3)"></span>
-                     </div>
-
+                 <div class="page-header-container text-center">
+                     <p class="text-center">
+                         <h2 class="text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime, non?</h2>
+                         <br>
+                         <a class="button" href="#">More..</a>
+                     </p>
                  </div>
-                 <!--/SLIDE SHOW CONTAINER-->
+                 <div class="grid">
+                     <div class="col1">
+                         <h1>Mission1</h1>
+                         <img src="images/mission1.jpg" alt="">
+                         <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, aliquam consectetur? Repellendus, ducimus aliquam iste odit labore placeat, officiis similique libero magni distinctio saepe iure necessitatibus sint assumenda maiores id.</p>
+                    </div>
+                     <div class="col2">
+                         <h1>Mission2</h1>
+                         <img src="images/mission2.jpg" alt="">
+                         <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, aliquam consectetur? Repellendus, ducimus aliquam iste odit labore placeat, officiis similique libero magni distinctio saepe iure necessitatibus sint assumenda maiores id.</p>
+                    </div>
+                     <div class="col3">
+                         <h1>Mission3</h1>
+                         <img src="images/mission3.jpg" alt="">
+                         <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos, aliquam consectetur? Repellendus, ducimus aliquam iste odit labore placeat, officiis similique libero magni distinctio saepe iure necessitatibus sint assumenda maiores id.</p>
+                    </div>
+                 </div>
             </div>
-
             <!--END OF MAIN PAGE CONTENT-->
             
         </div>
