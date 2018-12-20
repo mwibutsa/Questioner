@@ -15,19 +15,55 @@ html,body{
 }
 .main{
 	height: 100%;
-	padding-bottom: 110px;
+	padding-bottom: 160px;
 	overflow: auto;
 }
+
 
 /*footer*/
 
 .footer{
-	height: 100px;
+	height: 150px;
 	width: 100%;
 	position: relative;
 	background:#007acc;
-	margin-top: -100px;
+	margin-top: -150px;
 	clear: both;
+	padding-top: 1%;
+	color: white;
+}
+.footer-grid{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	text-align: center;
+	grid-column-gap: 5%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+.footer-grid ul li a{
+	color: wheat;
+}
+.footer-grid ul li a:hover{
+	color: white;
+	font-style: italic;
+	text-shadow: 1px 1px 1px #333;
+}
+.footer-grid .no-style li{
+	list-style-type: none;
+}
+.footer-grid .f-col1{
+font-size:1.2em;
+}
+.footer-grid .f-col2{
+	font-size:1.2em;
+}
+.footer-grid .f-col3{
+	font-size:1.2em;
+}
+.footer-grid .f-col4{
+	font-size:1.2em;
 }
 .extra{
 	color: #222;
