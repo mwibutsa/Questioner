@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
@@ -32,9 +33,9 @@
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Account</a>
                             <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="logout.html">Logout</a></li>
-                                <li><a href="sign-up.html">SignUp</a></li>
+                                <li><a href="UI/login.html">Login</a></li>
+                                <li><a href="UI/logout.html">Logout</a></li>
+                                <li><a href="UI/sign-up.html">SignUp</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -55,55 +56,49 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-             
-                 <section class="meetup-topic">
-                    <h2 class="topic text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel!</h2>
-                    <hr>
-                 </section>
-                 <!--MEET UP QUESTIONS SECTION -->
-                 <section class="meetup-questions">
-
-                     <div class="form-container">
-                         <div class="meetup-form">
-                             <form action="" method="POST">
-                                 <div class="form-input">
-                                    <label for="question">Ask your question:</label><br>
-                                    <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                 </div>
-                                 <input type="submit" value="Ask" class="button">
-                             </form>
-                         </div>
-                    </div>
-                    <!--/ASK QUESTION FORM CONTAINER-->
-
+                <div class="text-container">
+                    <h2 class="text-center title">Andela's Open Session</h2>
                     <div class="text-container">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-                        <h3>Asked Questions</h3>
+                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <h2 class="text-center title">Cyber Security Training</h2>
+                    <div class="text-container">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-                        <hr>
+                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <h2 class="text-center title">Google Developer Meetup</h2>
+                    <div class="text-container">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-
-                        <!--ASKED QUESTIONS -->
-                        <section class="text-container">
-                            <p>     
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio odit tempore sunt,
-                                autem pariatur nam aliquam dolor omnis,
-                                consectetur iusto dignissimos vel, vitae quia nemo consequuntur 
-                                incidunt blanditiis molestias. Error.
-                            </p>
-                            <div class="voting-form" >
-                                <form action="#" method="POST" class="inline-form">
-                                    <input type="hidden" name="upvote" value="1">
-                                    <button type="submit">Upvote</button>
-                                </form>
-                                <form action="#" method="POST" class="inline-form">
-                                    <input type="hidden" name="upvote" value="1">
-                                    <button type="submit">Downvote</button>
+                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                    </div>
+                </div>
+                    <div class="modal-container">
+                        <div class="modal" id="myModal">
+                            <div><span class="close">&times;</span></div>
+                            <br>
+                            <hr>
+                            <div class="form-container">
+                                <h2 class="text-center">Will You be availabe to attend this session?</h2>
+                                <hr>
+                                <form action="meetup.html">
+                                    <div class="form-input text-center">
+                                        <input type="radio" name="answer" id="yes" class="radio-input" required><label for="yes">Yes</label>&nbsp;&nbsp;
+                                        <input type="radio" name="answer" id="no" class="radio-input" required><label for="no">No</label>&nbsp;&nbsp;
+                                        <input type="radio" name="answer" id="maybe" class="radio-input" required><label for="maybe">Maybe</label>&nbsp;&nbsp;
+                                    </div>
+                                    <button type="submit">Reserve</button>
                                 </form>
                             </div>
-                        </section>
-                </div>
-                </section>
+                        </div>
+                    </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
