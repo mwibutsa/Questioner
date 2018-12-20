@@ -14,6 +14,7 @@ html,body{
 	min-height: 100%;
 }
 .main{
+	padding-top: 50px;
 	height: 100%;
 	padding-bottom: 160px;
 	overflow: auto;
@@ -84,10 +85,10 @@ font-size:1.2em;
 	text-align: center;
 	box-shadow: 0px 1px 3px 0px #333;
 	background:#007acc;
-	opacity: .9;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	margin-bottom: 1%;
+	z-index: 10;
 }
 button,.button{
 padding: 5px;
@@ -221,7 +222,7 @@ label{
 	background-image: url('../images/home-header.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
-	margin-top: -1%;
+	padding-top: 1%;
 
 }
 .page-header-container img{
@@ -256,13 +257,23 @@ hr{
 	}
 
 }
+.grid > div:hover{
+	background: #d3ecff;
+	box-shadow: 1px 1px 40px rgb(0, 85, 124);
+	transition: all .45s ease-in-out;
+}
 .grid{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas: 
 	 "col1 col2 col3";
-	 grid-column-gap: 5%;
+	 grid-column-gap: 3%;
 	 padding: 1%;
+	 width: 90%;
+	 margin-left: auto;
+	 margin-right: auto;
+	 grid-row-gap: 3%;
+	 margin-bottom: 5%;
 	
 	
 }
@@ -391,6 +402,7 @@ hr{
 	margin-right: auto;
 	position: relative;
 	box-shadow: 1px 1px 1px rgb(176, 215, 233);
+	z-index: 0;
 }
 .count{
 	color: white;
