@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questioner</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script type="text/javascript" src="../scripts/main.js"></script>
+</head>
+<body>
+   
+     <!--Page wrapper-->
+    <div class="wrapper">
+
+        <!--Main page body-->
+        <div class="main">
+
+            <!-- Navigation container-->
+            <div class="navigation">
+
+                <!--Navigation-->
+                <nav class="nav" id="mainNav">
+                    <!-- Main navigation -->
+                    <!-- site icon -->
+                        <a href="#" class="site-icon">Questioner</h1></a>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="manage-meetups.html">Mettups</a></li>
+                        <li><a href="#">Account</a>
+                            <ul>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <li><a href="sign-up.html">SignUp</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Emd of navigation links -->
+
+                    <!-- navigation toggle icon visible on small devices -->
+                    <div class="nav-icon" onclick="return showNavigation()">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+
+                    <!-- end of  navigation toggle icon -->
+                </nav>
+                <!--/Navigation-->
+            </div>
+            <!-- /Navigation container-->
+
+            <!--THE MAIN PAGE CONTENT STARTS HERE-->
+            <div class="main-content">
+                <div class="list-items">
+                    <div class="list-item">
+                            <table class="hoverable">
+                                    <tr>
+                                        <th>Meetup</th>
+                                        <th>Date</th>
+                                        <th colspan="3">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat culpa sed perspiciatis eos reiciendis et incidunt consequatur, laboriosam cumque nemo quasi alias officia possimus at aspernatur adipisci? Nulla possimus quaerat cum ex libero rerum eaque exercitationem quas ut, assumenda ea cumque, minus esse reprehenderit! Quae soluta, hic iste nam ut ullam autem vero explicabo, voluptatem, id totam quaerat! Inventore aliquid, quae quis, voluptatibus recusandae deserunt, perspiciatis impedit assumenda nobis ut magni illum. Qui obcaecati unde enim repellat doloremque. Dolorem totam ullam labore minus, obcaecati quisquam, fugiat deserunt iusto itaque dolor laudantium quaerat ipsam excepturi optio qui officia! Nihil, laboriosam cupiditate!</td>
+                                        <td>24,01,2019</td>
+                                        <td><a href="meetup-details.html" class="button">View</a></td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="meetup-id">
+                                                <input type="submit" value="Edit" class="button edit">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="">
+                                                <input type="submit" value="Delete" class="button delete">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                    <div class="list-item">
+                            <table class="hoverable">
+                                    <tr>
+                                        <th>Meetup</th>
+                                        <th>Date</th>
+                                        <th colspan="3">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat culpa sed perspiciatis eos reiciendis et incidunt consequatur, laboriosam cumque nemo quasi alias officia possimus at aspernatur adipisci? Nulla possimus quaerat cum ex libero rerum eaque exercitationem quas ut, assumenda ea cumque, minus esse reprehenderit! Quae soluta, hic iste nam ut ullam autem vero explicabo, voluptatem, id totam quaerat! Inventore aliquid, quae quis, voluptatibus recusandae deserunt, perspiciatis impedit assumenda nobis ut magni illum. Qui obcaecati unde enim repellat doloremque. Dolorem totam ullam labore minus, obcaecati quisquam, fugiat deserunt iusto itaque dolor laudantium quaerat ipsam excepturi optio qui officia! Nihil, laboriosam cupiditate!</td>
+                                        <td>24,01,2019</td>
+                                        <td><a href="meetup-details.html" class="button">View</a></td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="meetup-id">
+                                                <input type="submit" value="Edit" class="button edit">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="">
+                                                <input type="submit" value="Delete" class="button delete">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                    <div class="list-item">
+                            <table class="hoverable">
+                                    <tr>
+                                        <th>Meetup</th>
+                                        <th>Date</th>
+                                        <th colspan="3">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat culpa sed perspiciatis eos reiciendis et incidunt consequatur, laboriosam cumque nemo quasi alias officia possimus at aspernatur adipisci? Nulla possimus quaerat cum ex libero rerum eaque exercitationem quas ut, assumenda ea cumque, minus esse reprehenderit! Quae soluta, hic iste nam ut ullam autem vero explicabo, voluptatem, id totam quaerat! Inventore aliquid, quae quis, voluptatibus recusandae deserunt, perspiciatis impedit assumenda nobis ut magni illum. Qui obcaecati unde enim repellat doloremque. Dolorem totam ullam labore minus, obcaecati quisquam, fugiat deserunt iusto itaque dolor laudantium quaerat ipsam excepturi optio qui officia! Nihil, laboriosam cupiditate!</td>
+                                        <td>24,01,2019</td>
+                                        <td><a href="meetup-details.html" class="button">View</a></td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="meetup-id">
+                                                <input type="submit" value="Edit" class="button edit">
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="manage-meetups.html" class="inline-form">
+                                                <input type="hidden" name="">
+                                                <input type="submit" value="Delete" class="button delete">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                </div>
+            </div>
+            <!--END OF MAIN PAGE CONTENT-->
+            
+        </div>
+        <!--/Main page body-->
+    </div>
+     <!--/Page wrapper-->
+
+     <!--Footer -->
+     <footer class="footer">
+
+    </footer>
+    <!--/Footer-->
+    
+</body>
+</html>
