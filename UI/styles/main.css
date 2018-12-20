@@ -302,5 +302,11 @@ hr{
 	grid-template-areas: 
 	 "form-container contact-info";
 	
-	
+
+	height: 100px;
+	width: 100%;
+	position: relative;
+	background:#007acc;
+	margin-top: -100px;
+	clear: both;
 }

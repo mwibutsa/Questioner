@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Questioner</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script type="text/javascript" src="../scripts/main.js"></script>
+</head>
+<body>
+   
+     <!--Page wrapper-->
+    <div class="wrapper">
+
+        <!--Main page body-->
+        <div class="main">
+
+            <!-- Navigation container-->
+            <div class="navigation">
+
+                <!--Navigation-->
+                <nav class="nav" id="mainNav">
+                    <!-- Main navigation -->
+                    <!-- site icon -->
+                        <a href="#" class="site-icon">Questioner</h1></a>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="manage-meetups.html">Mettups</a></li>
+                        <li><a href="#">Account</a>
+                            <ul>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="logout.html">Logout</a></li>
+                                <li><a href="sign-up.html">SignUp</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Emd of navigation links -->
+
+                    <!-- navigation toggle icon visible on small devices -->
+                    <div class="nav-icon" onclick="return showNavigation()">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+
+                    <!-- end of  navigation toggle icon -->
+                </nav>
+                <!--/Navigation-->
+            </div>
+            <!-- /Navigation container-->
+
+            <!--THE MAIN PAGE CONTENT STARTS HERE-->
+            <div class="main-content">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h1 class="text-center">Fill out this form to create a new meetup</h1>
+                        </div>
+                        <hr>
+                            <form action="" id="signup-form" method="POST" name="signUpForm" onsubmit="return createMeetup(this)">
+
+                                    <div class="form-input">
+                                        <label for="topic">Topic*</label><span class="error"></span><br>
+                                        <input type="text" name="topic" id="topic" class="text-input" required>
+                                   </div>
+    
+                                   <div class="form-input">
+                                        <label for="location">Location*</label><span class="error"></span><br>
+                                        <input type="text" name="location" id="location" class="text-input" required>
+                                   </div>
+    
+                                   <div class="form-input">
+                                        <label for="happeningDate">Happening On*</label><span class="error"></span><br>
+                                        <input type="date" name="happeningDate" id="happeningDate" class="text-input" required>
+                                   </div>
+    
+                                       
+                                   <div class="form-input">
+                                       <label for="tag">Add a tag</label>
+                                        <select name="tag" id="tag" class="text-input">
+                                            <option value="1">Education</option>
+                                            <option value="2">Politics</option>
+                                            <option value="3">Entertainment</option>
+                                            <option value="4">Sport</option>
+                                            <option value="5">Presentation</option>
+                                        </select>
+                                    <div class="form-input">
+                                        <label for="meetupImage">Add a meetup Image(Optional)</label><span class="error"></span><br>
+                                        <input type="file" name="meetupImage" id="meetupImage" class="text-input">
+                                   </div>
+                                   <div class="form-input">
+                                        <label for="meetupImage"></label><span class="error"></span><br>
+                                        <input type="file" name="meetupImage1" id="meetupImage" class="text-input">
+                                   </div>
+                                   </div>
+                                   <div class="form-input">
+                                        <label for="meetupImage2"></label><span class="error"></span><br>
+                                        <input type="file" name="meetupImage3" id="meetupImage" class="text-input">
+                                   </div>
+
+                                   <br>
+                                   <button type="submit" class="button">Publish meetup</button>
+                                </form>
+                    </div>
+            </div>
+            <!--END OF MAIN PAGE CONTENT-->
+            
+        </div>
+        <!--/Main page body-->
+    </div>
+     <!--/Page wrapper-->
+
+     <!--Footer -->
+     <footer class="footer">
+
+    </footer>
+    <!--/Footer-->
+    
+</body>
+</html>

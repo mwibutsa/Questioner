@@ -12,6 +12,7 @@ class User{
 var users = [];
 
 function registerUser(form){
+    console.log(document.getElementById('signup-form'))
     var firstname = form.firstname.value;
     var lastname = form.lastname.value;
     var otheName = form.otherName.value;
@@ -22,14 +23,29 @@ function registerUser(form){
     var cpassword = form.cpassword.value;
     users.push(new User(firstname,lastname,otheName,email,username,phoneNumber,password))
     console.log(users);
-   
-    form.firstname.value = "";
-    form.lastname.value = "";
-    form.otherName.value = "";
-    form.email.value = "";
-    form.username.value = "";
-    form.phoneNumber.value = "";
-    form.password.value = "";
-    form.cpassword.value = "";
     return false;
 }
+/*DOM & ANIMATIONS*/
+function onReady(){
+    showModal();
+}
+function showModal(){
+    var buttons  = document.getElementsByClassName("showModal");
+    var modals = document.getElementsByClassName('modal');
+    var closeButtons = document.getElementsByClassName('close');
+
+    for (var i = 0; i  < modals.length; i++) {
+       (function(index){
+        /* open modal button*/
+            buttons[index].onclick = function(){
+               modals[index].style.display = "block";
+               console.log(index);
+            }
+            /*span as close button*/
+            closeButtons[index].onclick = function(){
+                modals[index].style.display = "none";
+            }      
+        })(i);
+    }
+}
+
