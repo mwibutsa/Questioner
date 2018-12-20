@@ -288,3 +288,46 @@ img{
 	from{opacity: .4;}
 	to{opacity: 1;}
 }
+.list-items{
+	width: 98%;
+	padding: 1%;
+	margin: 1%;
+	background: #eef2f5;
+}
+.list-item{
+	width: 95%;
+	margin: 1% auto;
+	border-bottom: 1px solid #222;
+}
+table{
+	border: 2px solid rgb(0, 127, 211);
+	padding: 4px;
+}
+table td{
+	border: 1px solid rgb(0, 127, 211);
+	padding: 2px;
+}
+table tr{
+	border: 1px solid rgb(0, 127, 211);
+}
+table > *{
+	border: 1px solid rgb(0, 127, 211);
+}
+.inline-form{
+	display: inline-block;
+	margin: 1%;
+}
+.edit{
+	background-color: yellowgreen;
+}
+.delete{
+	background-color: brown;
+}
+.edit:hover{
+	background: yellow;
+	color: #333;
+}
+.delete:hover{
+	background: red;
+	color: #333;
+}
