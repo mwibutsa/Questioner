@@ -15,7 +15,7 @@ html,body{
 }
 .main{
 	height: 100%;
-	padding-bottom: 150px;
+	padding-bottom: 110px;
 	overflow: auto;
 }
 
@@ -29,7 +29,18 @@ html,body{
 	margin-top: -100px;
 	clear: both;
 }
-
+.extra{
+	color: #222;
+	box-shadow: 1px 2px 4px rgb(223, 202, 202);
+	border-radius: 8%;
+	padding: 2px;
+	margin-bottom: 10px;
+}
+.title-info{
+	margin-bottom: 1%;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	padding: 1%;
+}
 /*Navigation*/
 .navigation{
 	width: 100%;
@@ -40,6 +51,7 @@ html,body{
 	opacity: .9;
 	position: sticky;
 	top: 0;
+	margin-bottom: 1%;
 }
 button,.button{
 padding: 5px;
@@ -307,8 +319,8 @@ hr{
 	grid-template-columns: 30% 1fr;
 }
 .side-nav{
-	margin-left: 1%;
-	background: #e8eef1;
+	margin-left: 0%;
+	background: #007acc;
 	text-align: center;
 	height: 100%;
 	padding-top: 2%;
