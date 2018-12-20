@@ -201,3 +201,44 @@ hr{
 	}
 
 }
+.grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: 
+	 "col1 col2 col3";
+	 grid-column-gap: 5%;
+	 padding: 1%;
+	
+	
+}
+.col1{
+	grid-area: "col1";
+	border-radius: 3%;
+	background: #e8eef1;
+	min-height: 200px;
+	text-align: center;
+	box-shadow: 1px 1px 8px #aaa;
+}
+.col2{
+	grid-area: "col2";
+	border-radius: 3%;
+	background: #e8eef1;
+	min-height: 200px;
+	text-align: center;
+	box-shadow: 1px 1px 8px #aaa;
+}
+.col3{
+	grid-area: "col3";
+	border-radius: 3%;
+	background: #e8eef1;
+	min-height: 200px;
+	text-align: center;
+	box-shadow: 1px 1px 8px #aaa;
+	
+}
+.grid div img{
+	width: 80%;
+	height: 50%;
+	position: relative;
+	margin: auto;
+}
