@@ -50,7 +50,7 @@ html,body{
 	font-style: italic;
 	text-shadow: 1px 1px 1px #333;
 }
-.footer-grid ul li{
+.footer-grid .no-style li{
 	list-style-type: none;
 }
 .footer-grid .f-col1{
