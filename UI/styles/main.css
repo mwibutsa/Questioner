@@ -15,7 +15,7 @@ html,body{
 }
 .main{
 	height: 100%;
-	padding-bottom: 150px;
+	padding-bottom: 110px;
 	overflow: auto;
 }
 
@@ -29,7 +29,18 @@ html,body{
 	margin-top: -100px;
 	clear: both;
 }
-
+.extra{
+	color: #222;
+	box-shadow: 1px 2px 4px rgb(223, 202, 202);
+	border-radius: 8%;
+	padding: 2px;
+	margin-bottom: 10px;
+}
+.title-info{
+	margin-bottom: 1%;
+	border-bottom: 2px solid rgb(255, 255, 255);
+	padding: 1%;
+}
 /*Navigation*/
 .navigation{
 	width: 100%;
@@ -37,10 +48,10 @@ html,body{
 	text-align: center;
 	box-shadow: 0px 1px 3px 0px #333;
 	background:#007acc;
-	margin-bottom: 2%;
 	opacity: .9;
 	position: sticky;
 	top: 0;
+	margin-bottom: 1%;
 }
 button,.button{
 padding: 5px;
@@ -120,7 +131,7 @@ button:hover,.button:hover{
 
 /*FORM STYLES */
 .form-container{
-	width: 80%;
+	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
 	background: #f5f2f2;
@@ -144,6 +155,7 @@ button:hover,.button:hover{
 .textarea{
 	width: 98%;
 	padding: 1%;
+	font-size: 16px;
 }
 .radio-input{
 	width: 20px;
@@ -302,4 +314,64 @@ hr{
 	grid-template-areas: 
 	 "form-container contact-info";
 }
+.grid-2-cols{
+	display: grid;
+	grid-template-columns: 30% 1fr;
+}
+.side-nav{
+	margin-left: 0%;
+	background: #007acc;
+	text-align: center;
+	height: 100%;
+	padding-top: 2%;
 
+}
+.side-nav ul{
+	margin: 0;
+	padding: 0;
+}
+.side-nav ul li{
+	display: block;
+	list-style: none;
+	height: 40px;
+	line-height: 40px;
+	background: #007acc;
+	text-align: center;
+	border-bottom: 2px solid #333;
+}
+.side-nav ul li a{
+	color: white;
+	text-decoration: none;
+}
+.side-nav ul li:hover{
+	background: #13334D;
+}
+.profile-avatar{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	background: #aaa;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	box-shadow: 1px 1px 1px rgb(176, 215, 233);
+}
+.count{
+	color: white;
+	background-color: #333;
+	border-radius: 50%;
+	margin: 1%;
+	padding: 1%;
+	font-weight: bolder;
+	font-size: 16px;
+	box-shadow: 1px 2px 4px yellowgreen;
+}
+.count:hover{
+	background: #222;
+	opacity: .9;
+
+}
+.side-content{
+	border: 1px solid rgba(161, 201, 238, 0.747);
+	padding-top: 2%;
+}
