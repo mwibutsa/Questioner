@@ -388,8 +388,12 @@ hr{
 }
 /*RESPONSIVENESS MOBILE DEVICE*/
 @media screen and (max-width: 666px) {
-	.navigation .nav{
+	.nav{
 		display: none;
+	}
+	.change{
+		display: block;
+		position: relative;
 	}
 	.change ul li{
 		width: 100%;
@@ -455,12 +459,6 @@ hr{
 		float: left;
 		position: relative;
 		left: 10%;
-	}
-	.change{
-		display: block;
-		position: relative;
-		left: 0;
-		box-shadow: 1px 1px 8px #333;
 	}
 	.profile-avatar{
 		display: none;

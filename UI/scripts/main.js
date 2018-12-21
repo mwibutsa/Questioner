@@ -5,7 +5,6 @@ function showModal(){
     var buttons  = document.getElementsByClassName("showModal");
     var modals = document.getElementsByClassName('modal');
     var closeButtons = document.getElementsByClassName('close');
-
     for (var i = 0; i  < modals.length; i++) {
        (function(index){
         /* open modal button*/
@@ -20,16 +19,10 @@ function showModal(){
         })(i);
     }
 }
+
 function showNavigation(){
     var menu = document.getElementById('mainNav');
     menu.classList.toggle("change");
-    if(menu.style.display === "block"){
-        menu.style.display  ="none";
-    }
-    else{
-        menu.style.display = "block";
-    }
-    
 }
 function sowUserNavigation(){
     var menu = document.getElementById("sideNav");
