@@ -1,3 +1,38 @@
+function onReady(){
+    showModal();
+}
+function showModal(){
+    var buttons  = document.getElementsByClassName("toggle-reserve-form");
+    var modal = document.getElementById('modal-container');
+    var closeButton = document.getElementsByClassName('close')[0];
+    for(i = 0; i <buttons.length; i++){
+        buttons[i].onclick = function() {
+            modal.style.display = "block";
+        }
+    }
+   closeButton.onclick = function() {
+       modal.style.display = "none";
+   }
+   window.onclick = function(params) {
+       if(params.target === modal){
+           modal.style.display = "none";
+       }
+   }
+   console.log(buttons,modal,closeButton);
+}
+
+function showNavigation(){
+    var menu = document.getElementById('mainNav');
+    menu.classList.toggle("change");
+}
+function sowUserNavigation(){
+    var menu = document.getElementById("sideNav");
+    menu.classList.toggle("change");
+
+
+}
+
+
 class User{
     constructor(firstname,lastname,otheName,email,username,phoneNumber,password){
         this.firstname = firstname;
@@ -26,26 +61,4 @@ function registerUser(form){
     return false;
 }
 /*DOM & ANIMATIONS*/
-function onReady(){
-    showModal();
-}
-function showModal(){
-    var buttons  = document.getElementsByClassName("showModal");
-    var modals = document.getElementsByClassName('modal');
-    var closeButtons = document.getElementsByClassName('close');
-
-    for (var i = 0; i  < modals.length; i++) {
-       (function(index){
-        /* open modal button*/
-            buttons[index].onclick = function(){
-               modals[index].style.display = "block";
-               console.log(index);
-            }
-            /*span as close button*/
-            closeButtons[index].onclick = function(){
-                modals[index].style.display = "none";
-            }      
-        })(i);
-    }
-}
 

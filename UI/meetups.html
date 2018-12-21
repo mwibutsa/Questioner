@@ -6,11 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
-<body>
+<body onload="onReady()">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -18,40 +17,41 @@
         <!--Main page body-->
         <div class="main">
 
-            <!-- Navigation container-->
-            <div class="navigation">
+           <!-- Navigation container-->
+           <div class="navigation">
 
-                <!--Navigation-->
-                <nav class="nav" id="mainNav">
-                    <!-- Main navigation -->
-                    <!-- site icon -->
-                        <a href="#" class="site-icon">Questioner</h1></a>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="meetups.html">Mettups</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Account</a>
-                            <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="sign-up.html">SignUp</a></li>
-                                <li><a href="user-profile.html">Profile</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- Emd of navigation links -->
+            <!--Navigation-->
+            <a href="#" class="site-icon"><h3>Questioner</h3></a>
+            <nav class="nav" id="mainNav">
+                <!-- Main navigation -->
+                <!-- site icon -->
+                    
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="meetups.html">Mettups</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Account</a>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="sign-up.html">SignUp</a></li>
+                            <li><a href="user-profile.html">Profile</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Emd of navigation links -->
 
-                    <!-- navigation toggle icon visible on small devices -->
-                    <div class="nav-icon" onclick="return showNavigation()">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
+                <!-- navigation toggle icon visible on small devices -->
 
-                    <!-- end of  navigation toggle icon -->
-                </nav>
-                <!--/Navigation-->
+                <!-- end of  navigation toggle icon -->
+            </nav>
+            <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
             </div>
+            <!--/Navigation-->
+        </div>
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
@@ -59,17 +59,74 @@
                 <div class="text-container">
                     <h2 class="text-center title">Andela's Open Session</h2>
                     <div class="text-container">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                        <p>
+                            <img src="images/people.jpeg" alt="">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                        <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
                     </div>
                 </div>
+                <div class="text-container">
+                        <h2 class="text-center title">Andela's Open Session</h2>
+                        <div class="text-container">
+                            <p>
+                                <img src="images/tea.jpg" alt="">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                            <br>
+                            <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                            <h2 class="text-center title">Andela's Open Session</h2>
+                            <div class="text-container">
+                                <p>
+                                    <img src="images/phones.jpeg" alt="">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                                <br>
+                                <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                            </div>
+                        </div>
+                        <div class="text-container">
+                                <h2 class="text-center title">Andela's Open Session</h2>
+                                <div class="text-container">
+                                    <p>
+                                        
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                                    <br>
+                                    <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                                </div>
+                            </div>
+                            <div class="text-container">
+                                    <h2 class="text-center title">Andela's Open Session</h2>
+                                    <div class="text-container">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                                        <br>
+                                        <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                                    </div>
+                                </div>
+                                <div class="text-container">
+                                        <h2 class="text-center title">Andela's Open Session</h2>
+                                        <div class="text-container">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                                            <br>
+                                            <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                                        </div>
+                                    </div>
+                                    <div class="text-container">
+                                            <h2 class="text-center title">Andela's Open Session</h2>
+                                            <div class="text-container">
+                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
+                                                <br>
+                                                <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
+                                            </div>
+                                        </div>
+                
                 <div class="text-container">
                     <h2 class="text-center title">Cyber Security Training</h2>
                     <div class="text-container">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                        <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
                     </div>
                 </div>
                 <div class="text-container">
@@ -77,29 +134,34 @@
                     <div class="text-container">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis accusamus quasi inventore, laboriosam soluta nesciunt dolores. Quo saepe, pariatur nostrum nulla ipsam incidunt, placeat dolor, consequatur vero molestiae vitae cupiditate.</p>
                         <br>
-                        <p><a href="meetup.html" class="button popup">Reserve Place</a></p>
+                        <p><button class="toggle-reserve-form">Rreserve to attend</button></p>
                     </div>
                 </div>
-                    <div class="modal-container">
+            </div>
+                    <div class="modal-container" id="modal-container">
                         <div class="modal" id="myModal">
-                            <div><span class="close">&times;</span></div>
+                            
                             <br>
                             <hr>
+                            
                             <div class="form-container">
+                                <div><button class="close button">Cancel</button></div><br>
                                 <h2 class="text-center">Will You be availabe to attend this session?</h2>
                                 <hr>
                                 <form action="meetup.html">
+                                    
                                     <div class="form-input text-center">
                                         <input type="radio" name="answer" id="yes" class="radio-input" required><label for="yes">Yes</label>&nbsp;&nbsp;
                                         <input type="radio" name="answer" id="no" class="radio-input" required><label for="no">No</label>&nbsp;&nbsp;
                                         <input type="radio" name="answer" id="maybe" class="radio-input" required><label for="maybe">Maybe</label>&nbsp;&nbsp;
                                     </div>
+                                    <br>
+                                    <br>
                                     <button type="submit">Reserve</button>
                                 </form>
                             </div>
                         </div>
                     </div>
-            </div>
             <!--END OF MAIN PAGE CONTENT-->
             
         </div>
@@ -109,7 +171,41 @@
 
      <!--Footer -->
      <footer class="footer">
+        <div class="footer-grid">
+            <div class="f-col1">
+                <h3 class="text-center">Quick menu</h3>
+                <hr>
+                <ul class="no-style">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../UI/Admin/index.html">Admin Dashboard</a></li>
+                    <li><a href="meetups.html">Meetups</a></li>
+                    <li><a href="user-profile.html">Profile</a></li>
+                </ul>
 
+            </div>
+            <div class="f-col2">
+                <h3 class="text-center">Social Media</h3>
+                <hr>
+                <ul class="no-style" style="text-align:justify;margin-left:40%;font-weight:bold">
+                    <li><a href="https://www.facebook.com/mwibutsa.frolibert"><i class="fa fa-facebook-square" style="font-size:30px;color:white"></i>Facebook</a> </li>
+                    <li><a href="https://twitter.com/FloristMwibutsa"><i class="fa fa-twitter-square" style="font-size:30px;color:white"></i>Twitter</a> </li>
+                    <li><a href="https://www.linkedin.com/in/mwibutsa-floribert-284345111/"><i class="fa fa-linkedin-square" style="font-size:30px;color:white"></i>LinkedIn</a> </li>
+                </ul>
+                
+          
+
+            </div>
+            <div class="f-col3">
+                <h3 class="text-center">Contact</h3>
+                <hr>
+                <ul class="no-style">
+                    <li><label>Email:</label><a href="mailto:fmwibutsa@gmail.com">&nbsp;&nbsp; fmwibutsa@gmail.com</a></li>
+                    <li><label>Tel:</label><a href="tel:+250787740316">&nbsp;&nbsp; fmwibutsa@gmail.com</a></li>
+                    <li><label>Addres:</label><a href="#">&nbsp;&nbsp; Kigali, Rwanda</a></li>
+                </ul>
+
+            </div>
+        </div>
     </footer>
     <!--/Footer-->
     

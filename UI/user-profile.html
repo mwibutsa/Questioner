@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner | Profile</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
    
@@ -17,17 +17,19 @@
         <div class="main">
 
             <!-- Navigation container-->
+            <!-- Navigation container-->
             <div class="navigation">
 
                 <!--Navigation-->
+                <a href="#" class="site-icon"><h3>Questioner</h3></a>
                 <nav class="nav" id="mainNav">
                     <!-- Main navigation -->
                     <!-- site icon -->
-                        <a href="#" class="site-icon">Questioner</h1></a>
+                        
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="mettups.html">Mettups</a></li>
+                        <li><a href="meetups.html">Mettups</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Account</a>
                             <ul>
@@ -40,32 +42,38 @@
                     <!-- Emd of navigation links -->
 
                     <!-- navigation toggle icon visible on small devices -->
-                    <div class="nav-icon" onclick="return showNavigation()">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
 
                     <!-- end of  navigation toggle icon -->
                 </nav>
+                <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
                 <!--/Navigation-->
             </div>
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content grid-2-cols">
-                 <div class="side-nav">
+                <div class="nav-icon user-profile-menu" onclick="sowUserNavigation();">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                 <div class="side-nav" id="sideNav">
                      <div class="profile-avatar">
 
                      </div>
+
                      <ul>
-                         <li><a href="#">Questions Asked</a><span class="count">10</span></li>
-                         <li><a href="#">Meetups Commented On</a><span class="count">4</span></li>
-                         <li><a href="#">Manage Account</a></li>
+                         <li><a href="questions.html">Questions Asked</a><span class="count">10</span></li>
+                         <li><a href="meetups-commented-on.html">Meetups Commented On</a><span class="count">4</span></li>
+                         <li><a href="edit-profile.html">Manage Account</a></li>
                      </ul>
                  </div>
                  <div class="side-content">
-                     <h1 class="text-center">Questions asked</h1>
+                     <h1 class="text-center text-white">Questions asked</h1>
                      <div class="text-container">
                          <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
@@ -102,7 +110,41 @@
 
      <!--Footer -->
      <footer class="footer">
+        <div class="footer-grid">
+            <div class="f-col1">
+                <h3 class="text-center">Quick menu</h3>
+                <hr>
+                <ul class="no-style">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../UI/Admin/index.html">Admin Dashboard</a></li>
+                    <li><a href="meetups.html">Meetups</a></li>
+                    <li><a href="user-profile.html">Profile</a></li>
+                </ul>
 
+            </div>
+            <div class="f-col2">
+                <h3 class="text-center">Social Media</h3>
+                <hr>
+                <ul class="no-style" style="text-align:justify;margin-left:40%;font-weight:bold">
+                    <li><a href="https://www.facebook.com/mwibutsa.frolibert"><i class="fa fa-facebook-square" style="font-size:30px;color:white"></i>Facebook</a> </li>
+                    <li><a href="https://twitter.com/FloristMwibutsa"><i class="fa fa-twitter-square" style="font-size:30px;color:white"></i>Twitter</a> </li>
+                    <li><a href="https://www.linkedin.com/in/mwibutsa-floribert-284345111/"><i class="fa fa-linkedin-square" style="font-size:30px;color:white"></i>LinkedIn</a> </li>
+                </ul>
+                
+          
+
+            </div>
+            <div class="f-col3">
+                <h3 class="text-center">Contact</h3>
+                <hr>
+                <ul class="no-style">
+                    <li><label>Email:</label><a href="mailto:fmwibutsa@gmail.com">&nbsp;&nbsp; fmwibutsa@gmail.com</a></li>
+                    <li><label>Tel:</label><a href="tel:+250787740316">&nbsp;&nbsp; fmwibutsa@gmail.com</a></li>
+                    <li><label>Addres:</label><a href="#">&nbsp;&nbsp; Kigali, Rwanda</a></li>
+                </ul>
+
+            </div>
+        </div>
     </footer>
     <!--/Footer-->
     
