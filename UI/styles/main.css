@@ -230,13 +230,13 @@ hr{
 .grid{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	 grid-column-gap: 3%;
+	 grid-gap: 1em;
 	 padding: 1%;
 	 width: 90%;
 	 margin-left: auto;
 	 margin-right: auto;
-	 grid-row-gap: 3%;
 	 margin-bottom: 5%;
+	 grid-auto-rows: minmax(100px,auto);
 	
 	
 }
@@ -244,7 +244,7 @@ hr{
 	grid-area: "col1";
 	border-radius: 3%;
 	background: #e8eef1;
-	min-height: 200px;
+	min-height: auto;
 	text-align: center;
 	box-shadow: 1px 1px 8px #aaa;
 }
@@ -388,24 +388,19 @@ hr{
 }
 /*RESPONSIVENESS MOBILE DEVICE*/
 @media screen and (max-width: 666px) {
-	.navigation.nav ul{
+	.navigation .nav{
 		display: none;
-		
 	}
-	.navigation ul li{
+	.change ul li{
 		width: 100%;
 	}
-	.navigation ul li ul li{
+	.change ul li ul li{
 		width: 100%;
+		animation: toggleMenu .45s ease-in .01s;
 	}
 	.nav-icon{
 		display: inline-block;
 		position: absolute;
-	}
-	.nav-collapse{
-		display: block;
-		position: absolute;
-		top: 55px;
 	}
 	.form-container{
 		width: 90%;
@@ -438,9 +433,7 @@ hr{
 		height: 350px;
 		margin-top: -350px;
 	}
-	.wrapper{
-		padding-bottom: 300px;
-	}
+
 	.contact-grid{
 		display: grid;
 		grid-template-columns: 1fr;
@@ -460,6 +453,32 @@ hr{
 	}
 	.user-profile-menu{
 		float: left;
-		margin-left: 10%;
+		position: relative;
+		left: 10%;
+	}
+	.change{
+		display: block;
+		position: relative;
+		left: 0;
+		box-shadow: 1px 1px 8px #333;
+	}
+	.profile-avatar{
+		display: none;
+	}
+}
+@media screen and (max-width:400px){
+	.grid{
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-auto-rows: minmax(100px,auto);
+		padding-bottom: 30%;
+		clear: both;
+	}
+	.footer{
+		height: 300px;
+		margin-top: -300px;
+	}
+	.main{
+		padding-bottom: 320px;
 	}
 }
