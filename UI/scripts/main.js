@@ -1,5 +1,19 @@
 function onReady(){
     showModal();
+    
+}
+function toggleCommentForm(){
+    var toggleButton = document.getElementsByClassName('comment-toggle');
+    var commentForm = document.getElementsByClassName('comment');
+    for(i = 0; i< toggleButton.length; i++){
+        (function(index){
+            toggleButton[index].onclick = function(){
+                commentForm[index].classList.toggle('show-comment');
+            }
+        })(i);
+        console.log(toggleButton,commentForm);
+
+    }
 }
 function showModal(){
     var buttons  = document.getElementsByClassName("toggle-reserve-form");
@@ -60,5 +74,6 @@ function registerUser(form){
     console.log(users);
     return false;
 }
-/*DOM & ANIMATIONS*/
+
+
 
