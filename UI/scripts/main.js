@@ -2,22 +2,23 @@ function onReady(){
     showModal();
 }
 function showModal(){
-    var buttons  = document.getElementsByClassName("showModal");
-    var modals = document.getElementsByClassName('modal');
-    var closeButtons = document.getElementsByClassName('close');
-    for (var i = 0; i  < modals.length; i++) {
-       (function(index){
-        /* open modal button*/
-            buttons[index].onclick = function(){
-               modals[index].style.display = "block";
-               console.log(index);
-            }
-            /*span as close button*/
-            closeButtons[index].onclick = function(){
-                modals[index].style.display = "none";
-            }      
-        })(i);
+    var buttons  = document.getElementsByClassName("toggle-reserve-form");
+    var modal = document.getElementById('modal-container');
+    var closeButton = document.getElementsByClassName('close')[0];
+    for(i = 0; i <buttons.length; i++){
+        buttons[i].onclick = function() {
+            modal.style.display = "block";
+        }
     }
+   closeButton.onclick = function() {
+       modal.style.display = "none";
+   }
+   window.onclick = function(params) {
+       if(params.target === modal){
+           modal.style.display = "none";
+       }
+   }
+   console.log(buttons,modal,closeButton);
 }
 
 function showNavigation(){
