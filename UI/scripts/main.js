@@ -1,3 +1,49 @@
+function onReady(){
+    showModal();
+}
+function showModal(){
+    var buttons  = document.getElementsByClassName("showModal");
+    var modals = document.getElementsByClassName('modal');
+    var closeButtons = document.getElementsByClassName('close');
+
+    for (var i = 0; i  < modals.length; i++) {
+       (function(index){
+        /* open modal button*/
+            buttons[index].onclick = function(){
+               modals[index].style.display = "block";
+               console.log(index);
+            }
+            /*span as close button*/
+            closeButtons[index].onclick = function(){
+                modals[index].style.display = "none";
+            }      
+        })(i);
+    }
+}
+function showNavigation(){
+    var menu = document.getElementById('mainNav');
+    menu.classList.toggle("change");
+    if(menu.style.display === "block"){
+        menu.style.display  ="none";
+    }
+    else{
+        menu.style.display = "block";
+    }
+    
+}
+function sowUserNavigation(){
+    var menu = document.getElementById("sideNav");
+    menu.classList.toggle("change");
+    if(menu.style.display === "none"){
+        menu.style.display = "block";
+
+    }
+    else{
+        menu.style.display = "none";
+    }
+}
+
+
 class User{
     constructor(firstname,lastname,otheName,email,username,phoneNumber,password){
         this.firstname = firstname;
@@ -26,40 +72,4 @@ function registerUser(form){
     return false;
 }
 /*DOM & ANIMATIONS*/
-function onReady(){
-    showModal();
-}
-function showModal(){
-    var buttons  = document.getElementsByClassName("showModal");
-    var modals = document.getElementsByClassName('modal');
-    var closeButtons = document.getElementsByClassName('close');
 
-    for (var i = 0; i  < modals.length; i++) {
-       (function(index){
-        /* open modal button*/
-            buttons[index].onclick = function(){
-               modals[index].style.display = "block";
-               console.log(index);
-            }
-            /*span as close button*/
-            closeButtons[index].onclick = function(){
-                modals[index].style.display = "none";
-            }      
-        })(i);
-    }
-}
-function showNavigation(){
-    var navIcon = document.getElementsByClassName('nav-icon')[0];
-    var menu = document.querySelector('.navigation .nav ul');
-    if(menu.style.display == "none"){
-        menu.className = "change";
-    }
-    else{
-        menu.style.display = "none";
-    }
-    
-}
-function showSideNavigation(){
-    var menu = document.getElementById("side-nav");
-    menu.classList.toggle("change");
-}
