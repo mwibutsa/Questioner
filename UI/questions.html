@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner | questions</title>
+    <title>Questioner | Profile</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-    <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
    
@@ -16,46 +15,91 @@
 
         <!--Main page body-->
         <div class="main">
-<!-- Navigation container-->
-<div class="navigation">
 
-    <!--Navigation-->
-    <a href="#" class="site-icon"><h3>Questioner</h3></a>
-    <nav class="nav" id="mainNav">
-        <!-- Main navigation -->
-        <!-- site icon -->
-            
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="meetups.html">Mettups</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Account</a>
-                <ul>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="sign-up.html">SignUp</a></li>
-                    <li><a href="user-profile.html">Profile</a></li>
-                </ul>
-            </li>
-        </ul>
-        <!-- Emd of navigation links -->
+            <!-- Navigation container-->
+            <!-- Navigation container-->
+            <div class="navigation">
 
-        <!-- navigation toggle icon visible on small devices -->
+                <!--Navigation-->
+                <a href="#" class="site-icon"><h3>Questioner</h3></a>
+                <nav class="nav" id="mainNav">
+                    <!-- Main navigation -->
+                    <!-- site icon -->
+                        
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="meetups.html">Mettups</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Account</a>
+                            <ul>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="sign-up.html">SignUp</a></li>
+                                <li><a href="user-profile.html">Profile</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Emd of navigation links -->
 
-        <!-- end of  navigation toggle icon -->
-    </nav>
-    <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </div>
-    <!--/Navigation-->
-</div>
+                    <!-- navigation toggle icon visible on small devices -->
+
+                    <!-- end of  navigation toggle icon -->
+                </nav>
+                <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <!--/Navigation-->
+            </div>
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
-            <div class="main-content">
-                 
+            <div class="main-content grid-2-cols">
+                <div class="nav-icon user-profile-menu" onclick="sowUserNavigation();">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                 <div class="side-nav" id="sideNav">
+                     <div class="profile-avatar">
+                        
+                     </div>
+
+                     <ul>
+                         <li><a href="questions.html">Questions Asked</a><span class="count">10</span></li>
+                         <li><a href="meetups-commented-on.html">Meetups Commented On</a><span class="count">4</span></li>
+                         <li><a href="edit-profile.html">Manage Account</a></li>
+                     </ul>
+                 </div>
+                 <div class="side-content">
+                     <h1 class="text-center text-white">Questions asked</h1>
+                     <div class="text-container">
+                         <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                    </div>
+                    <div class="text-container">
+                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                    </div>
+                    <div class="text-container">
+                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                    </div>
+                    <div class="text-container">
+                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                   </div>
+                   <div class="text-container">
+                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                   </div>
+                   <div class="text-container">
+                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                   </div>
+                     </div>
+                 </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
@@ -71,10 +115,10 @@
                 <h3 class="text-center">Quick menu</h3>
                 <hr>
                 <ul class="no-style">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Admin Dashboard</a></li>
-                    <li><a href="#">Meetups</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../UI/Admin/index.html">Admin Dashboard</a></li>
+                    <li><a href="meetups.html">Meetups</a></li>
+                    <li><a href="user-profile.html">Profile</a></li>
                 </ul>
 
             </div>
@@ -103,5 +147,6 @@
         </div>
     </footer>
     <!--/Footer-->
-  </body>
+    
+</body>
 </html>
