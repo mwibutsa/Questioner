@@ -215,10 +215,9 @@ label{
 .page-header-container{
 	width: 100%;
 	height: 400px;
-	background-image: url('../images/home-header.jpg');
+	background-image: url('../images/amazing.jpeg');
 	background-size: 100%;
 	background-repeat: no-repeat;
-	padding-top: 1%;
 
 }
 .page-header-container img{
