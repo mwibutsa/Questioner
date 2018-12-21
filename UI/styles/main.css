@@ -388,11 +388,19 @@ hr{
 }
 /*RESPONSIVENESS MOBILE DEVICE*/
 @media screen and (max-width: 666px) {
-	.navigation .nav ul{
+	.navigation.nav ul{
 		display: none;
+		
+	}
+	.navigation ul li{
+		width: 100%;
+	}
+	.navigation ul li ul li{
+		width: 100%;
 	}
 	.nav-icon{
 		display: inline-block;
+		position: absolute;
 	}
 	.nav-collapse{
 		display: block;

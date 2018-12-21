@@ -48,4 +48,18 @@ function showModal(){
         })(i);
     }
 }
-
+function showNavigation(){
+    var navIcon = document.getElementsByClassName('nav-icon')[0];
+    var menu = document.querySelector('.navigation .nav ul');
+    if(menu.style.display == "none"){
+        menu.className = "change";
+    }
+    else{
+        menu.style.display = "none";
+    }
+    
+}
+function showSideNavigation(){
+    var menu = document.getElementById("side-nav");
+    menu.classList.toggle("change");
+}
