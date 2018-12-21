@@ -12,6 +12,9 @@
 .wrapper{
     background-image: none;
 }
+.home-header{
+    margin-top: 300px;
+}
 .card-link a{
     text-decoration: none;
     font-size: 1.6em;
