@@ -1,6 +1,6 @@
 import fs from 'fs';
 import questions from '../models/questions';
-const downVoteQuestion = (req, res) => {
+const downvoteQuestion = (req, res) => {
   questions = questions.filter((question) => {
     if (parseInt(question.id) === parseInt(req.params.id)) {
       question.votes -= 1;
