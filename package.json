@@ -4,9 +4,10 @@
   "description": "Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "start": "npm run build && node dist/app.js"
+    "start": "node --require babel-core/register --require babel-polyfill ./app.js",
+    "test": "nyc --reporter=html --reporter=text mocha ./server/test --compilers js:babel-core/register --timeout 10000 --exit",
+    "devstart": "nodemon --require babel-core/register --require babel-polyfill ./app.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
