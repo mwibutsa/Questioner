@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs = from 'fs';
 let meetups = [];
 
 const meetup = fs.readFileSync('./data/meetups.json',{encoding:'utf8'});
@@ -8,4 +8,4 @@ const getMeetups = (req, res) => res.json({
 	data:meetups
 });
 
-module.exports = {getMeetups,meetups};
+export default getMeetups;
