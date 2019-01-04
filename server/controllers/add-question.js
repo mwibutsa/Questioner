@@ -1,5 +1,5 @@
 import fs from 'fs';
-import questions from '../models/questions';
+import questions from '../models/question';
 const addQuestion = (req, res) => {
   const newQuestion = {
     id:questions.length + 1,
@@ -12,7 +12,7 @@ const addQuestion = (req, res) => {
   };
   questions.push(newQuestion);
   fs.writeFileSync('./data/questions.json',JSON.stringify(questions,null,2));
-  res.json(questions);
+  res.json({status:200,data:questions});
 };
 
 export default addQuestion;

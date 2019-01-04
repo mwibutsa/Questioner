@@ -1,5 +1,5 @@
 import fs from 'fs';
-import reservations from '../reservations';
+import reservations from '../models/reservation';
 const attendMeetup = (req, res) => {
   const newReservation = {
 	  id: reservations.length + 1,
@@ -9,7 +9,7 @@ const attendMeetup = (req, res) => {
   };
   reservations.push(newReservation);
   fs.writeFileSync('./data/reservation.json',JSON.stringify(reservations,null,2));
-  return res.json(reservations);
+  return res.json({status:200,data:reservations});
 };
 
 export default attendMeetup;

@@ -1,5 +1,5 @@
 import fs from 'fs';
-import meetup from './models/meetup';
+import meetup from '../models/meetup';
 const getUpcommingMeetups = (req, res) => {
   let now = new Date();
   now = now.getTime();
@@ -13,7 +13,7 @@ const getUpcommingMeetups = (req, res) => {
   });
   
   if (upComming) {
-    res.json(upComming);
+    res.json({status:200,data:upComming});
   } else {
     res.json({
       status: 404,

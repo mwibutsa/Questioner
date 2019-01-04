@@ -1,3 +1,6 @@
-import questions from '../models/questions';
-const getQuestions = (req, res) => res.json(questions);
+import questions from '../models/question';
+const getQuestions = (req, res) => res.json({
+    status:200,
+    data:questions
+});
 export default getQuestions;
