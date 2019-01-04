@@ -1,4 +1,5 @@
 import fs from 'fs';
+import meetup from './models/meetup';
 const getUpcommingMeetups = (req, res) => {
   let now = new Date();
   now = now.getTime();
