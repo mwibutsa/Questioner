@@ -3,7 +3,6 @@ import fileUpload from 'express-fileupload';
 import session from 'express-session';
 import meetups from './server/routes/meetups';
 import questions from './server/routes/questions';
-import reservations from './server/routes/reservations';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 
@@ -17,12 +16,12 @@ app.use(session({
     cookie:{
         secure:true
     }
-}))
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(express.json());
+}));
 app.use(fileUpload());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(logger());
+
 app.set('port', port);
 app.get('/',(req,res)=>{
     res.json({

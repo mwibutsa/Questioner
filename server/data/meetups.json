@@ -113,5 +113,34 @@
       "talent development",
       "bootcamp induction"
     ]
+  },
+  {
+    "id": 10,
+    "createdOn": "2019-01-05T19:47:13.766Z",
+    "images": ""
+  },
+  {
+    "id": 11,
+    "createdOn": "2019-01-05T19:48:30.385Z",
+    "images": ""
+  },
+  {
+    "id": 12,
+    "createdOn": "2019-01-05T19:51:23.216Z",
+    "images": ""
+  },
+  {
+    "id": 13,
+    "createdOn": "2019-01-05T19:55:22.158Z",
+    "images": ""
+  },
+  {
+    "id": 14,
+    "createdOn": "2019-01-05T20:33:26.762Z",
+    "images": "/home/mwibutsa/Mwibutsa/andela/Questioner/meetup-filesabstract-art-artistic-1020315_modified.jpg",
+    "location": "lkjhfvsdga",
+    "topic": "jhfdslkafasd",
+    "happeningOn": "2019-01-02",
+    "tags": "2"
   }
 ]
