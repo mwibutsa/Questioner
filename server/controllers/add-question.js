@@ -11,7 +11,7 @@ const addQuestion = (req, res) => {
     votes: 0,
   };
   questions.push(newQuestion);
-  fs.writeFileSync('./data/questions.json',JSON.stringify(questions,null,2));
+  fs.writeFileSync(path.resolve(__dirname,'../data/questions.json'),JSON.stringify(questions,null,2));
   res.json({status:200,data:questions});
 };
 

@@ -8,7 +8,7 @@ const attendMeetup = (req, res) => {
 	  answer: req.body.answer,
   };
   reservations.push(newReservation);
-  fs.writeFileSync('./data/reservation.json',JSON.stringify(reservations,null,2));
+  fs.writeFileSync(path.resolve(__dirname,'../data/reservation.json'),JSON.stringify(reservations,null,2));
   return res.json({status:200,data:reservations});
 };
 
