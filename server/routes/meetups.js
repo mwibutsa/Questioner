@@ -9,7 +9,7 @@ import addQuestion from '../controllers/add-question';
 import attendMeetup from '../controllers/reservations';
 
 router.get('/',getMeetups);
-router.post('/:id/rsvp',ateendMeetup)
+router.post('/:id/rsvp',attendMeetup)
 router.post('/:id',addQuestion)
 router.post('/',addMeetup);
 router.get('/:id',getMeetupById);

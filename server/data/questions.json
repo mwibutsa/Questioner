@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1,
+    "createdOn": "2019-01-05T09:49:52.154Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "body": "Hello I would like to ask what is andela and how it get stared",
+    "votes": -1
+  }
+]

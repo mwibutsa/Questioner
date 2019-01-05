@@ -1,5 +1,6 @@
 import fs from 'fs';
 import reservations from '../models/reservation';
+import path from 'path';
 const attendMeetup = (req, res) => {
   const newReservation = {
 	  id: reservations.length + 1,
