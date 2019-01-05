@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "id": 1,
+    "createdOn": "2019-01-05T08:27:57.852Z",
+    "images": "image.jpg",
+    "location": " Telecom house",
+    "topic": "Andela bootcamp induction",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programming",
+      "bootcamp"
+    ]
+  },
+  {
+    "id": 2,
+    "createdOn": "2019-01-05T08:28:54.687Z",
+    "images": "image.jpg",
+    "location": " Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "10-01-2019",
+    "tags": [
+      "programming",
+      "Introduction"
+    ]
+  }
+]

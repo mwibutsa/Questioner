@@ -1,5 +1,6 @@
 import fs from 'fs';
 import questions from '../models/question';
+import path from 'path';
 const downvoteQuestion = (req, res) => {
   const newQuestions = questions.filter((question) => {
     if (parseInt(question.id) === parseInt(req.params.id)) {
@@ -7,7 +8,7 @@ const downvoteQuestion = (req, res) => {
     }
     return question;
   });
-  fs.writeFileSync('./data/questions.json',JSON.stringify(newQuestions,null,2));
+  fs.writeFileSync(path.resolve(__dirname,'../data/questions.json'),JSON.stringify(newQuestions,null,2));
   res.json({status:200,sata:newQuestions});
 };
 export default downvoteQuestion;
