@@ -1,6 +1,6 @@
 import fs from 'fs';
 import questions from '../models/question';
-import paath from 'path';
+import path from 'path';
 const upvoteQuestion = (req, res) => {
  const  newQuestions = questions.filter((question) => {
     if (parseInt(question.id) === parseInt(req.params.id)) {

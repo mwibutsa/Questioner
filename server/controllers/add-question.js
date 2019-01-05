@@ -1,5 +1,6 @@
 import fs from 'fs';
 import questions from '../models/question';
+import path from 'path';
 const addQuestion = (req, res) => {
   const newQuestion = {
     id:questions.length + 1,

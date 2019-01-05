@@ -1,5 +1,5 @@
 import fs from 'fs';
-import meetups from '../models/meetups';
+import meetups from '../models/meetup';
 const getMeetupById = (req, res) => {
   const meetupById = meetups.find(meetup => parseInt(meetup.id) === parseInt(req.params.id));
   if (meetupById) {

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "meetup_id": "1",
+    "user_id": 1
+  },
+  {
+    "id": 2,
+    "meetup_id": "1",
+    "user_id": 1
+  },
+  {
+    "id": 3,
+    "meetup_id": "1",
+    "user_id": 1,
+    "answer": "yes"
+  }
+]
