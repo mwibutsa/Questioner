@@ -33,7 +33,6 @@ app.get('/',(req,res)=>{
             author:'Mwibutsa'}]
     });
 });
-app.use('/api/v1/meetups/:id/rsvp',reservations);
 app.use('/api/v1/meetups',meetups);
 app.use('/api/v1/questions',questions);
 app.listen(app.get('port'), () => {

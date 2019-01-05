@@ -3,5 +3,5 @@ import attendMeetup from '../controllers/reservations';
 
 const router = express.Router();
 
-router.post('/:id/rsvp',attendMeetup);
+router.post('/',attendMeetup);
 export default router;
