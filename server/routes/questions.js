@@ -6,8 +6,7 @@ import upvoteQuestion from '../controllers/upvote-question';
 import downvoteQuestion from '../controllers/downvote-question';
 import getQuestions from '../controllers/questions';
 router.get('/',getQuestions);
-router.post('/',addQuestion);
-router.put('/upvote',upvoteQuestion);
-router.put('/downvote',downvoteQuestion);
+router.put('/:id/upvote',upvoteQuestion);
+router.put('/:id/downvote',downvoteQuestion);
 
 export default router;
