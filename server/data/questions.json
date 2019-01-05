@@ -7,5 +7,29 @@
     "title": "Andela open session",
     "body": "Hello I would like to ask what is andela and how it get stared",
     "votes": -1
+  },
+  {
+    "id": 2,
+    "createdOn": "2019-01-05T10:45:08.824Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 3,
+    "createdOn": "2019-01-05T10:45:59.134Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 4,
+    "createdOn": "2019-01-05T10:48:03.207Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
   }
 ]

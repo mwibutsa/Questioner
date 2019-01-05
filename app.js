@@ -38,3 +38,4 @@ app.use('/api/v1/questions',questions);
 app.listen(app.get('port'), () => {
   console.log(`server started on port ${port}`);
 });
+export default app;
