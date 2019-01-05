@@ -2,9 +2,9 @@ import fs from 'fs';
 import meetups from '../models/meetup';
 const addMeetup = (req, res) => {
   let newMeetup = {
-    id: meetups.length + 1 | 1,
+    id: meetups.length + 1,
     createdOn: new Date(),
-    images: 'fileName',
+    images: 'image.jpg',
     location:req.body.location,
     topic: req.body.topic,
     happeningOn: req.body.happeningOn,
