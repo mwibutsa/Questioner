@@ -3,7 +3,10 @@ import meetups from '../models/meetup';
 const getMeetupById = (req, res) => {
   const meetupById = meetups.find(meetup => parseInt(meetup.id) === parseInt(req.params.id));
   if (meetupById) {
-    res.json(meetupById);
+    res.json({
+    	status:200,
+    	data:meetupById
+    });
   } else {
     res.json({
       status: 404,
