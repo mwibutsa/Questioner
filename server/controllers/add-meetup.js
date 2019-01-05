@@ -2,11 +2,23 @@ import fs from 'fs';
 import path from 'path';
 const pathToModel = path.resolve(__dirname,'../models/meetup.js');
 import meetups from '../models/meetup';
+let filePath = '';
 const addMeetup = (req, res) => {
+  if(req.files){
+    const meetupImages = req.files.images;
+    filePath = '../../meetup-files/'+meetupImages.name;
+    meetupImages.mv(filePath,(error)=> {
+      if(error) res.json({
+        status:500,
+        error:error
+      });
+    });
+  }
+
   let newMeetup = {
     id: meetups.length + 1,
     createdOn: new Date(),
-    images: 'image.jpg',
+    images: filePath,
     location:req.body.location,
     topic: req.body.topic,
     happeningOn: req.body.happeningOn,
