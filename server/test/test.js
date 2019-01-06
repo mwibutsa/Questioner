@@ -48,9 +48,9 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------',()=>{
         });
     });
     // TEST GET UPCOMMING MEETUPS
-    describe('/GET /api/v1/meetups/up-comming',()=>{
-        it('Should get a specific meetups',()=>{
-            chai.request(app).get('/api/v1/meetups/up-comming').end((err,res)=>{
+    describe('/GET /api/v1/meetups/upcomming',()=>{
+        it('Should get all upcomming meetups',()=>{
+            chai.request(app).get('/api/v1/meetups/upcomming').end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.a('object');
             });
