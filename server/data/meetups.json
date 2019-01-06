@@ -138,7 +138,7 @@
   },
   {
     "id": 12,
-    "createdOn": "2019-01-06T11:01:09.170Z",
+    "createdOn": "2019-01-06T20:31:20.120Z",
     "images": "",
     "location": "Telecom house",
     "topic": "Andela open session",
@@ -151,50 +151,7 @@
   },
   {
     "id": 13,
-    "createdOn": "2019-01-06T11:14:14.790Z",
-    "images": "",
-    "location": "Telecom house",
-    "topic": "Andela open session",
-    "happeningOn": "13-01-2019",
-    "tags": [
-      "programming",
-      "talent development",
-      "bootcamp induction"
-    ]
-  },
-  {
-    "id": 14,
-<<<<<<< HEAD
-    "createdOn": "2019-01-06T20:19:30.097Z",
-=======
-    "createdOn": "2019-01-06T12:41:57.879Z",
-    "images": "",
-    "location": "Telecom house",
-    "topic": "Andela open session",
-    "happeningOn": "13-01-2019",
-    "tags": [
-      "programming",
-      "talent development",
-      "bootcamp induction"
-    ]
-  },
-  {
-    "id": 15,
-    "createdOn": "2019-01-06T19:57:04.456Z",
-    "images": "",
-    "location": "Telecom house",
-    "topic": "Andela open session",
-    "happeningOn": "13-01-2019",
-    "tags": [
-      "programming",
-      "talent development",
-      "bootcamp induction"
-    ]
-  },
-  {
-    "id": 16,
-    "createdOn": "2019-01-06T20:09:36.434Z",
->>>>>>> 571c37f8e8d5dd344e540f1a5ab3b47a365fa8f7
+    "createdOn": "2019-01-06T20:32:43.463Z",
     "images": "",
     "location": "Telecom house",
     "topic": "Andela open session",
