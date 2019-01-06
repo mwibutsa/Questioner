@@ -3,6 +3,7 @@ import fileUpload from 'express-fileupload';
 import session from 'express-session';
 import meetups from './server/routes/meetups';
 import questions from './server/routes/questions';
+import pageNotFound from './server/controllers/notfound';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 
@@ -34,6 +35,7 @@ app.get('/',(req,res)=>{
 });
 app.use('/api/v1/meetups',meetups);
 app.use('/api/v1/questions',questions);
+app.use(pageNotFound);
 app.listen(app.get('port'), () => {
   console.log(`server started on port ${port}`);
 });
