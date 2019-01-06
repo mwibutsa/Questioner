@@ -3,5 +3,5 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 <h1>Travis CI Report</h1>
 <img src="https://travis-ci.org/mwibutsa/Questioner.svg?branch=develop">
 <h1>TTest coverage Coveralls report</h1>
-[![Coverage Status](https://coveralls.io/repos/github/mwibutsa/Questioner/badge.svg?branch=develop)](https://coveralls.io/github/mwibutsa/Questioner?branch=develop)
+<a href='https://coveralls.io/github/mwibutsa/Questioner?branch=feature_fileuload'><img src='https://coveralls.io/repos/github/mwibutsa/Questioner/badge.svg?branch=feature_fileuload' alt='Coverage Status' /></a>
 
