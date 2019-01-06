@@ -13,6 +13,12 @@ const voteQuestion = (req, res) => {
       else if(vote === 'downvote' || vote === 'down-vote'){
         question.votes -=1;
       }
+      else{
+        res.json({
+          status:404,
+          errror:"Page not found"
+        });
+      }
 
     }
     return question;
