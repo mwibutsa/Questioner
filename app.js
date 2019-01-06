@@ -2,6 +2,7 @@ import express from 'express';
 import fileUpload from 'express-fileupload';
 import session from 'express-session';
 import meetups from './server/routes/meetups';
+import users from './server/routes/users';
 import questions from './server/routes/questions';
 import pageNotFound from './server/controllers/notfound';
 import bodyParser from 'body-parser';
@@ -35,6 +36,7 @@ app.get('/',(req,res)=>{
 });
 app.use('/api/v1/meetups',meetups);
 app.use('/api/v1/questions',questions);
+app.use('/api/v1/users',users);
 app.use(pageNotFound);
 app.listen(app.get('port'), () => {
   console.log(`server started on port ${port}`);
