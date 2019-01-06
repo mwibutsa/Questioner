@@ -3,9 +3,7 @@ import questions from '../models/question';
 import path from 'path';
 const voteQuestion = (req, res) => {
  const  newQuestions = questions.filter((question) => {
-   let vote = '';
-   vote = req.params.voteMethod;
-   vote = vote.toLocaleUpperCase();
+ const  vote = (req.params.voteMethod).toLowerCase();
 
     if (parseInt(question.id) === parseInt(req.params.id)) {
       if(vote === 'upvote' || vote === 'up-vote')
