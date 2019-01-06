@@ -7,11 +7,11 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 <h3>&#8227; &nbsp; List of API End point</h3>
 
 <ol>
-  <li><b>GET/api/v1/meetups<b/>&nbsp; fetch all meetups</li>
-  <li><b>GET/api/v1/meetups/upcomming<b/>&nbsp; fetch all upcomming meetups</li>
-  <li><b>GET/api/v1/meetups/:id<b/>&nbsp; fetch a specific meetup with the given id</li>
-  <li><b>GET/api/v1/questions<b/>&nbsp; fetch all questions</li>
-  <li><b>POST/api/v1/meetups<b/>&nbsp; create new meetup</li>
+  <li><b>GET/api/v1/meetups</b/>&nbsp; fetch all meetups</li>
+  <li><b>GET/api/v1/meetups/upcomming</b>&nbsp; fetch all upcomming meetups</li>
+  <li><b>GET/api/v1/meetups/:id</b>&nbsp; fetch a specific meetup with the given id</li>
+  <li><b>GET/api/v1/questions</b>&nbsp; fetch all questions</li>
+  <li><b>POST/api/v1/meetups</b>&nbsp; create new meetup</li>
   <li><b>PUT/api/v1/questions/:id/upvote</b>&nbsp; upvote a question with give id parameter</li>
   <li><b>PUT/api/v1/questions/:id/upvote</b>&nbsp; down a question with give id parameter</li>
 </ol>
