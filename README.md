@@ -1,4 +1,5 @@
 # Questioner API End points <img src="https://travis-ci.org/mwibutsa/Questioner.svg?branch=develop">  <a href='https://coveralls.io/github/mwibutsa/Questioner?branch=feature_fileuload'><img src='https://coveralls.io/repos/github/mwibutsa/Questioner/badge.svg?branch=feature_fileuload' alt='Coverage Status' /></a>
+<a href="https://codeclimate.com/github/mwibutsa/Questioner/maintainability"><img src="https://api.codeclimate.com/v1/badges/0c62f5ba1972945dbe6f/maintainability" /></a>
 
 Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
 
