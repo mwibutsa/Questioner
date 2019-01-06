@@ -74,7 +74,27 @@
   },
   {
     "id": 10,
+<<<<<<< HEAD
     "createdOn": "2019-01-06T20:19:30.111Z",
+=======
+    "createdOn": "2019-01-06T12:41:57.923Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 11,
+    "createdOn": "2019-01-06T19:57:04.470Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 12,
+    "createdOn": "2019-01-06T20:09:36.452Z",
+>>>>>>> 571c37f8e8d5dd344e540f1a5ab3b47a365fa8f7
     "createdBy": 1,
     "meetup": "1",
     "title": "Andela open session",
