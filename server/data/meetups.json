@@ -122,5 +122,31 @@
     "topic": "jhfdslkafasd",
     "happeningOn": "2019-01-02",
     "tags": "2"
+  },
+  {
+    "id": 11,
+    "createdOn": "2019-01-06T10:54:05.231Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programming",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 12,
+    "createdOn": "2019-01-06T11:01:09.170Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programming",
+      "talent development",
+      "bootcamp induction"
+    ]
   }
 ]
