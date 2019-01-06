@@ -2,7 +2,7 @@ import joi from 'joi';
 import uuid from 'uuid';
 import users from '../models/user';
 import fs from 'fs';
-export default registerUser = (req,res) => {
+const registerUser = (req,res) => {
     let newUser = {
         id:uuid.v4(),
         firstname:req.body.firstname,
@@ -12,6 +12,8 @@ export default registerUser = (req,res) => {
         phoneNumber:req.body.phoneNumber,
         username:req.body.username,
         registered: new Date(),
+        password:req.body.password,
+        cpassword:req.body.cpassword,
         isAdmin:false
     }
 users.push(newUser);
@@ -22,3 +24,4 @@ res.json({
 });
 
 }
+export default registerUser;
