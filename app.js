@@ -10,7 +10,6 @@ import logger from 'morgan';
 
 const port = process.env.PORT || 3000;
 const app = express();
-
 app.use(session({
     resave:false,
     saveUninitialized:true,
