@@ -1,27 +1,19 @@
-import fs from 'fs';
+import Database from '../database/db_connection';
 import questions from '../models/question';
-import path from 'path';
-const voteQuestion = (req, res) => {
- const  newQuestions = questions.filter((question) => {
- const  vote = (req.params.voteMethod).toLowerCase();
 
-    if (parseInt(question.id) === parseInt(req.params.id)) {
-      if(vote === 'upvote' || vote === 'up-vote')
-      {question.votes += 1;}
-      else if(vote === 'downvote' || vote === 'down-vote'){
-        question.votes -=1;
-      }
-      else{
-        res.json({
-          status:404,
-          errror:"Page not found"
-        });
-      }
+const voteQuestion = async (req, res) => {
+    const allQuestions = await questions();
+    const question = allQuestions.find(question => question.id == req.params.id);
+    let votes = question.votes;
 
-    }
-    return question;
-  });
-  fs.writeFileSync(path.resolve(__dirname,'../data/questions.json'),JSON.stringify(newQuestions,null,2));
-  res.json({status:200,data:newQuestions});
-};
+    const voteMethod = req.params.voteMethod.toLowerCase();
+
+    if(voteMethod === 'upvote' || voteMethod === 'up-vote') votes  += 1;
+    else if(voteMethod === 'downvote' || voteMethod === 'down-vote') votes -= 1;
+    else return res.json({ status:404,error:"Page not found"});
+
+    const voteQuery = `UPDATE question_table SET votes = ${votes} WHERE id = '${req.params.id}'`;
+    const updateResult = await Database.executeQuery(voteQuery);
+    res.json(allQuestions);
+  }
 export default voteQuestion;
