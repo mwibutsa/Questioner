@@ -1,6 +1,6 @@
 import questions from '../models/question';
-const getQuestions = (req, res) => res.json({
+const getQuestions = async (req, res) => res.json({
     status:200,
-    data:questions
+    data:await questions()
 });
 export default getQuestions;
