@@ -1,7 +1,7 @@
-import fs from 'fs';
 import meetups from '../models/meetup';
-const getMeetupById = (req, res) => {
-  const meetupById = meetups.find(meetup => parseInt(meetup.id) === parseInt(req.params.id));
+const getMeetupById = async (req, res) => {
+  const meetupData = await meetups(); 
+  const meetupById = meetupData.find(meetup => meetup.id == req.params.id);
   if (meetupById) {
     res.json(meetupById);
   } else {
