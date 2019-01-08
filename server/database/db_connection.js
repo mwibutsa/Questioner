@@ -1,25 +1,22 @@
 import dotenv from 'dotenv';
-import { Pool, Client } from 'pg';
-import uuid from 'uuid';
+import { Pool } from 'pg';
+
 dotenv.config();
 
-class Database{
-    constructor(){
-        this.pool = new Pool({
-            user:process.env.PGUSER,
-            host:process.env.PGHOST,
-            database:process.env.PGDATABASE,
-            password:process.env.PGPASSWORD,
-            port:process.env.PGPORT
-        });
+class Database {
+  constructor() {
+    this.pool = new Pool({
+      user: process.env.PGUSER,
+      host: process.env.PGHOST,
+      database: process.env.PGDATABASE,
+      password: process.env.PGPASSWORD,
+      port: process.env.PGPORT,
+    });
 
-       this.connect = async () => this.pool.connect();
+    this.connect = async () => this.pool.connect();
 
 
-  
-
- this.userTable =
-    `
+    this.userTable = `
     CREATE TABLE IF NOT EXISTS user_table (
     id UUID PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
@@ -34,11 +31,8 @@ class Database{
     token VARCHAR(120),
     confirmed int NOT NULL
         );
-        `
-        ;
-
-    this.meetupTable =
-    `
+        `;
+    this.meetupTable = `
     CREATE TABLE IF NOT EXISTS meetup_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
@@ -48,8 +42,7 @@ class Database{
 
     );
     `;
-    this.questionTable =
-    `
+    this.questionTable = `
     CREATE TABLE IF NOT EXISTS question_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
@@ -60,8 +53,7 @@ class Database{
         votes INT NOT NULL
     );
     `;
-    this.commentTable = 
-    `
+    this.commentTable = `
     CREATE TABLE IF NOT EXISTS comment_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
@@ -71,8 +63,7 @@ class Database{
     );
     `;
 
-    this.resevationTable =
-    `
+    this.resevationTable = `
     CREATE TABLE IF NOT EXISTS reservation_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
@@ -81,16 +72,14 @@ class Database{
     );
     `;
 
-    this.tagTable =
-    `
+    this.tagTable = `
     CREATE TABLE IF NOT EXISTS tag_table (
         id UUID PRIMARY KEY,
         tag_name VARCHAR(128) NOT NULL
     );
     `;
 
-    this.meetupImagesTable =
-    `
+    this.meetupImagesTable = `
     CREATE TABLE IF NOT EXISTS meetup_images_table (
         id UUID PRIMARY KEY,
         meetup UUID REFERENCES meetup_table (id) ON DELETE CASCADE,
@@ -98,16 +87,14 @@ class Database{
     );
     `;
 
-    this.meetupTagsTable =
-    `
+    this.meetupTagsTable = `
     CREATE TABLE IF NOT EXISTS meetup_tags_table (
         id UUID PRIMARY KEY,
         meetup UUID REFERENCES meetup_table (id) ON DELETE CASCADE,
         tag UUID REFERENCES tag_table (id) ON DELETE CASCADE
     );
     `;
-    this.userImagesTable =
-    `
+    this.userImagesTable = `
     CREATE TABLE IF NOT EXISTS user_images_table (
         id UUID PRIMARY KEY,
         user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
@@ -117,25 +104,25 @@ class Database{
     );
     `;
     this.initializeDb();
-}
- async executeQuery(query, data=[]) {
+  }
+
+  async executeQuery(query, data = []) {
     const connection = await this.connect();
-    try{
-        // execute a query with parameter
-        if(data.length) {
-            return await connection.query(query,data);
-        }
-        // execute a query without parameter
-        else return await connection.query(query);
-    } catch(error){
-        console.log(error);
-        return error;
+    try {
+      // execute a query with parameter
+      if (data.length) {
+        return await connection.query(query, data);
+      }
+      // execute a query without parameter
+      return await connection.query(query);
+    } catch (error) {
+      return error;
+    } finally {
+      connection.release();
     }
-    finally{
-        connection.release();
-    }
-}
-async initializeDb(){
+  }
+
+  async initializeDb() {
     await this.executeQuery(this.userTable);
     await this.executeQuery(this.meetupTable);
     await this.executeQuery(this.questionTable);
@@ -145,8 +132,6 @@ async initializeDb(){
     await this.executeQuery(this.userImagesTable);
     await this.executeQuery(this.resevationTable);
     await this.executeQuery(this.tagTable);
-    
-}
-
+  }
 }
 export default new Database();
