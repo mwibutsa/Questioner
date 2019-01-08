@@ -25,7 +25,8 @@ class Database{
     firstname VARCHAR(30) NOT NULL,
     othername VARCHAR(30),
     lastname VARCHAR(30) NOT NULL,
-    email VARCHAR(120) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    username VARCHAR(30) NOT NULL UNIQUE,
     phone_number CHAR(15) NOT NULL,
     registered DATE NOT NULL,
     is_admin int NOT NULL,
@@ -75,7 +76,7 @@ class Database{
     CREATE TABLE IF NOT EXISTS reservation_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
-        user UUID REFERENCES user_table (id) ON DELETE CASCADE,
+        user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
         answer VARCHAR(6) NOT NULL
     );
     `;
@@ -83,7 +84,7 @@ class Database{
     this.tagTable =
     `
     CREATE TABLE IF NOT EXISTS tag_table (
-        id UUID PRIMARY KEY
+        id UUID PRIMARY KEY,
         tag_name VARCHAR(128) NOT NULL
     );
     `;
@@ -109,7 +110,7 @@ class Database{
     `
     CREATE TABLE IF NOT EXISTS user_images_table (
         id UUID PRIMARY KEY,
-        user UUID REFERENCES user_table (id) ON DELETE CASCADE,
+        user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
         url VARCHAR(128) NOT NULL,
         is_profile int NOT NULL
 
@@ -121,10 +122,13 @@ class Database{
     const connection = await this.connect();
     try{
         // execute a query with parameter
-        if(data.length) return await connection.query(query,data);
+        if(data.length) {
+            return await connection.query(query,data);
+        }
         // execute a query without parameter
         else return await connection.query(query);
     } catch(error){
+        console.log(error);
         return error;
     }
     finally{
@@ -132,11 +136,11 @@ class Database{
     }
 }
 async initializeDb(){
-    // await this.executeQuery(this.userTable);
-    // await this.executeQuery(this.meetupTable);
-    // await this.executeQuery(this.questionTable);
-    // await this.executeQuery(this.commentTable);
-    // await this.executeQuery(this.meetupImagesTable);
+    await this.executeQuery(this.userTable);
+    await this.executeQuery(this.meetupTable);
+    await this.executeQuery(this.questionTable);
+    await this.executeQuery(this.commentTable);
+    await this.executeQuery(this.meetupImagesTable);
     await this.executeQuery(this.meetupTagsTable);
     await this.executeQuery(this.userImagesTable);
     await this.executeQuery(this.resevationTable);

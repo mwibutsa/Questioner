@@ -1,7 +1,9 @@
 import fs from 'fs';
 import questions from '../models/question';
 import path from 'path';
-const addQuestion = (req, res) => {
+import Database from '../database/db_connection';
+
+const addQuestion = async (req, res) => {
   const newQuestion = {
     id:questions.length + 1,
     createdOn: new Date(),

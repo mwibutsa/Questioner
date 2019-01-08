@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-const pathToModel = path.resolve(__dirname,'../models/meetup.js');
+import uuid from 'uuid';
 import meetups from '../models/meetup';
+import Database from '../database/db_connection';
 let filePath = '';
-const addMeetup = (req, res) => {
+
+const addMeetup = async (req, res) =>{
   if(req.files){
     const meetupImages = req.files.images;
     filePath = '../../meetup-files/'+meetupImages.name;
@@ -14,18 +16,10 @@ const addMeetup = (req, res) => {
       });
     });
   }
-
-  let newMeetup = {
-    id: meetups.length + 1,
-    createdOn: new Date(),
-    images: filePath,
-    location:req.body.location,
-    topic: req.body.topic,
-    happeningOn: req.body.happeningOn,
-    tags: req.body.tags,
-  };
-  meetups.push(newMeetup);
-  fs.writeFileSync(path.resolve(__dirname,'../data/meetups.json'),JSON.stringify(meetups,null,2));
+  let meetupQuery = `INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
+  let { location,topic,happeningOn } = req.body
+  let newMeetup =[uuid.v4(),new Date(),location,topic,happeningOn];
+  const { rows } = await Database.executeQuery(meetupQuery,newMeetup);
   res.json({status:200,data:meetups});
 };
 export default addMeetup;

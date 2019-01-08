@@ -1,23 +1,20 @@
 import joi from 'joi';
 import uuid from 'uuid';
 import users from '../models/user';
+import Database from '../database/db_connection';
 import fs from 'fs';
-const registerUser = (req,res) => {
-    let newUser = {
-        id:uuid.v4(),
-        firstname:req.body.firstname,
-        lastname:req.body.lastname,
-        othername:req.body.lastname,
-        email:req.body.email,
-        phoneNumber:req.body.phoneNumber,
-        username:req.body.username,
-        registered: new Date(),
-        password:req.body.password,
-        cpassword:req.body.cpassword,
-        isAdmin:false
-    }
-users.push(newUser);
-fs.writeFileSync(path.resolve(__dirname,'../data/users.json'),JSON.stringify(users,null,2));
+const registerUser = async (req,res) => {
+    let {firstname,lastname,othername,email,phoneNumber,username,password,cpassword} = req.body;
+    
+    let registerQuery = `INSERT INTO user_table (id,firstname,lastname,othername,email,phone_number,username,registered,is_admin,password,token,confirmed)
+    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+
+    let newUser = [
+        uuid.v4(),
+        firstname,lastname,othername,email,phoneNumber,username,new Date(),0,password,'',0
+    ];
+    const { rows } = await Database.executeQuery(registerQuery,newUser); 
+    console.log(rows);
 res.json({
     status:200,
     data:users
