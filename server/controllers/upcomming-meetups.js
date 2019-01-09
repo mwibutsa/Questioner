@@ -1,20 +1,24 @@
-import fs from 'fs';
 import meetups from '../models/meetup';
-const getUpcommingMeetups = (req, res) => {
-  let now = new Date();
-  now = now.getTime();
-  const upComming = meetups.filter(meetup =>{
-    let intDate = meetup.happeningOn.split('-');
-    let date = new Date(parseInt(intDate[2]),parseInt(intDate[1]),parseInt(intDate[0]));
-    if(date.getTime() > (new Date()).getTime()){
+
+// get all meetups upcomming meetups
+
+const getUpcommingMeetups = async (req, res) => {
+  // get al meetups from the database
+  const allMettups = await meetups();
+  // filter meeups with happening date greater than todya
+  const upComming = allMettups.filter(meetup =>{
+    let happeningOn = (new Date(meetup.happening_on)).getTime();
+    if(happeningOn > (new Date()).getTime()){
       return meetup;
     }
 
   });
   
+  // if there are upcomming meetups
+
   if (upComming) {
     res.json({status:200,data:upComming});
-  } else {
+  } else { // if there is no upcomming meetup
     res.json({
       status: 404,
       error: 'No upcomming meetups',
