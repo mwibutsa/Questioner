@@ -7,7 +7,7 @@ const attendMeetup = (req, res) => {
   const newReservation = {
 	  id: uuid.v4(),
 	  meetup_id: req.params.id,
-	  user_id: 1,
+	  user_id: req.session.user_id,
 	  answer: req.body.answer,
   };
   reservations.push(newReservation);
