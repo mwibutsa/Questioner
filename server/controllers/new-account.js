@@ -1,8 +1,7 @@
-import joi from 'joi';
 import uuid from 'uuid';
 import users from '../models/user';
 import Database from '../database/db_connection';
-import fs from 'fs';
+import Helper from '../helpers/helper';
 const registerUser = async (req,res) => {
     let {firstname,lastname,othername,email,phoneNumber,username,password,cpassword} = req.body;
     
@@ -11,13 +10,12 @@ const registerUser = async (req,res) => {
 
     let newUser = [
         uuid.v4(),
-        firstname,lastname,othername,email,phoneNumber,username,new Date(),0,password,'',0
+        firstname,lastname,othername,email,phoneNumber,username,new Date(),0,Helper.hashPassword(password),'',0
     ];
     const { rows } = await Database.executeQuery(registerQuery,newUser); 
-    console.log(rows);
 res.json({
     status:200,
-    data:users
+    data: await users()
 });
 
 }

@@ -1,6 +1,9 @@
-import fs  from 'fs';
-import path from 'path'
-let users = [];
-const user = fs.readFileSync(path.resolve(__dirname,'../data/users.json'),{encoding:'utf8'});
-users  = JSON.parse(user)
+import Database from '../database/db_connection';
+
+const users =  async () =>{
+    const getUsersQuery =  `SELECT * FROM user_table`;
+    const { rows } = await Database.executeQuery(getUsersQuery);
+    return [...rows];
+
+}
 export default users;
