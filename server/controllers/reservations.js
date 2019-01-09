@@ -6,11 +6,12 @@ import uuid from 'uuid';
 const attendMeetup = async (req, res) => {
   const newReservation = [
 	  uuid.v4(),
-	  req.params.id,
+    req.params.id,
+    new Date(),
 	  req.session.user_id,
 	  req.body.answer
 ];
- const reserveQuery = `INSERT INTO reservatiion_table (id,meetup_id,create_on,user_id,answer) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
+ const reserveQuery = `INSERT INTO reservatiion_table (id,meetup_id,created_on,user_id,answer) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
   const { rows } = await Database.executeQuery(reserveQuery,newReservation);
   console.log(rows);
   const reservation = await reservations();
