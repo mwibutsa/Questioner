@@ -18,8 +18,8 @@ const Validator = {
         topic:joi.string().required(),
         happeningOn:joi.date().min('now').required(),
         location:joi.string().required(),
-        images:joi.array().items().string().regex(/\.(jpg|png|jpeg|)$/i),
-        tags:joi.array().items().string()
+        images:joi.array().items(joi.string().regex(/\.(jpg|png|jpeg|)$/i)),
+        tags:joi.array().items(joi.string())
 
     }),
     commentSchema:joi.object({
