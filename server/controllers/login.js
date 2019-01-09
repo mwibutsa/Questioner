@@ -2,25 +2,34 @@ import joi from 'joi';
 import users from '../models/user';
 import Helper from '../helpers/helper';
 import validate from '../helpers/validation';
+import Validator from '../helpers/validation';
+import Database from '../database/db_connection';
 
 const authenticateUser = (req,res) => {
     let userAccount = {
-        username:req.body.username,
+        email:req.body.email,
         password:req.body.password
     };
-    joi.validate(userAccount,)
-    const user = users.find(user => user.username === userAccount.username && user.password === userAccount.password);
-    if(user){
-        res.json({
-            status:200,
-            data:user
-        });
-    }
-    else{
-        res.json({
-            status:404,
-            error:"Invalid username and or password"
-        });
-    }
+    joi.validate(userAccount,Validator.loginSchema,async (error,data)=>{
+        if(error){
+            console.log(error);
+        }
+        else{
+            let getUser = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
+            const { rows } = await Database.executeQuery(getUser);
+            if(Helper.comparePassword(userAccount.password,rows[0].password)){
+                res.json({
+                    status:200,
+                    data:rows[0]
+                });
+            }
+            else{
+                res.json({
+                    status:401,
+                    error:"Invalid username or password"
+                });
+            }
+        }
+    });
 }
 export default authenticateUser;

@@ -25,7 +25,7 @@ const Validator = {
     commentSchema:joi.object({
         comment:joi.string().required().min(1)
     }),
-    loginSchema:joi.object.keys({
+    loginSchema:joi.object({
         email:joi.string().email().required(),
         password:joi.string().required()
     })
