@@ -1,7 +1,9 @@
-import fs  from 'fs';
-import path from 'path';
-let reservations = [];
+import Database from '../database/db_connection';
 
-const reservation = fs.readFileSync(path.resolve(__dirname,'../data/reservations.json'),{encoding:'utf8'});
-reservations  = JSON.parse(reservation) || [];
+const reservations =  async () =>{
+    const reservationQuery =  `SELECT * FROM reservation_table ORDER BY created_on DESC`;
+    const { rows } = await Database.executeQuery(reservationQuery);
+    return [...rows];
+
+}
 export default reservations;

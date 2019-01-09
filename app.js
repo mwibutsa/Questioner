@@ -38,6 +38,13 @@ app.use('/api/v1/meetups', meetups);
 app.use('/api/v1/questions', questions);
 app.use('/api/v1/users', users);
 app.use(pageNotFound);
+app.use((error,req,res,next)=>{
+  res.json({
+    status:504,
+    erro:error
+  });
+  next();
+})
 app.listen(app.get('port'), () => {
   console.log(`server started on port ${port}`);
 });
