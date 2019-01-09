@@ -1,9 +1,11 @@
 import fs from 'fs';
 import reservations from '../models/reservation';
 import path from 'path';
+import uuid from 'uuid';
+
 const attendMeetup = (req, res) => {
   const newReservation = {
-	  id: reservations.length + 1,
+	  id: uuid.v4(),
 	  meetup_id: req.params.id,
 	  user_id: 1,
 	  answer: req.body.answer,
