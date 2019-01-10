@@ -11,13 +11,15 @@ import pageNotFound from './server/controllers/notfound';
 const port = process.env.PORT || 3000;
 const app = express();
 app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: '_2@0)1!9(',
+    secret: '_2@0)1!9(',
+    resave: false,
+    saveUninitialized: true,
   cookie: {
     secure: true,
-  },
+  }
+
 }));
+
 app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -17,10 +17,12 @@ const authenticateUser = (req,res) => {
         else{
             let getUser = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
             const { rows } = await Database.executeQuery(getUser);
+            console.log(rows[0].id)
             if(Helper.comparePassword(userAccount.password,rows[0].password)){
                 req.session.user_id = rows[0].id;
                 req.session.username = rows[0].username;
                 req.session.user_email = rows[0].email;
+                console.log(req.session)
                 res.json({
                     status:200,
                     data:rows[0]
