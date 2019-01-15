@@ -44,3 +44,7 @@ form .button, form button{
 .form-container label{
     font-weight: bold;
 }
+.footer{
+    height: 30px;
+    margin-top: -30px;
+}
