@@ -12,6 +12,9 @@
 .wrapper{
     background-image: none;
 }
+body{
+    background: #EFE7CC;
+}
 .home-header{
     margin-top: 300px;
 }
@@ -47,4 +50,20 @@ form .button, form button{
 .footer{
     height: 30px;
     margin-top: -30px;
+}
+.list-grid {
+    width: 80%;
+    margin: 1% auto 1% auto;
+    display: flex;
+    flex-basis: row;
+    border-bottom: 2px solid #333;
+}
+.list-grid div{
+    margin: 1% auto 1% auto;
+}
+.heading{
+    font-weight: bold;
+}
+.list-grid:hover{
+    background: rgb(250, 227, 227);
 }
