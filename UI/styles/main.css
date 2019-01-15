@@ -13,7 +13,7 @@ html,body{
 /*Wrapper*/
 .wrapper{
 	min-height: 100%;
-	background-image: url('../images/colourfull.jpg');
+	background-image: url('images/amazing.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
