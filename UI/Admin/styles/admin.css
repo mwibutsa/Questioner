@@ -61,9 +61,9 @@ form .button, form button{
 .list-grid div{
     margin: 1% auto 1% auto;
 }
-.heading{
-    font-weight: bold;
-}
 .list-grid:hover{
     background: rgb(250, 227, 227);
+}
+th {
+    border-bottom: 2px solid rgb(4, 65, 122)
 }
