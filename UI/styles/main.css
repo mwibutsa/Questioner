@@ -131,7 +131,7 @@ button:hover,.button:hover{
 .site-icon{
 	float: left;
 	margin-right: 5%;
-	font-size: 40px;
+	font-size: 2em;
 	line-height: 40px;
 	height: 40px;
 	text-align:center;
@@ -142,6 +142,7 @@ button:hover,.button:hover{
 	position: relative;
 	left: 1%;
 	color:white;
+	font-family: 'Courier New', Courier, monospace;
 }
 .tags {
 	display: grid;
