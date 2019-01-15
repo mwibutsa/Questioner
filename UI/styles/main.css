@@ -13,7 +13,7 @@ html,body{
 /*Wrapper*/
 .wrapper{
 	min-height: 100%;
-	background-image: url('../images/colourfull.jpg');
+	background-image: url('images/amazing.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -57,13 +57,6 @@ html,body{
 }
 .footer-grid .no-style li{
 	list-style-type: none;
-}
-.extra{
-	color: #222;
-	box-shadow: 1px 2px 4px rgb(223, 202, 202);
-	border-radius: 8%;
-	padding: 2px;
-	margin-bottom: 10px;
 }
 .title-info{
 	margin-bottom: 1%;
@@ -118,13 +111,6 @@ button:hover,.button:hover{
 	color: white;
 }
 
-.navigation ul li ul li{
-	display: none;
-	width: 150px;
-}
-.navigation ul li:hover ul li{
-	display: block;
-}
 /* Navigation toggle Icon */
 .nav-icon{
 	display: none;
@@ -145,7 +131,7 @@ button:hover,.button:hover{
 .site-icon{
 	float: left;
 	margin-right: 5%;
-	font-size: 40px;
+	font-size: 2em;
 	line-height: 40px;
 	height: 40px;
 	text-align:center;
@@ -156,6 +142,22 @@ button:hover,.button:hover{
 	position: relative;
 	left: 1%;
 	color:white;
+	font-family: 'Courier New', Courier, monospace;
+}
+.tags {
+	display: grid;
+	grid-column-gap: 5px;
+	grid-template-columns: repeat(4,1fr);
+	margin: 1%;
+}
+.tags span {
+	padding: 1%;
+	border-radius: 1%;
+	background: #ddd;
+	cursor: pointer;
+}
+.tags span:hover{
+	background-color: #abfacc;
 }
 
 /*FORM STYLES */
@@ -229,10 +231,17 @@ hr{
 	opacity: .2;
 	z-index: 0;
 }
+.grid > div {
+	text-align: center;
+	box-shadow: 1px 2px 2px #ddd;
+}
 .grid > div:hover{
-	background: #d3ecff;
-	box-shadow: 1px 1px 40px rgb(0, 85, 124);
-	transition: all .45s ease-in-out;
+	background: #f3f7fa;
+	transition: all .25s ease-in-out;
+
+}
+.topic { font-weight: bold;
+	border-bottom: 2px solid #007acc;
 }
 .grid{
 	display: grid;
