@@ -22,84 +22,58 @@
 
                 <!--Navigation-->
                 <a href="#" class="site-icon"><h3>Questioner</h3></a>
-                <nav class="nav" id="mainNav">
-                    <!-- Main navigation -->
-                    <!-- site icon -->
-                        
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="meetups.html">Mettups</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Account</a>
-                            <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="sign-up.html">SignUp</a></li>
-                                <li><a href="user-profile.html">Profile</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <!-- Emd of navigation links -->
-
-                    <!-- navigation toggle icon visible on small devices -->
-
-                    <!-- end of  navigation toggle icon -->
-                </nav>
-                <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
+                                <!--Navigation-->
+                                <nav class="nav" id="mainNav">
+                                    <!-- Main navigation -->
+                                    <!-- site icon -->
+                                        
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="meetups.html">Mettups</a></li>
+                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="user-profile.html">Username</a></li>
+                                    </ul>
+                                    <!-- Emd of navigation links -->
+            
+                                <!-- navigation toggle icon visible on small devices -->
+                                
+                                <!-- end of  navigation toggle icon -->
+                            </nav>
+                            <div class="nav-icon" onclick="return showNavigation()">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                            </div>
                 <!--/Navigation-->
             </div>
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
-            <div class="main-content grid-2-cols">
-                <div class="nav-icon user-profile-menu" onclick="sowUserNavigation();">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
+            <div class="main-content grid-2-cols prof-container">
+                <div class="user-info">
+                    <br>
+                    <div class="profile-avatar">
+                        <img src="images/avatar.png" alt="" class="profile-avatar">
+                    </div>
+                    <h3 class="text-center">Mwibutsa Floribert</h3>
+                    <hr>
+                    <br>
+                    <label for="email">Email:</label><em>fmwibutsa@gmail.com</em>
+                    <br>
+                   <label for="phone">Phone:</label> <em>+250787740316</em>
                 </div>
-                 <div class="side-nav" id="sideNav">
-                     <div class="profile-avatar">
-
-                     </div>
-
-                     <ul>
-                         <li><a href="questions.html">Questions Asked</a><span class="count">10</span></li>
-                         <li><a href="meetups-commented-on.html">Meetups Commented On</a><span class="count">4</span></li>
-                         <li><a href="edit-profile.html">Manage Account</a></li>
-                     </ul>
-                 </div>
-                 <div class="side-content">
-                     <h1 class="text-center text-white">Questions asked</h1>
-                     <div class="text-container">
-                         <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
+                <div class="right">
+                    <div class="light-data">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                       <div class="table">
+                           <div class="heading border-bottom">Number Of Questions Commented On</div> <div class="heading border-bottom">Number of Questions asked</div>
+                           <div>10 Questions</div><div> 3 Questions</div>
+                       </div class="table">
                     </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                    </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                    </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                   <div class="text-container">
-                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                   <div class="text-container">
-                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                     </div>
-                 </div>
+                </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
