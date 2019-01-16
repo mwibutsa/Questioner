@@ -14,7 +14,7 @@
     "createdBy": 1,
     "meetup": "1",
     "title": "Andela open session",
-    "votes": 0
+    "votes": 1
   },
   {
     "id": 3,
@@ -107,6 +107,22 @@
   {
     "id": 14,
     "createdOn": "2019-01-06T20:32:43.476Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 15,
+    "createdOn": "2019-01-16T08:37:25.214Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
+  },
+  {
+    "id": 16,
+    "createdOn": "2019-01-16T09:25:09.078Z",
     "createdBy": 1,
     "meetup": "1",
     "title": "Andela open session",
