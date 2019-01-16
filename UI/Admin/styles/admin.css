@@ -9,11 +9,8 @@
     padding: 1%;
     box-shadow: 1px 2px 4px #333;
 }
-.wrapper{
-    background-image: none;
-}
 body{
-    background: #EFE7CC;
+    background: rgb(245, 240, 225);
 }
 .home-header{
     margin-top: 300px;
@@ -31,7 +28,7 @@ body{
     width: 80%;
     margin-right: auto;
     margin-left: auto;
-    background: #888;
+    background: rgb(243, 236, 236);
     text-align: center;
 }
 .form-container{
