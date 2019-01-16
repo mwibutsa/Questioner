@@ -4,7 +4,10 @@
 	font-family: 'Ubuntu', sans-serif;
 	font-family: 'Raleway', sans-serif;
 }
-
+.center-self {
+	width: 30%;
+	margin: 1% auto 1% auto;
+}
 html,body{
 	height: 100%;
 	font-family: sans-serif;
@@ -28,11 +31,11 @@ html,body{
 /*footer*/
 
 .footer{
-	height: 150px;
+	height: 110px;
 	width: 100%;
 	position: relative;
 	background:#007acc;
-	margin-top: -150px;
+	margin-top: -125px;
 	clear: both;
 	padding-top: 1%;
 	color: white;
@@ -69,7 +72,7 @@ html,body{
 	height: 50px;
 	text-align: center;
 	box-shadow: 0px 1px 3px 0px #333;
-	background:#007acc;
+	background-color:#007acc;
 	position: fixed;
 	top: 0;
 	margin-bottom: 1%;
@@ -549,4 +552,9 @@ hr{
 }
 .border-bottom {
 	border-bottom: 2px solid #13334D;
+}
+.meetup-header{
+	background-image: url('../images/meetup1.jpeg');
+	height: 300px;
+	color: black;
 }
