@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
@@ -27,10 +28,16 @@
                     
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="user-profile.html">Username</a></li>
                     <li><a href="meetups.html">Mettups</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#">Account</a>
+                        <ul>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="sign-up.html">SignUp</a></li>
+                            <li><a href="user-profile.html">Profile</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- Emd of navigation links -->
 
@@ -45,15 +52,42 @@
             </div>
             <!--/Navigation-->
         </div>
+            <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                 <h1 class="text-center">About Questioner</h1>
-                 <hr>
-                <div class="text-container">
-                        <p>
-                                Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
-                        </p>
+                
+                <div class="contact-grid">
+                        <div class="form-container">
+                                <h1 class="text-center">Contact-us</h1>
+                                <form action="">
+                                    
+                                    <div class="form-input">
+                                       <label for="name">Full Name</label>
+                                       <input type="text" name="name" class="text-input">
+                                    </div>
+                                    <div class="form-input">
+                                       <label for="email">Email</label>
+                                       <input type="text" name="email" class="text-input">
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="message">Message</label>
+                                        <textarea name="message" id="message" class="textarea" rows="10"></textarea>
+                                    </div>
+                                    <button type="submit">Send</button>
+                                </form>
+                        </div>
+                        <div class="contact-info text-white" ">
+                            <div style="border:2px solid #333">
+                                    <h3>Contact</h3>
+                                    <hr>
+                                    <br>
+                                    <label>Email:&nbsp;</label><em>meetupholder@web.com</em><br><br>
+                                    <label>Tel:&nbsp;</label><em>+250787740316</em><br><br>
+                                    <label>Address:&nbsp;</label> <em>Kigali,Rwanda </em><br>
+                            </div>
+
+                        </div>
                 </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
@@ -104,4 +138,5 @@
     <!--/Footer-->
     
 </body>
+         
 </html>
