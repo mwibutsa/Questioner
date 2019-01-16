@@ -187,5 +187,31 @@
       "talent development",
       "bootcamp induction"
     ]
+  },
+  {
+    "id": 16,
+    "createdOn": "2019-01-16T11:08:25.112Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 17,
+    "createdOn": "2019-01-16T11:09:35.279Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
   }
 ]

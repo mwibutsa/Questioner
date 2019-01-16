@@ -1,12 +1,9 @@
 process.env.NODE_ENV = 'test';
-import meetups from '../routes/meetups';
-import questions from '../routes/questions';
-import reservations from '../routes/reservations';
 import app from '../../app';
 
 import chai from 'chai';
 
-let should = chai.should();
+chai.should();
 import chaiHttp from 'chai-http';
 chai.use(chaiHttp);
 
