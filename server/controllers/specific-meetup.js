@@ -1,17 +1,17 @@
-import fs from 'fs';
 import meetups from '../models/meetup';
+
+const compare = (value1, value2) => parseInt(value1, 10) === parseInt(value2, 10);
 const getMeetupById = (req, res) => {
-  const meetupById = meetups.find(meetup => parseInt(meetup.id) === parseInt(req.params.id));
+  const meetupById = meetups.find(meetup => compare(meetup.id.req.params.id));
   if (meetupById) {
-    res.json({
-    	status:200,
-    	data:meetupById
-    });
-  } else {
-    res.json({
-      status: 404,
-      error: 'The meetup with given id is not found',
+    return res.json({
+      status: 200,
+      data: meetupById,
     });
   }
+  return res.json({
+    status: 404,
+    error: 'The meetup with given id is not found',
+  });
 };
 export default getMeetupById;

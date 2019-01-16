@@ -1,24 +1,22 @@
-import fs from 'fs';
 import meetups from '../models/meetup';
-const getUpcommingMeetups = (req, res) => {
-  let now = new Date();
-  now = now.getTime();
-  const upComming = meetups.filter(meetup =>{
-    let intDate = meetup.happeningOn.split('-');
-    let date = new Date(parseInt(intDate[2]),parseInt(intDate[1]),parseInt(intDate[0]));
-    if(date.getTime() > (new Date()).getTime()){
-      return meetup;
-    }
 
-  });
-  
-  if (upComming) {
-    res.json({status:200,data:upComming});
-  } else {
-    res.json({
-      status: 404,
-      error: 'No upcomming meetups',
-    });
+const checkUpcomming = (meetup) => {
+  const d = meetup.happeningOn.split('-');
+  const date = new Date(parseInt(d[2], 10), parseInt(d[1], 10), parseInt(d[0], 10));
+  if (date.getTime() > (new Date()).getTime()) {
+    return true;
   }
+  return false;
+};
+const getUpcommingMeetups = (req, res) => {
+  const upComming = meetups.filter(meetup => checkUpcomming(meetup));
+
+  if (upComming) {
+    return res.json({ status: 200, data: upComming });
+  }
+  return res.json({
+    status: 404,
+    error: 'No upcomming meetups',
+  });
 };
 export default getUpcommingMeetups;
