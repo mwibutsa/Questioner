@@ -47,10 +47,10 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------',()=>{
             });
         });
     });
-    // TEST GET UPCOMMING MEETUPS
-    describe('/GET /api/v1/meetups/upcomming',()=>{
-        it('Should get all upcomming meetups',()=>{
-            chai.request(app).get('/api/v1/meetups/upcomming').end((err,res)=>{
+    // TEST GET UPCOMING MEETUPS
+    describe('/GET /api/v1/meetups/upcoming',()=>{
+        it('Should get all upcoming meetups',()=>{
+            chai.request(app).get('/api/v1/meetups/upcoming').end((err,res)=>{
                 res.should.have.status(200);
                 res.body.should.be.a('object');
             });
@@ -77,7 +77,7 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------',()=>{
                 images:"/images/test-images.jpg",
                 topic:"Andela open session",
                 happeningOn:"13-01-2019",
-                tags:['programming','talent development','bootcamp induction']
+                tags:['programing','talent development','bootcamp induction']
             }
             chai.request(app).post('/api/v1/meetups').send(meetup).end((err,res)=>{
                 res.should.have.status(200)
