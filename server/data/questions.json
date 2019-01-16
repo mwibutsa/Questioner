@@ -143,5 +143,13 @@
     "meetup": "1",
     "title": "Andela open session",
     "votes": 0
+  },
+  {
+    "id": 19,
+    "createdOn": "2019-01-16T11:39:47.757Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "votes": 0
   }
 ]
