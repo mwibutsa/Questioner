@@ -28,5 +28,4 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
   // TEST GET MEETUP REQUEST
 
 
-
-  });
+});

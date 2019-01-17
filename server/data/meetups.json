@@ -343,5 +343,26 @@
       "talent development",
       "bootcamp induction"
     ]
+  },
+  {
+    "id": 28,
+    "createdOn": "2019-01-17T14:35:12.728Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 29,
+    "createdOn": "2019-01-17T15:12:05.198Z",
+    "images": "",
+    "location": "COnvention center",
+    "topic": "Google developer challenge",
+    "happeningOn": "2019-01-27"
   }
 ]
