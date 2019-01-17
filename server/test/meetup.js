@@ -47,16 +47,21 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
         tags: ['programing', 'talent development', 'bootcamp induction'],
       };
       chai.request(app).post('/api/v1/meetups').send(meetup).end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-        let meetup = res.body.data;
-          meetup.should.have.property('id').eql(meetup.id);
-          meetup.should.have.property('createdOn');
-          meetup.should.have.property('location');
-          meetup.should.have.property('images');
-          meetup.should.have.property('topic');
-          meetup.should.have.property('happeningOn');
-          meetup.should.have.property('tags');
+        try{
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            let meetup = res.body.data;
+            meetup.should.have.property('id').eql(meetup.id);
+            meetup.should.have.property('createdOn');
+            meetup.should.have.property('location');
+            meetup.should.have.property('images');
+            meetup.should.have.property('topic');
+            meetup.should.have.property('happeningOn');
+            meetup.should.have.property('tags');
+        }
+        catch(err) {
+            throw err;
+        }
       });
     });
   });
@@ -68,8 +73,13 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
         meetup: 1,
         answer: 'Yes',
       };
-      chai.request(app).post('/api/v1/meetups/1/rsvp').send(reservation).end((err, res) => {
-        res.should.have.status(200);
+      chai.request(app).post('/api/v1/meetups/1/rsvp').send(reservation).end((err,res) => {
+          try{
+              res.should.have.status(200);
+          }
+          catch(error){
+            throw error;
+          }
       });
     });
   });

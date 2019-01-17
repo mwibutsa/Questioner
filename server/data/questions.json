@@ -34,5 +34,27 @@
     "downvotes": 0,
     "upvotedBy": [],
     "downVotedBy": []
+  },
+  {
+    "id": 4,
+    "createdOn": "2019-01-17T10:53:46.232Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downVotedBy": []
+  },
+  {
+    "id": 5,
+    "createdOn": "2019-01-17T10:59:39.976Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downVotedBy": []
   }
 ]
