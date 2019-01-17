@@ -41,15 +41,15 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
         id: 1,
         createdOn: new Date(),
         location: 'Telecom house',
-        images: '/images/test-images.jpg',
         topic: 'Andela open session',
         happeningOn: '13-01-2019',
         tags: ['programing', 'talent development', 'bootcamp induction'],
       };
       chai.request(app).post('/api/v1/meetups').send(meetup).end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.be.a('object');
-        let meetup = res.body.data;
+        try {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          const meetup = res.body.data;
           meetup.should.have.property('id').eql(meetup.id);
           meetup.should.have.property('createdOn');
           meetup.should.have.property('location');
@@ -57,6 +57,9 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
           meetup.should.have.property('topic');
           meetup.should.have.property('happeningOn');
           meetup.should.have.property('tags');
+        } catch (err) {
+          throw err;
+        }
       });
     });
   });
@@ -69,10 +72,12 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
         answer: 'Yes',
       };
       chai.request(app).post('/api/v1/meetups/1/rsvp').send(reservation).end((err, res) => {
-        res.should.have.status(200);
+        try {
+          res.should.have.status(200);
+        } catch (error) {
+          throw error;
+        }
       });
     });
   });
-
-
 });
