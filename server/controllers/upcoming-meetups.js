@@ -1,6 +1,6 @@
 import meetups from '../models/meetup';
 
-const checkUpcomming = (meetup) => {
+const checkUpcoming = (meetup) => {
   const d = meetup.happeningOn.split('-');
   const date = new Date(parseInt(d[2], 10), parseInt(d[1], 10), parseInt(d[0], 10));
   if (date.getTime() > (new Date()).getTime()) {
@@ -8,15 +8,15 @@ const checkUpcomming = (meetup) => {
   }
   return false;
 };
-const getUpcommingMeetups = (req, res) => {
-  const upComming = meetups.filter(meetup => checkUpcomming(meetup));
+const getUpcomingMeetups = (req, res) => {
+  const upComing = meetups.filter(meetup => checkUpcoming(meetup));
 
-  if (upComming) {
-    return res.json({ status: 200, data: upComming });
+  if (upComing) {
+    return res.json({ status: 200, data: upComing });
   }
   return res.json({
     status: 404,
-    error: 'No upcomming meetups',
+    error: 'No upcoming meetups',
   });
 };
-export default getUpcommingMeetups;
+export default getUpcomingMeetups;

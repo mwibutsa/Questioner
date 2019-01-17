@@ -21,7 +21,7 @@ const registerUser = (req, res) => {
   fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
   res.json({
     status: 200,
-    data: users,
+    data: newUser,
   });
 };
 export default registerUser;

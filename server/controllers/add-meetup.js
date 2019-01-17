@@ -28,6 +28,6 @@ const addMeetup = (req, res) => {
   };
   meetups.push(newMeetup);
   fs.writeFileSync(path.resolve(__dirname, '../data/meetups.json'), JSON.stringify(meetups, null, 2));
-  res.json({ status: 200, data: meetups });
+  res.json({ status: 200, data: newMeetup });
 };
 export default addMeetup;

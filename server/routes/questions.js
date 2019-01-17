@@ -1,10 +1,12 @@
 import express from 'express';
 
-import voteQuestion from '../controllers/vote-question';
+import downVoteQuestion  from '../controllers/downvote';
+import voteQuestion  from '../controllers/upvote';
 import getQuestions from '../controllers/questions';
 
 const router = express.Router();
 router.get('/', getQuestions);
-router.put('/:id/:voteMethod', voteQuestion);
+router.patch('/:id/upvote', voteQuestion);
+router.patch('/:id/downvote',downVoteQuestion);
 
 export default router;

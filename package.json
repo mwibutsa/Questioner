@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-core/register --require babel-polyfill ./app.js",
-    "test": "nyc mocha ./server/test --compilers js:babel-core/register --timeout 10000 --exit",
+    "test": "nyc mocha ./server/test/*.js --compilers js:babel-core/register --timeout 10000 --exit",
     "dev": "nodemon --require babel-core/register --require babel-polyfill ./app.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },

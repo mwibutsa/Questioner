@@ -187,5 +187,122 @@
       "talent development",
       "bootcamp induction"
     ]
+  },
+  {
+    "id": 16,
+    "createdOn": "2019-01-16T11:08:25.112Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 17,
+    "createdOn": "2019-01-16T11:09:35.279Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 18,
+    "createdOn": "2019-01-16T11:39:47.745Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 19,
+    "createdOn": "2019-01-17T09:55:05.542Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 20,
+    "createdOn": "2019-01-17T10:35:24.432Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 21,
+    "createdOn": "2019-01-17T10:39:13.170Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 22,
+    "createdOn": "2019-01-17T10:42:11.945Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 23,
+    "createdOn": "2019-01-17T10:47:43.432Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 24,
+    "createdOn": "2019-01-17T10:49:18.012Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "13-01-2019",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
   }
 ]
