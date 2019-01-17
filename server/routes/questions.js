@@ -5,6 +5,6 @@ import getQuestions from '../controllers/questions';
 
 const router = express.Router();
 router.get('/', getQuestions);
-router.put('/:id/:voteMethod', voteQuestion);
+router.patch('/:id/:voteMethod', voteQuestion);
 
 export default router;
