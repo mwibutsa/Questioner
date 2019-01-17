@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import questions from '../models/question';
+import joi from 'joi';
 
 const addQuestion = (req, res) => {
   const userId = 1;
