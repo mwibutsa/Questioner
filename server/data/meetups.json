@@ -364,5 +364,57 @@
     "location": "COnvention center",
     "topic": "Google developer challenge",
     "happeningOn": "2019-01-27"
+  },
+  {
+    "id": 30,
+    "createdOn": "2019-01-17T18:35:28.829Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "2019-04-02T22:00:00.000Z",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 31,
+    "createdOn": "2019-01-17T18:35:54.781Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "2019-04-02T22:00:00.000Z",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 32,
+    "createdOn": "2019-01-17T18:39:37.153Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "2019-04-02T22:00:00.000Z",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
+  },
+  {
+    "id": 33,
+    "createdOn": "2019-01-17T18:40:42.536Z",
+    "images": "",
+    "location": "Telecom house",
+    "topic": "Andela open session",
+    "happeningOn": "2019-04-02T22:00:00.000Z",
+    "tags": [
+      "programing",
+      "talent development",
+      "bootcamp induction"
+    ]
   }
 ]

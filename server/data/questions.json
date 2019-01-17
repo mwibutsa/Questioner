@@ -12,5 +12,17 @@
     "downvotedBy": [
       1
     ]
+  },
+  {
+    "id": 2,
+    "createdOn": "2019-01-17T18:40:42.549Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "body": "Hello I am asking how does andela make money?",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downVotedBy": []
   }
 ]

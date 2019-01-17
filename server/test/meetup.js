@@ -37,15 +37,13 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
 
   describe('/POST /api/v1/meetups', () => {
     it('Should post a meetup', () => {
-      const meetup = {
-        id: 1,
-        createdOn: new Date(),
+      const newMeetup = {
         location: 'Telecom house',
         topic: 'Andela open session',
-        happeningOn: '13-01-2019',
+        happeningOn: new Date(2019, 3, 3),
         tags: ['programing', 'talent development', 'bootcamp induction'],
       };
-      chai.request(app).post('/api/v1/meetups').send(meetup).end((err, res) => {
+      chai.request(app).post('/api/v1/meetups').send(newMeetup).end((err, res) => {
         try {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -57,8 +55,8 @@ describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
           meetup.should.have.property('topic');
           meetup.should.have.property('happeningOn');
           meetup.should.have.property('tags');
-        } catch (err) {
-          throw err;
+        } catch (error) {
+          throw error;
         }
       });
     });

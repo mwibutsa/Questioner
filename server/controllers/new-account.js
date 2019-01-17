@@ -7,7 +7,7 @@ import Validation from '../helpers/validation';
 
 
 const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({
         status: 400,
