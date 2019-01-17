@@ -6,8 +6,10 @@ import getMeetupById from '../controllers/specific-meetup';
 import addQuestion from '../controllers/add-question';
 import attendMeetup from '../controllers/reservations';
 import getUpcomingMeetups from '../controllers/upcoming-meetups';
+import getQuestions from '../controllers/questions';
 
 const router = express.Router();
+router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
 router.post('/:id/rsvp', attendMeetup);
 router.post('/:id', addQuestion);

@@ -6,7 +6,7 @@ import Validation from '../helpers/validation';
 
 const attendMeetup = (req, res) => {
   joi.validate(req.body, Validation.rsvpSchema, Validation.validationOption, (err, result) => {
-    
+
   });
   const newReservation = {
     id: reservations.length + 1,

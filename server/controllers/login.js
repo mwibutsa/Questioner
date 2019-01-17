@@ -3,7 +3,7 @@ import users from '../models/user';
 import Validation from '../helpers/validation';
 
 const authenticateUser = (req, res) => {
-  joi.validate(req.body, Validation.loginSchema, Validation.validationOption, (err, res) => {
+  joi.validate(req.body, Validation.loginSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({
         status: 500,
@@ -14,7 +14,7 @@ const authenticateUser = (req, res) => {
       username: req.body.username,
       password: req.body.password,
     };
-    const user = users.find(user => user.username === userAccount.username && user.password === userAccount.password);
+    const user = users.find(usr => usr.username === userAccount.username && usr.password === userAccount.password);
     if (user) {
       res.json({
         status: 200,

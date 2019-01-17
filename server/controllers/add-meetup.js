@@ -18,7 +18,7 @@ const addMeetup = (req, res) => {
       }
     });
   }
-  
+
   joi.validate(req.body, Validation.meetupSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({

@@ -1,21 +1,7 @@
 [
   {
-    "id": 1,
-    "createdOn": "2019-01-17T09:18:02.448Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Question title",
-    "body": "Hey is this the place to write  a quesiton body??",
-    "upvotes": 0,
-    "downvotes": 1,
-    "upvotedBy": [],
-    "downvotedBy": [
-      1
-    ]
-  },
-  {
-    "id": 2,
-    "createdOn": "2019-01-17T18:40:42.549Z",
+    "id": 3,
+    "createdOn": "2019-01-17T19:59:34.052Z",
     "createdBy": 1,
     "meetup": "1",
     "title": "Andela open session",
@@ -23,6 +9,56 @@
     "upvotes": 0,
     "downvotes": 0,
     "upvotedBy": [],
-    "downVotedBy": []
+    "downvotedBy": []
+  },
+  {
+    "id": 4,
+    "createdOn": "2019-01-17T20:06:23.574Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "My Question is addressed to Mrs Philp Newman",
+    "body": "So, Phillip among  andela development levels which one are you on?. Thank you",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 6,
+    "createdOn": "2019-01-17T20:23:46.833Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "body": "Hello I am asking how does andela make money?",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 1,
+    "createdOn": "2019-01-17T09:18:02.448Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Question title",
+    "body": "Hey is this the place to write  a quesiton body??",
+    "upvotes": 0,
+    "downvotes": 0,
+    "upvotedBy": [],
+    "downvotedBy": []
+  },
+  {
+    "id": 5,
+    "createdOn": "2019-01-17T20:06:34.304Z",
+    "createdBy": 1,
+    "meetup": "2",
+    "title": "My Question is addressed to Mrs Philp Newman",
+    "body": "So, Phillip among  andela development levels which one are you on?. Thank you",
+    "upvotes": 1,
+    "downvotes": 0,
+    "upvotedBy": [
+      1
+    ],
+    "downvotedBy": []
   }
 ]
