@@ -1,155 +1,16 @@
 [
   {
     "id": 1,
-    "createdOn": "2019-01-05T09:49:52.154Z",
+    "createdOn": "2019-01-17T09:18:02.448Z",
     "createdBy": 1,
     "meetup": "1",
-    "title": "Andela open session",
-    "body": "Hello I would like to ask what is andela and how it get stared",
-    "votes": -1
-  },
-  {
-    "id": 2,
-    "createdOn": "2019-01-05T10:45:08.824Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 1
-  },
-  {
-    "id": 3,
-    "createdOn": "2019-01-05T10:45:59.134Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 4,
-    "createdOn": "2019-01-05T10:48:03.207Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 5,
-    "createdOn": "2019-01-05T11:36:57.866Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 6,
-    "createdOn": "2019-01-05T11:54:58.363Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 7,
-    "createdOn": "2019-01-06T10:54:05.255Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 8,
-    "createdOn": "2019-01-06T11:01:09.183Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 9,
-    "createdOn": "2019-01-06T11:14:14.814Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 10,
-    "createdOn": "2019-01-06T12:41:57.923Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 11,
-    "createdOn": "2019-01-06T19:57:04.470Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 13,
-    "createdOn": "2019-01-06T20:28:50.207Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 14,
-    "createdOn": "2019-01-06T20:31:20.134Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 14,
-    "createdOn": "2019-01-06T20:32:43.476Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 15,
-    "createdOn": "2019-01-16T08:37:25.214Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 16,
-    "createdOn": "2019-01-16T09:25:09.078Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 17,
-    "createdOn": "2019-01-16T11:08:25.124Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 18,
-    "createdOn": "2019-01-16T11:09:35.296Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
-  },
-  {
-    "id": 19,
-    "createdOn": "2019-01-16T11:39:47.757Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "votes": 0
+    "title": "Question title",
+    "body": "Hey is this the place to write  a quesiton body??",
+    "upvotes": 0,
+    "downvotes": 1,
+    "upvotedBy": [],
+    "downvotedBy": [
+      1
+    ]
   }
 ]
