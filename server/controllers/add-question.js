@@ -3,12 +3,13 @@ import path from 'path';
 import joi from 'joi';
 import questions from '../models/question';
 import Validation from '../helpers/validation';
+
 const addQuestion = (req, res) => {
   joi.validate(req.body, Validation.questionSchema, Validation.validationOption, (err, result) => {
     if (err) {
       return res.json({
         status: 400,
-        error:[...err.details]
+        error: [...err.details],
       });
     }
 
