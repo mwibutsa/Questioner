@@ -5,14 +5,14 @@ import Validation from '../helpers/validation';
 const authenticateUser = (req, res) => {
   joi.validate(req.body, Validation.loginSchema, Validation.validationOption, (err, result) => {
     if (err) {
-      return res.json({
+      return res.statu(500).json({
         status: 500,
         error: err,
       });
     }
     const userAccount = {
-      username: req.body.username,
-      password: req.body.password,
+      username: result.username,
+      password: result.password,
     };
     const user = users.find(usr => usr.username === userAccount.username && usr.password === userAccount.password);
     if (user) {

@@ -7,7 +7,7 @@ process.env.NODE_ENV = 'test';
 chai.should();
 chai.use(chaiHttp);
 
-describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
+describe('COMMENT TEST RESULTS \n ---------------------------', () => {
   // describe('/GET /api/v1/comments',()=>{
   //     it('Should get all comments',()=>{
   //         chai.request(app).get('/api/v1/comments').end((err,res)=>{

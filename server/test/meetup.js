@@ -6,7 +6,7 @@ process.env.NODE_ENV = 'test';
 chai.should();
 chai.use(chaiHttp);
 
-describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
+describe('MEETUP TEST RESULTS \n ---------------------------', () => {
   describe('/GET /api/v1/meetups', () => {
     it('Should get all meetups', () => {
       chai.request(app).get('/api/v1/meetups').end((err, res) => {

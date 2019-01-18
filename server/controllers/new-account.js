@@ -17,15 +17,15 @@ const registerUser = (req, res) => {
 
     const newUser = {
       id: uuid.v4(),
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      othername: req.body.lastname,
-      email: req.body.email,
-      phoneNumber: req.body.phoneNumber,
-      username: req.body.username,
+      firstname: result.firstname,
+      lastname: result.lastname,
+      othername: result.othername,
+      email: result.email,
+      phoneNumber: result.phoneNumber,
+      username: result.username,
       registered: new Date(),
-      password: req.body.password,
-      cpassword: req.body.cpassword,
+      password: result.password,
+      cpassword: result.cpassword,
       isAdmin: false,
     };
     users.push(newUser);
