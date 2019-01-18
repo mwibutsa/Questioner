@@ -31,10 +31,21 @@ class Helper {
           question.upvotedBy.splice(upvoters.indexOf(userId), 1);
           question.downvotedBy.push(userId);
         }
+        else{
+          if(upvoters.find(ids => this.intCastCompare(ids,userId)) && voteMethod === "upvote"){
+            question.upvotes -= 1;
+            question.upvotedBy.splice(upvoters.indexOf(userId),1);
+          }
+            else{
+              question.downvotes -= 1;
+              question.downvotedBy.splice(upvoters.indexOf(userId),1)
+            }
+
+          }
+        }
+        questions.push(question);
+        return { question, questions };
       }
-      questions.push(question);
-      return { question, questions };
     };
   }
-}
 export default new Helper();

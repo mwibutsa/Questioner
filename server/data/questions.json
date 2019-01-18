@@ -202,11 +202,9 @@
     "meetup": "1",
     "title": "Question title",
     "body": "Hey is this the place to write  a quesiton body??",
-    "upvotes": 1,
+    "upvotes": 0,
     "downvotes": 0,
-    "upvotedBy": [
-      1
-    ],
+    "upvotedBy": [],
     "downvotedBy": []
   }
 ]
