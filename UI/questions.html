@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Questioner | Profile</title>
+    <title>Questioner | Login</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-   <script type="text/javascript" src="scripts/main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body>
    
      <!--Page wrapper-->
-    <div class="wrapper">
+    <div class="wrapper bg-img">
 
         <!--Main page body-->
         <div class="main">
 
-            <!-- Navigation container-->
             <!-- Navigation container-->
             <div class="navigation">
 
@@ -31,67 +31,46 @@
                                         <li><a href="index.html">Home</a></li>
                                         <li><a href="meetups.html">Mettups</a></li>
                                         <li><a href="login.html">Login</a></li>
-                                        <li><a href="user-profile.html">Username</a></li>
+                                        <li><a href="user-profile.html">Profile</a></li>
                                     </ul>
                                     <!-- Emd of navigation links -->
             
                                 <!-- navigation toggle icon visible on small devices -->
                                 
                                 <!-- end of  navigation toggle icon -->
-                            </nav><!--/Navigation-->
+                            </nav>
                             <div class="nav-icon" onclick="return showNavigation()">
                                 <div class="bar1"></div>
                                 <div class="bar2"></div>
                                 <div class="bar3"></div>
                             </div>
+                <!--/Navigation-->
             </div>
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
-            <div class="main-content grid-2-cols">
-                <div class="nav-icon user-profile-menu" onclick="sowUserNavigation();">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                 <div class="side-nav" id="sideNav">
-                     <div class="profile-avatar">
+            <div class="main-content">
+                 <div class="form-container">
+                     <h2 class="text-center">Log into Your Account</h2>
+                     <form action="" method="POST">
+                         <div class="forn-input">
+                             <label for="username">Username</label>
+                             <input type="text" name="username" id="username" class="text-input" required>
+                        </div>
+                        <br>
+                        <div class="forn-input">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="text-input" required>
+                        </div>
+                        <br>
+                        <button type="submit" class="button">Login</button>
                         
-                     </div>
-
-                     <ul>
-                         <li><a href="questions.html">Questions Asked</a><span class="count">10</span></li>
-                         <li><a href="meetups-commented-on.html">Meetups Commented On</a><span class="count">4</span></li>
-                         <li><a href="edit-profile.html">Manage Account</a></li>
-                     </ul>
-                 </div>
-                 <div class="side-content">
-                     <h1 class="text-center text-white">Questions asked</h1>
-                     <div class="text-container">
-                         <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                    </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                    </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                    </div>
-                    <div class="text-container">
-                        <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                   <div class="text-container">
-                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                   <div class="text-container">
-                       <div class="title-info"><strong class="title">Meetup topic</strong>&nbsp;<em class="extra">On 29,09 2018</em></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ducimus delectus deserunt culpa, unde impedit in fugit consectetur aspernatur minima.</p>
-                   </div>
-                     </div>
+                         &nbsp;  No Account? <a href="sign-up.html">Create Account</a>
+                         <hr>
+                         <span style="float:right">Forgot password? <a href="reset-password.html">Reset</a></span>
+                         <br>
+                         <br>
+                     </form>
                  </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
@@ -141,5 +120,5 @@
     </footer>
     <!--/Footer-->
     
-</body>
+  </body>
 </html>
