@@ -11,7 +11,7 @@ import getQuestions from '../controllers/questions';
 const router = express.Router();
 router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
-router.post('/:id/rsvp', attendMeetup);
+router.post('/:id/rsvps', attendMeetup);
 router.post('/:id', addQuestion);
 router.post('/', addMeetup);
 router.get('/upcoming', getUpcomingMeetups);

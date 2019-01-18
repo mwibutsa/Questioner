@@ -1,17 +1,5 @@
 [
   {
-    "id": 3,
-    "createdOn": "2019-01-17T19:59:34.052Z",
-    "createdBy": 1,
-    "meetup": "1",
-    "title": "Andela open session",
-    "body": "Hello I am asking how does andela make money?",
-    "upvotes": 0,
-    "downvotes": 0,
-    "upvotedBy": [],
-    "downvotedBy": []
-  },
-  {
     "id": 4,
     "createdOn": "2019-01-17T20:06:23.574Z",
     "createdBy": 1,
@@ -204,5 +192,19 @@
     "downvotes": 0,
     "upvotedBy": [],
     "downVotedBy": []
+  },
+  {
+    "id": 3,
+    "createdOn": "2019-01-17T19:59:34.052Z",
+    "createdBy": 1,
+    "meetup": "1",
+    "title": "Andela open session",
+    "body": "Hello I am asking how does andela make money?",
+    "upvotes": 1,
+    "downvotes": 0,
+    "upvotedBy": [
+      1
+    ],
+    "downvotedBy": []
   }
 ]

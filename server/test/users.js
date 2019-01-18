@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../../app';
 import uuid from 'uuid';
+import app from '../../app';
 
 process.env.NODE_ENV = 'test';
 
@@ -39,7 +39,7 @@ describe('USER TEST RESULT \n ---------------------------', () => {
       };
       chai.request(app).post('/api/users/new-account').send(userAccount).end((err, res) => {
         try {
-            res.should.have.status(200);
+          res.should.have.status(200);
         } catch (error) {
           throw error;
         }
