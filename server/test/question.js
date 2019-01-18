@@ -7,7 +7,7 @@ process.env.NODE_ENV = 'test';
 chai.should();
 chai.use(chaiHttp);
 
-describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
+describe('QUESTION TEST RESULTS \n ---------------------------', () => {
   describe('/POST /api/v1/meetups/:id', () => {
     it('Should post a question', () => {
       const Question = {

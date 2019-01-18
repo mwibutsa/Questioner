@@ -30,10 +30,10 @@ const addMeetup = (req, res) => {
       id: meetups.length + 1,
       createdOn: new Date(),
       images: filePath,
-      location: req.body.location,
-      topic: req.body.topic,
-      happeningOn: req.body.happeningOn,
-      tags: req.body.tags,
+      location: result.location,
+      topic: result.topic,
+      happeningOn: result.happeningOn,
+      tags: result.tags,
     };
     meetups.push(newMeetup);
     fs.writeFileSync(path.resolve(__dirname, '../data/meetups.json'), JSON.stringify(meetups, null, 2));

@@ -7,7 +7,8 @@
     "start": "node --require babel-core/register --require babel-polyfill ./app.js",
     "test": "nyc mocha ./server/test/*.js --compilers js:babel-core/register --timeout 10000 --exit",
     "dev": "nodemon --require babel-core/register --require babel-polyfill ./app.js",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint":"eslint *.js --fix"
   },
   "engines": {
     "node": "10.x"

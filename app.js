@@ -39,7 +39,6 @@ app.use('/api/v1/meetups', meetups);
 app.use('/api/v1/questions', questions);
 app.use('/api/v1/users', users);
 app.use(pageNotFound);
-app.listen(app.get('port'), () => {
-  console.log(`server started on port ${port}`);
-});
+app.listen(app.get('port'));
+
 export default app;
