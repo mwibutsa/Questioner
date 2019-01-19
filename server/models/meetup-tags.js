@@ -1,9 +1,8 @@
 import Database from '../db/db-connection';
 
-const reservations = async () => {
-  const sql = 'SELECT * FROM reservation_table';
+const meetupTags = async () => {
+  const sql = 'SELECT * FROM meetup_tags_table';
   const { rows } = await Database.executeQuery(sql);
   return [...rows];
 };
-
-export default reservations;
+export default meetupTags;
