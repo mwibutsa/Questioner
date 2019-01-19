@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body onload="toggleCommentForm();">
@@ -32,7 +33,7 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="meetups.html">Mettups</a></li>
                                     <li><a href="login.html">Login</a></li>
-                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="user-profile.html">Profile</a></li>
                                 </ul>
                                 <!-- Emd of navigation links -->
 
@@ -49,15 +50,23 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-             
-                 <section class="meetup-topic">
-                    <h2 class="topic text-center text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, vel!</h2>
-                    <hr>
-                    <div class="text-container">
-                            <p class="readable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium debitis expedita impedit eveniet necessitatibus, vero atque porro excepturi accusamus quidem repudiandae assumenda perspiciatis, ducimus perferendis modi sapiente nisi, at doloribus!</p>
-                            <em>Happening On 28<sup>th</sup> December 2019</em>
+                    <div class="page-header-container text-center meetup-header">
+                            <p class="text-center">
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                      
+                                <h1 class="text-center" style="font-size:80px;">Welcome to Andela open Session</h1>
+                                <h3>
+                                    <p style="width:50%; margin-left:auto;margin-right:auto">
+                                       Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
+                                   </p>
+                                </h3>
+                                <br>
+                            </p>
                         </div>
-                </section>
                  <!--MEET UP QUESTIONS SECTION -->
                  <section class="text-container">
 
@@ -90,25 +99,23 @@
                         <section>
 
                                 <div class="text-container">
-                                        <span class="votes">(19 -Votes)</span>
+                                        <span class="votes">Mwibutsa</span>
+                                        <h3>Question about andela application</h3>
                                         <p>     
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio odit tempore sunt,
-                                                autem pariatur nam aliquam dolor omnis,
-                                                consectetur iusto dignissimos vel, vitae quia nemo consequuntur 
-                                                incidunt blanditiis molestias. Error.
+                                            Is it a good idea for a beginner programmer to join Andela in Nigeria?
                                             </p>
                 
                                             <div class="voting-form" >
-                                                <form action="#" method="POST" class="inline-form">
+                                                <form class="inline-form">
                                                     <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Upvote</button>
+                                                    <button type="submit"><b>17</b> <i class="fa fa-thumbs-o-up"></i></button>
                                                 </form>
-                                                <form action="#" method="POST" class="inline-form">
+                                                <form  class="inline-form">
                                                     <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Downvote</button>
+                                                    <button type="submit"><b>6</b> <i class="fa fa-thumbs-o-down"></i></button>
                                                 </form>
                                             </div>
-                                            <button class="comment-toggle">Comment on this question</button>
+                                            <button class="comment-toggle">Comment (<b>5</b>)</button>
                                             <div class="form-container comment">
                                                 <div class="meetup-form">
                                                     <form action="#" method="POST">
@@ -123,25 +130,24 @@
                                 </div>
                                 <hr>
                                 <div class="text-container">
-                                        <span class="votes">(8 -Votes)</span>
-                                        <p>     
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio odit tempore sunt,
-                                                autem pariatur nam aliquam dolor omnis,
-                                                consectetur iusto dignissimos vel, vitae quia nemo consequuntur 
-                                                incidunt blanditiis molestias. Error.
-                                            </p>
+                                        <span class="votes">Nkunzi</span>
+                                        <h3>Question tobe answered by John</h3>
+                                        <p>
+                                            Hey John I would like to ask you the level on which you are among all the D levels of Andela. Thankyou
+                                        </p>
                 
-                                            <div class="voting-form" >
-                                                <form action="#" method="POST" class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Upvote</button>
-                                                </form>
-                                                <form action="#" method="POST" class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Downvote</button>
-                                                </form>
+                                        <div class="voting-form" >
+                                            <form class="inline-form">
+                                                <input type="hidden" name="upvote" value="1">
+                                                <button type="submit"><b>7</b> <i class="fa fa-thumbs-o-up"></i></button>
+                                            </form>
+                                            <form  class="inline-form">
+                                                <input type="hidden" name="upvote" value="1">
+                                                <button type="submit"><b>4</b> <i class="fa fa-thumbs-o-down"></i></button>
+                                            </form>
+                                        </div>
                                             </div>
-                                            <button class="comment-toggle">Comment on this question</button>
+                                            <button class="comment-toggle">Comment (<b>5</b>)</button>
                                             <div class="form-container comment">
                                                 <div class="meetup-form">
                                                     <form action="#" method="POST">
@@ -156,25 +162,23 @@
                                 </div>
                                 <hr>
                                 <div class="text-container">
-                                        <span class="votes">(3 -Votes)</span>
+                                        <span class="votes">Emmy</span>
+                                        <h3>My Question is addressed to Phillip Newman</h3>
                                         <p>     
-                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio odit tempore sunt,
-                                                autem pariatur nam aliquam dolor omnis,
-                                                consectetur iusto dignissimos vel, vitae quia nemo consequuntur 
-                                                incidunt blanditiis molestias. Error.
+                                            The quesion I want to ask you is about the founder of Andela and The way it makes money so that one ca rely upon it's sustainability
                                             </p>
                 
                                             <div class="voting-form" >
-                                                <form action="#" method="POST" class="inline-form">
+                                                <form class="inline-form">
                                                     <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Upvote</button>
+                                                    <button type="submit"><b>2</b> <i class="fa fa-thumbs-o-up"></i></button>
                                                 </form>
-                                                <form action="#" method="POST" class="inline-form">
+                                                <form  class="inline-form">
                                                     <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit">Downvote</button>
+                                                    <button type="submit"><b>3</b> <i class="fa fa-thumbs-o-down"></i></button>
                                                 </form>
                                             </div>
-                                            <button class="comment-toggle">Comment on this question</button>
+                                            <button class="comment-toggle">Comment (<b>1</b>)</button>
                                             <div class="form-container comment">
                                                 <div class="meetup-form">
                                                     <form action="#" method="POST">
