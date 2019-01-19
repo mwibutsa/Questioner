@@ -1,4 +1,6 @@
 import express from 'express';
+import favicon from 'serve-favicon';
+import path from 'path';
 import fileUpload from 'express-fileupload';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -11,6 +13,7 @@ import pageNotFound from './server/controllers/notfound';
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 app.use(session({
   resave: false,
   saveUninitialized: true,
@@ -22,7 +25,7 @@ app.use(session({
 app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(logger());
+app.use(logger('dev'));
 
 app.set('port', port);
 app.get('/', (req, res) => {
