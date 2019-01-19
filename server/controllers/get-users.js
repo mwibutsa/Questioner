@@ -1,10 +1,10 @@
 import users from '../models/user';
 
-const getUsers = (req, res) => {
+const getUsers = async (req, res) => {
   if (users) {
     return res.json({
       status: 200,
-      data: users,
+      data: await users(),
     });
   }
 

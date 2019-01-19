@@ -1,8 +1,9 @@
 import questions from '../models/question';
 import Helper from '../helpers/helpers';
 
-const getQuestionById = (req, res) => {
-  const questionById = questions.find(question => Helper.intCastCompare(req.params.id, question.id));
+const getQuestionById = async (req, res) => {
+  const allQuestions = await questions();
+  const questionById = allQuestions.find(question => Helper.intCastCompare(req.params.id, question.id));
   if (questionById) {
     return res.json({
       status: 200,

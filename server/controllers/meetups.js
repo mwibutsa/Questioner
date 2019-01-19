@@ -1,8 +1,8 @@
 import meetups from '../models/meetup';
 
-const getMeetups = (req, res) => res.json({
+const getMeetups = async (req, res) => res.json({
   status: 200,
-  data: meetups,
+  data: await meetups(),
 });
 
 export default getMeetups;

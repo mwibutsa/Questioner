@@ -1,6 +1,9 @@
-import fs from 'fs';
-import path from 'path';
+import Database from '../db/db-connection';
 
-const question = fs.readFileSync(path.resolve(__dirname, '../data/questions.json'), { encoding: 'utf8' });
-const questions = JSON.parse(question) || [];
+const questions = async () => {
+  const sql = 'SELECT * FROM question_table';
+  const { rows } = await Database.executeQuery(sql);
+  return [...rows];
+};
+
 export default questions;

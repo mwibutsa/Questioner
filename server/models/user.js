@@ -1,6 +1,8 @@
-import fs from 'fs';
-import path from 'path';
+import Database from '../db/db-connection';
 
-const user = fs.readFileSync(path.resolve(__dirname, '../data/users.json'), { encoding: 'utf8' });
-const users = JSON.parse(user);
+const users = async () => {
+  const sql = 'SELECT * FROM user_table';
+  const { rows } = await Database.executeQuery(sql);
+  return [...rows];
+};
 export default users;

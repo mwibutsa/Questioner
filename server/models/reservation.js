@@ -1,8 +1,9 @@
-import fs from 'fs';
-import path from 'path';
+import Database from '../db/db-connection';
 
-fs.readFileSync(path.resolve(__dirname, '../data/reservations.json'), { encoding: 'utf8' });
+const reservations = async () => {
+  const sql = 'SELECT * FROM reservation_table';
+  const { rows } = Database.executeQuery(sql);
+  return [...rows];
+};
 
-const reservation = fs.readFileSync(path.resolve(__dirname, '../data/reservations.json'), { encoding: 'utf8' });
-const reservations = JSON.parse(reservation) || [];
 export default reservations;
