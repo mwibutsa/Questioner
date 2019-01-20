@@ -1,13 +1,12 @@
 import uuid from 'uuid';
-import fs from 'fs';
-import path from 'path';
 import joi from 'joi';
-import users from '../models/user';
+import Helper from '../helpers/helpers';
+import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 
-const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, result) => {
+const registerUser = async (req, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption, async (err, result) => {
     if (err) {
       return res.json({
         status: 400,
@@ -15,25 +14,39 @@ const registerUser = (req, res) => {
       });
     }
 
-    const newUser = {
-      id: uuid.v4(),
-      firstname: result.firstname,
-      lastname: result.lastname,
-      othername: result.othername,
-      email: result.email,
-      phoneNumber: result.phoneNumber,
-      username: result.username,
-      registered: new Date(),
-      password: result.password,
-      cpassword: result.cpassword,
-      isAdmin: false,
-    };
-    users.push(newUser);
-    fs.writeFileSync(path.resolve(__dirname, '../data/users.json'), JSON.stringify(users, null, 2));
-    res.json({
-      status: 200,
-      data: newUser,
-    });
+    const newUser = [
+      uuid.v4(), // id
+      result.firstname,
+      result.othername,
+      result.lastname,
+      result.email,
+      result.username,
+      result.phoneNumber,
+      new Date(), // registered on
+      0, // is_admin
+      Helper.hashPassword(result.password, 12),
+      'ABX#4454$', // token
+      0, // confirmed
+    ];
+    const sql = `INSERT INTO user_table (id,firstname,othername,
+      lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+    try {
+      const { rows } = await Database.executeQuery(sql, newUser);
+      if (rows) {
+        return res.status(201).json({
+          status: 201,
+          data: rows,
+        });
+      }
+
+      console.log(rows);
+    } catch (error) {
+      res.json({
+        status: 400,
+        error,
+      });
+    }
   });
 };
 export default registerUser;

@@ -1,5 +1,5 @@
-import joi from 'joi';
-import users from '../models/user';
+import Database from '../db/db-connection';
+import Helper from '../helpers/helper';
 import Validation from '../helpers/validation';
 
 const authenticateUser = (req, res) => {

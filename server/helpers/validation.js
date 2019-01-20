@@ -17,7 +17,7 @@ const Validator = {
   }),
   meetupSchema: joi.object().keys({
     topic: joi.string().required(),
-    happeningOn: joi.date().min('now').required(),
+    happeningOn: joi.string().required(),
     location: joi.string().required(),
     images: joi.array().items(joi.string().regex(/\.(jpg|png|jpeg|)$/i)),
     tags: joi.array().items(joi.string()),
