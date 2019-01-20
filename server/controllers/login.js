@@ -1,31 +1,39 @@
+import joi from 'joi';
 import Database from '../db/db-connection';
-import Helper from '../helpers/helper';
 import Validation from '../helpers/validation';
+import Helper from '../helpers/helpers';
 
-const authenticateUser = (req, res) => {
-  joi.validate(req.body, Validation.loginSchema, Validation.validationOption, (err, result) => {
-    if (err) {
-      return res.statu(500).json({
-        status: 500,
-        error: err,
-      });
-    }
-    const userAccount = {
-      username: result.username,
-      password: result.password,
-    };
-    const user = users.find(usr => usr.username === userAccount.username && usr.password === userAccount.password);
-    if (user) {
-      res.json({
-        status: 200,
-        data: user,
-      });
-    } else {
-      res.json({
-        status: 404,
-        error: 'Invalid username or password',
-      });
-    }
-  });
+const authenticateUser = async (req, res) => {
+  joi.validate(req.body, Validation.loginSchema, Validation.validationOption,
+    async (err, result) => {
+      if (err) {
+        return res.status(500).json({
+          status: 500,
+          error: err,
+        });
+      }
+      const userAccount = {
+        email: result.email,
+        password: result.password,
+      };
+      const sql = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
+      try {
+        const { rows } = await Database.executeQuery(sql);
+        if (Helper.comparePassword(userAccount.password, rows[0].password)) {
+          req.session.userId = rows[0].id;
+          req.session.username = rows[0].username;
+          req.session.email = rows[0].email;
+          res.status(202).json({
+            status: 202,
+            data: rows,
+          });
+        }
+      } catch (error) {
+        res.status(401).json({
+          status: 401,
+          error,
+        });
+      }
+    });
 };
 export default authenticateUser;

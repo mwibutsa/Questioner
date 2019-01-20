@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
 router.post('/:id/rsvps', attendMeetup);
-router.post('/:id', addQuestion);
+router.post('/:id/questions', addQuestion);
 router.post('/', addMeetup);
 router.get('/upcoming', getUpcomingMeetups);
 router.get('/:id', getMeetupById);

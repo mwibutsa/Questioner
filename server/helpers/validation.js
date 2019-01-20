@@ -13,7 +13,7 @@ const Validator = {
   }),
   questionSchema: joi.object().keys({
     title: joi.string().required(),
-    question: joi.string().required(),
+    body: joi.string().required(),
   }),
   meetupSchema: joi.object().keys({
     topic: joi.string().required(),
