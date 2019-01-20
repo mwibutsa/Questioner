@@ -1,22 +1,24 @@
-import meetups from '../models/meetup';
+import Database from '../db/db-connection';
 
-const checkUpcoming = (meetup) => {
-  const d = meetup.happeningOn.split('-');
-  const date = new Date(parseInt(d[2], 10), parseInt(d[1], 10), parseInt(d[0], 10));
-  if (date.getTime() > (new Date()).getTime()) {
-    return true;
+const getUpcomingMeetups = async (req, res) => {
+  const sql = 'SELECT * FROM meetup_table WHERE happening_on > NOW()';
+  try {
+    const { rows } = await Database.executeQuery(sql);
+    if (rows) {
+      return res.status(200).json({
+        status: 200,
+        data: rows,
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      error,
+    });
   }
-  return false;
-};
-const getUpcomingMeetups = (req, res) => {
-  const upComing = meetups.filter(meetup => checkUpcoming(meetup));
-
-  if (upComing) {
-    return res.json({ status: 200, data: upComing });
-  }
-  return res.json({
+  res.status(404).json({
     status: 404,
-    error: 'No upcoming meetups',
+    error: 'No Upcomming Meetups',
   });
 };
 export default getUpcomingMeetups;
