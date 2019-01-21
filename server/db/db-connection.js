@@ -73,10 +73,11 @@ class Database {
     )`;
 
     this.resevationTable = `
-    CREATE TABLE IF NOT EXISTS reservation_table (
+    CREATE TABLE IF NOT EXISTS rsvp_table (
         id UUID PRIMARY KEY,
         created_on DATE NOT NULL,
         user_id UUID REFERENCES user_table (id) ON DELETE CASCADE,
+        meetup_id UUID REFERENCES meetup_table (id) ON DELETE CASCADE,
         answer VARCHAR(6) NOT NULL
     );
     `;
