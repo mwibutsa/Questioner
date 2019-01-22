@@ -1,5 +1,4 @@
 import Database from '../db/db-connection';
-import Helper from '../helpers/helpers';
 
 const getQuestions = async (req, res) => {
   const sql = `SELECT * FROM question_table WHERE meetup = '${req.params.id}'`;
