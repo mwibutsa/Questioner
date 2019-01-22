@@ -22,24 +22,23 @@ const addMeetup = (req, res) => {
     const sql = 'INSERT INTO meetup_table(id, created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
     const meetup = Database.executeQuery(sql);
     meetup.then((result) => {
-      if(result.rows.length) {
+      if (result.rows.length) {
         return res.status(200).json({
-          status:200,
-          data:result.rows,
+          status: 200,
+          data: result.rows,
         });
       }
-      else{
-        return res.status(400).json({
-          status: 400,
-          error: ' Failled To save data in the database'
-        });
-      }
-        });
-    }).catch((error) => {
-      res.json.status(500).json({
-        status:500,
-        error:'Internal server error',
+
+      return res.status(400).json({
+        status: 400,
+        error: ' Failled To save data in the database',
       });
     });
+  }).catch((error) => {
+    res.json.status(500).json({
+      status: 500,
+      error: 'Internal server error',
+    });
+  });
 };
 export default addMeetup;

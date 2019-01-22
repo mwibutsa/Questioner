@@ -27,26 +27,23 @@ const addQuestion = (req, res) => {
     ];
     const sql = 'INSERT INTO question_table (id,created_on,created_by,meetup,title,body,upvotes,downvotes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *';
 
-      const question = Database.executeQuery(sql, newQuestion);
-      question.then((result) => {
-        if(result.rows.length){
-          return res.status(201).json({
-            status: 201,
-            data: result.rows,
-          });
-        }
-        else{
-          return res.status(400).json({
-            status: 400,
-            error: 'Question could not be created',
-          });
-        }
-      }).catch((error) => {
-        return res.status(500).json({
-          status: 500,
-          error: `Internal server error ${error}`
+    const question = Database.executeQuery(sql, newQuestion);
+    question.then((result) => {
+      if (result.rows.length) {
+        return res.status(201).json({
+          status: 201,
+          data: result.rows,
         });
-      });   
+      }
+
+      return res.status(400).json({
+        status: 400,
+        error: 'Question could not be created',
+      });
+    }).catch(error => res.status(500).json({
+      status: 500,
+      error: `Internal server error ${error}`,
+    }));
   });
 };
 

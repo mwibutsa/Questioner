@@ -22,27 +22,23 @@ const attendMeetup = async (req, res) => {
       const sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
       VALUES ($1,$2,$3,$4,$5) RETURNING *`;
 
-        const reservation = Database.executeQuery(sql, newReservation);
-        reservation.then((result) => {
-          if(result.rows.length) {
-            return res.status(201).json({
-              status:201,
-              data: result.rows,
-            });
-          }
-          else{
-            return res.status(400).json({
-              status: 400,
-              error: 'Failled to make reservation'
-            });
-          }
-        }).catch((error) => {
-          return res.status(500).json({
-            status:500,
-            error: `Internal server error ${error}`,
+      const reservation = Database.executeQuery(sql, newReservation);
+      reservation.then((result) => {
+        if (result.rows.length) {
+          return res.status(201).json({
+            status: 201,
+            data: result.rows,
           });
-        });
+        }
 
+        return res.status(400).json({
+          status: 400,
+          error: 'Failled to make reservation',
+        });
+      }).catch(error => res.status(500).json({
+        status: 500,
+        error: `Internal server error ${error}`,
+      }));
     });
 };
 
