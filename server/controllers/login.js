@@ -2,6 +2,7 @@ import joi from 'joi';
 import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 import Helper from '../helpers/helpers';
+import jsonWebToken from 'jsonwebtoken';
 
 const authenticateUser = async (req, res) => {
   joi.validate(req.body, Validation.loginSchema, Validation.validationOption,
