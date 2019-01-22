@@ -18,23 +18,16 @@ const authenticateUser = async (req, res) => {
         password: result.password,
       };
       const sql = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
-      try {
-        const { rows } = await Database.executeQuery(sql);
-        if (Helper.comparePassword(userAccount.password, rows[0].password)) {
-          req.session.userId = rows[0].id;
-          req.session.username = rows[0].username;
-          req.session.email = rows[0].email;
-          res.status(202).json({
-            status: 202,
-            data: rows,
-          });
-        }
-      } catch (error) {
-        res.status(401).json({
-          status: 401,
-          error,
-        });
-      }
+        const  user = Database.executeQuery(sql);
+        user.then((result) => {
+          if (Helper.comparePassword(userAccount.password, result.rows[0].password)) {
+  
+            res.status(202).json({
+              status: 202,
+              data: rows,
+            });
+          }
+        })
     });
 };
 export default authenticateUser;
