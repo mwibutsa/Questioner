@@ -1,17 +1,26 @@
-import questions from '../models/question';
+import Database from '../db/db-connection';
 
 const getQuestionById = async (req, res) => {
-  const allQuestions = await questions();
-  const questionById = allQuestions.find(question => question.id === req.params.id);
-  if (questionById) {
-    return res.json({
-      status: 200,
-      data: questionById,
+  const sql = `SELECT * FROM question_table HWERE id ='${req.params.id}'`;
+  const question = Database.executeQuery(sql);
+  question.then((result)=> {
+    if(result.rows.length) {
+      return res.status(200).json({
+        status:200,
+        data: result.rows,
+      });
+    }
+    else{
+      return res.status(404).json({
+        status: 404,
+        error: 'No meetup with the given id',
+      });
+    }
+  }).catch((error) => {
+    return res.status(500).json({
+      status:500,
+      error: `Internal server error ${error}`,
     });
-  }
-  return res.json({
-    status: 404,
-    error: 'The meetup with given id is not found',
-  });
+  })
 };
 export default getQuestionById;
