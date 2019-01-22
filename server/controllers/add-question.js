@@ -26,20 +26,27 @@ const addQuestion = (req, res) => {
       0,
     ];
     const sql = 'INSERT INTO question_table (id,created_on,created_by,meetup,title,body,upvotes,downvotes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *';
-    try {
-      const { rows } = await Database.executeQuery(sql, newQuestion);
-      if (rows) {
-        res.status(201).json({
-          status: 201,
-          data: rows,
+
+      const question = Database.executeQuery(sql, newQuestion);
+      question.then((result) => {
+        if(result.rows.length){
+          return res.status(201).json({
+            status: 201,
+            data: result.rows,
+          });
+        }
+        else{
+          return res.status(400).json({
+            status: 400,
+            error: 'Question could not be created',
+          });
+        }
+      }).catch((error) => {
+        return res.status(500).json({
+          status: 500,
+          error: `Internal server error ${error}`
         });
-      }
-    } catch (error) {
-      res.status(500).json({
-        status: 500,
-        error,
-      });
-    }
+      });   
   });
 };
 
