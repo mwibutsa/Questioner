@@ -31,22 +31,27 @@ const registerUser = async (req, res) => {
     const sql = `INSERT INTO user_table (id,firstname,othername,
       lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
-    try {
-      const { rows } = await Database.executeQuery(sql, newUser);
-      if (rows) {
-        return res.status(201).json({
-          status: 201,
-          data: rows,
+     
+      const user = Database.executeQuery(sql, newUser);
+      user.then((result) => {
+        if(result.rows.length){
+          return res.status(201).json({
+            status:201,
+            data:result.rows
+          });
+        }
+        else{
+          return res.status(400).json({
+            status:400,
+            error:'Failled to save user details'
+          });
+        }
+      }).catch((error) => {
+        return res.status(500).json({
+          status:500,
+          error:`Internal server Error ${error}`,
         });
-      }
-
-      console.log(rows);
-    } catch (error) {
-      res.json({
-        status: 400,
-        error,
       });
-    }
   });
 };
 export default registerUser;
