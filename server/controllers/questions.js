@@ -16,12 +16,7 @@ const getQuestions = async (req, res) => {
       status: 404,
       error: 'No Questions are available for this meetup',
     });
-  }).catch(error =>
-  // return an error
-    res.status(500).json({
-      status: 500,
-      error: `Internal server error ${error}`,
-    }));
+  }).catch(error => res.status(500).json({ status: 500, error: `Internal server error ${error}` }));
 };
 
 export default getQuestions;
