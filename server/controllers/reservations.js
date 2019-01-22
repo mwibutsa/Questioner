@@ -21,24 +21,28 @@ const attendMeetup = async (req, res) => {
       ];
       const sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
       VALUES ($1,$2,$3,$4,$5) RETURNING *`;
-      try {
-        const { rows } = await Database.executeQuery(sql, newReservation);
-        if (rows) {
-          return res.status(200).json({
-            status: 200,
-            data: rows,
+
+        const reservation = Database.executeQuery(sql, newReservation);
+        reservation.then((result) => {
+          if(result.rows.length) {
+            return res.status(201).json({
+              status:201,
+              data: result.rows,
+            });
+          }
+          else{
+            return res.status(400).json({
+              status: 400,
+              error: 'Failled to make reservation'
+            });
+          }
+        }).catch((error) => {
+          return res.status(500).json({
+            status:500,
+            error: `Internal server error ${error}`,
           });
-        }
-      } catch (error) {
-        return res.status(500).json({
-          status: 500,
-          error,
         });
-      }
-      return res.status(404).json({
-        status: 400,
-        error: 'Data can not be saved',
-      });
+
     });
 };
 
