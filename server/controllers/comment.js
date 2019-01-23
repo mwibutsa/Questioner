@@ -8,7 +8,6 @@ const getComment = (req, res) => {
   const sql = `SELECT * FROM comment_table  WHERE question = '${req.params.id}'`;
   const comments = Database.executeQuery(sql);
   comments.then((result) => {
-      console.log(result);
     if (result.rows.length) {
       return res.status(200).json({
         status: 200,
