@@ -1,5 +1,5 @@
 import express from 'express';
-import { upvoteQuestion, downvoteQuestion } from '../controllers/upvote';
+import { upvoteQuestion, downvoteQuestion } from '../controllers/vote';
 import getQuestions from '../controllers/questions';
 import questionById from '../controllers/question-by-id';
 import { getComment, postComment } from '../controllers/comment';
