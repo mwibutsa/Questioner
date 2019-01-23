@@ -1,5 +1,5 @@
 import express from 'express';
-
+import verifyToken from '../middleware/authenticate';
 import getMeetups from '../controllers/meetups';
 import addMeetup from '../controllers/add-meetup';
 import getMeetupById from '../controllers/specific-meetup';
@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
 router.post('/:id/rsvps', attendMeetup);
-router.post('/:id/questions', addQuestion);
+router.post('/:id/questions', verifyToken, addQuestion);
 router.post('/', addMeetup);
 router.get('/upcoming', getUpcomingMeetups);
 router.get('/:id', getMeetupById);

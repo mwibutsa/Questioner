@@ -2,7 +2,8 @@ import uuid from 'uuid';
 import joi from 'joi';
 import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
-
+import jsonWebToken from 'jsonwebtoken';
+import tokenVerifier from 'express-jwt';
 
 const addMeetup = (req, res) => {
   joi.validate(req.body, Validation.meetupSchema, Validation.validationOption, (err, result) => {
