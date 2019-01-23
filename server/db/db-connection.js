@@ -68,7 +68,7 @@ class Database {
       id UUID PRIMARY KEY,
       created_on DATE NOT NULL,
       voted_by UUID REFERENCES user_table(id) ON DELETE CASCADE,
-      quesion_id UUID REFERENCES question_table (id) ON DELETE CASCADE,
+      question_id UUID REFERENCES question_table (id) ON DELETE CASCADE,
       vote CHAR(8) NOT NULL
     )`;
 

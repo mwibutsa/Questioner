@@ -1,8 +1,11 @@
 // import getToken from '../helpers/functions';
-// import Database from '../db/db-connection';
+import { processVote } from '../helpers/functions';
 
 
-const voteQuestion = (req, res) => {
-
+const upvoteQuestion = (req, res) => {
+  processVote(req, res, 'upvote');
 };
-export default voteQuestion;
+const downvoteQuestion = (req, res) => {
+  processVote(req, res, 'downvote');
+};
+export { upvoteQuestion, downvoteQuestion };
