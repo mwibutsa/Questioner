@@ -5,9 +5,6 @@ class Helper {
     this.hashPassword = (password, salt = 12) => bcryptjs.hashSync(password, parseInt(salt, 10));
     
     this.comparePassword = (password, hashedPassword) => bcryptjs.compareSync(password, hashedPassword);
-
-    this.intCastCompare = (value1, value2) => parseInt(value1, 10) === parseInt(value2, 10);
-
     this.processVote = (voteMethod, questions, questionId, userId = 1) => {
       const question = questions.find(q => this.intCastCompare(q.id, questionId));
       if (question) {
