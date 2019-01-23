@@ -4,13 +4,12 @@ import getToken from '../helpers/functions';
 
 dotenv.config();
 const verifyToken = (req,res,next) => {
-    let verified = false;
     // check if the token is not null
     if(getToken(req)){
-        const token = getToken(req);
-        verified = jsonWebToken.verify(token,process.env.SECRETKEY);
+        const tokenData = getToken(req);
+        
         // check if the token is verified 
-        if(verified){
+        if(tokenData){
             next();
         }
         else{ // when token validation failled
@@ -27,4 +26,23 @@ const verifyToken = (req,res,next) => {
         });
     }
 }
-export default verifyToken;
+const isAdmin = (req,res,next) => {
+    if(getToken(req)){
+        if(getToken(req).user[0].is_admin == 1){
+            next();
+        }
+        else{
+            return res.status(403).json({
+                status: 403,
+                error: 'You Must be an Admin'
+            });
+        }
+    }
+    else{
+        return res.status(403).json({
+            status: 403,
+            error: 'Please login first'
+        });
+    }
+}
+export default { verifyToken, isAdmin };

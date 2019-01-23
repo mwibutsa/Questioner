@@ -2,13 +2,14 @@ import uuid from 'uuid';
 import joi from 'joi';
 import Validation from '../helpers/validation';
 import Database from '../db/db-connection';
+import getToken from '../helpers/functions';
 
-let rsvpUser = '99b6d019-ac6e-4c4b-afb5-6cd7d1fb3138';
 
 const attendMeetup = async (req, res) => {
-  if (req.session) {
-    const { userId } = req.session;
-    rsvpUser = userId;
+  let rsvpUser = '';
+  if (getToken(req)) {
+    const { user } = getToken(req);
+    rsvpUser = user[0].id;
   }
   joi.validate(req.body, Validation.rsvpSchema,
     Validation.validationOption, async (err, result) => {

@@ -5,7 +5,6 @@ import Validation from '../helpers/validation';
 import jsonWebToken from 'jsonwebtoken';
 
 const addQuestion = (req, res) => {
-
   joi.validate(req.body, Validation.questionSchema, Validation.validationOption, async (err, result) => {
     if (err) {
       return res.json({
