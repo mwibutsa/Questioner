@@ -1,8 +1,8 @@
 import uuid from 'uuid';
 import joi from 'joi';
+import jsonWebToken from 'jsonwebtoken';
 import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
-import jsonWebToken from 'jsonwebtoken';
 
 const addQuestion = (req, res) => {
   joi.validate(req.body, Validation.questionSchema, Validation.validationOption, async (err, result) => {
@@ -14,16 +14,14 @@ const addQuestion = (req, res) => {
     }
 
 
-
     let token = 0;
     let decodedToken = '';
     let userId = '';
-    if(req.headers['authorization']){
-      token = req.headers['authorization'].split(' ')[1];
-      decodedToken  = jsonWebToken.verify(token,process.env.SECRETKEY);
+    if (req.headers.authorization) {
+      token = req.headers.authorization.split(' ')[1];
+      decodedToken = jsonWebToken.verify(token, process.env.SECRETKEY);
       userId = decodedToken.user[0].id;
-    }
-    else{
+    } else {
       return res.sendStatus(403);
     }
     const newQuestion = [
