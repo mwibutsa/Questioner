@@ -24,8 +24,8 @@ const addMeetup = (req, res) => {
     meetup.then((result) => {
       if(result.rows.length) {
         return res.status(200).json({
-          status:200,
-          data:result.rows,
+          status: 200,
+          data: insertedMeetup.rows,
         });
       }
       else{
