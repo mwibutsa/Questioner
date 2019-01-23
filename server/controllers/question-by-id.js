@@ -1,7 +1,7 @@
 import Database from '../db/db-connection';
 
 const getQuestionById = async (req, res) => {
-  const sql = `SELECT * FROM question_table HWERE id ='${req.params.id}'`;
+  const sql = `SELECT * FROM question_table WHERE id = '${req.params.id}'`;
   const question = Database.executeQuery(sql);
   question.then((result) => {
     if (result.rows.length) {

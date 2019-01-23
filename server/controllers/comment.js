@@ -5,9 +5,10 @@ import Validator from '../helpers/validation';
 import getToken from '../helpers/functions';
 
 const getComment = (req, res) => {
-  const sql = `SELECT * FROM comment_table  WHERE meetup = ${req.params.id}`;
+  const sql = `SELECT * FROM comment_table  WHERE question = '${req.params.id}'`;
   const comments = Database.executeQuery(sql);
   comments.then((result) => {
+      console.log(result);
     if (result.rows.length) {
       return res.status(200).json({
         status: 200,
@@ -37,12 +38,14 @@ const postComment = (req, res) => {
       joi.validate(req.body, Validator.commentSchema, Validator.validationOption)
         .then((postData) => {
           const newComment = [
-            uuid.v4(), (new Date()).now(), getToken.user[0].id, req.params.id, postData.comment,
+            uuid.v4(), new Date(), getToken(req).user[0].id, req.params.id, postData.comment,
           ];
+          console.log(newComment);
           // get comments from the database
 
           const comment = Database.executeQuery(sql, newComment);
           comment.then((savedComment) => {
+            console.log(savedComment);
             if (savedComment.rows.length) {
               return res.status(201).json({
                 status: 201,
@@ -58,13 +61,15 @@ const postComment = (req, res) => {
             status: 500,
             error: `internal server error: ${error.message}`,
           }));
-        });
-    }
-    else{
-        return res.status(400).json({
-            status: 400,
-            error: 'You are trying to comment on a question which does not exist',
-        });
+        }).catch(error => res.status(400).json({
+          status: 400,
+          error: `Input validation Error ${error}`,
+        }));
+    } else {
+      return res.status(400).json({
+        status: 400,
+        error: 'You are trying to comment on a question which does not exist',
+      });
     }
   }).catch(error => res.status(500).json({
     status: 500,
