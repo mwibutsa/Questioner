@@ -43,7 +43,7 @@ export const processVote = (req, res, vote) => {
 
         // reduce vote
         Database.executeQuery(voteSql, [-1]).then((updatedQuestion) => {
-            console.log('Update Quesition', updatedQuestion.rows);
+          console.log('Update Quesition', updatedQuestion.rows);
           if (updatedQuestion.rows.length) {
             return res.status(201).json({
               status: 201,
@@ -64,7 +64,7 @@ export const processVote = (req, res, vote) => {
               dat: votedQuestion.rows,
             });
           }
-        });
+        }).catch(error => res.status(500).json({ status: 500, error }));
       }
     } else { // if the user was not found in the voters
       // record the voter
@@ -73,7 +73,7 @@ export const processVote = (req, res, vote) => {
 
       const voted = (voteMethod === 'upvote') ? Database.executeQuery(voteSql, [1]) : Database.executeQuery(voteSql, [-1]);
       voted.then((voteResult) => {
-          console.log(voteResult);
+        console.log(voteResult);
         if (voteResult.rows.length) {
           return res.status(201).json({
             status: 201,
