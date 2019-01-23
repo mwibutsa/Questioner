@@ -39,6 +39,8 @@ const postComment = (req, res) => {
           const newComment = [
             uuid.v4(), (new Date()).now(), getToken.user[0].id, req.params.id, postData.comment,
           ];
+          // get comments from the database
+
           const comment = Database.executeQuery(sql, newComment);
           comment.then((savedComment) => {
             if (savedComment.rows.length) {
@@ -56,6 +58,12 @@ const postComment = (req, res) => {
             status: 500,
             error: `internal server error: ${error.message}`,
           }));
+        });
+    }
+    else{
+        return res.status(400).json({
+            status: 400,
+            error: 'You are trying to comment on a question which does not exist',
         });
     }
   }).catch(error => res.status(500).json({
