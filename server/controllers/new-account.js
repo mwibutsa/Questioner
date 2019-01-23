@@ -5,8 +5,8 @@ import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 
-const registerUser = async (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, async (err, result) => {
+const registerUser = (req, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption,  (err, result) => {
     if (err) {
       return res.json({
         status: 400,
@@ -34,6 +34,7 @@ const registerUser = async (req, res) => {
      
       const user = Database.executeQuery(sql, newUser);
       user.then((result) => {
+        console.log(result);
         if(result.rows.length){
           return res.status(201).json({
             status:201,

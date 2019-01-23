@@ -22,9 +22,9 @@ const authenticateUser = async (req, res) => {
         user.then((result) => {
           if(result.rows.length){
             if (Helper.comparePassword(userAccount.password, result.rows[0].password)) {
-             const token = jsonWebToken.sign(result.rows,'secret_@1!9(9)6^%',{expiresIn:'24h'});
-             req.token = token;
-              return res.status(202).json({ status: 202, data: result.rows, });
+            //  const token = jsonWebToken.sign(result.rows,process.env.SECRETKEY);
+            //  req.token = token;
+              return res.status(202).json({ status: 202, data: result.rows,token:req.token });
             }
           }
         })
