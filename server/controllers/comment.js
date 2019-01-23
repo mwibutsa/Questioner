@@ -1,6 +1,6 @@
 import Database from '../db/db-connection';
 import Validator from '../helpers/validation';
-import token
+import getToken from '';
 const getComment = (req,res,next) => {
     const sql = `SELECT * FROM comment_table  WHERE meetup = ${req.params.id}`;
     const comments = Database.executeQuery(sql);
