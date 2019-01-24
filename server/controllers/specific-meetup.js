@@ -1,17 +1,23 @@
-import meetups from '../models/meetup';
+import Database from '../db/db-connection';
 
-const compare = (value1, value2) => parseInt(value1, 10) === parseInt(value2, 10);
 const getMeetupById = (req, res) => {
-  const meetupById = meetups.find(meetup => compare(req.params.id, meetup.id));
-  if (meetupById) {
-    return res.json({
-      status: 200,
-      data: meetupById,
+  const sql = `SELECT * FROM meetup_table WHERE id = '${req.params.id}'`;
+  const meetup = Database.executeQuery(sql);
+  meetup.then((result) => {
+    if (result.rows.length) {
+      return res.status(200).json({
+        status: 200,
+        data: result.rows,
+      });
+    }
+
+    return res.status(404).json({
+      status: 404,
+      error: 'There is no meetup with that id',
     });
-  }
-  return res.json({
-    status: 404,
-    error: 'The meetup with given id is not found',
-  });
+  }).catch(error => res.status(500).json({
+    status: 500,
+    error: `Internal server error ${error}`,
+  }));
 };
 export default getMeetupById;
