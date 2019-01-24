@@ -5,15 +5,7 @@ import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 const addQuestion = (req, res) => {
-  joi.validate(req.body, Validation.questionSchema, Validation.validationOption, async (err, result) => {
-    if (err) {
-      return res.json({
-        status: 400,
-        error: [...err.details],
-      });
-    }
-
-
+  joi.validate(req.body, Validation.questionSchema, Validation.validationOption).then((result) => {
     let token = 0;
     let decodedToken = '';
     let userId = '';
@@ -37,11 +29,11 @@ const addQuestion = (req, res) => {
     const sql = 'INSERT INTO question_table (id,created_on,created_by,meetup,title,body,upvotes,downvotes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *';
 
     const question = Database.executeQuery(sql, newQuestion);
-    question.then((result) => {
-      if (result.rows.length) {
+    question.then((questionResult) => {
+      if (questionResult.rows.length) {
         return res.status(201).json({
           status: 201,
-          data: result.rows,
+          data: questionResult.rows,
         });
       }
 
@@ -53,7 +45,7 @@ const addQuestion = (req, res) => {
       status: 500,
       error: `Internal server error ${error}`,
     }));
-  });
+  }).catch(error => res.status(400).json({ status: 400, error: [...error.details] }));
 };
 
 export default addQuestion;

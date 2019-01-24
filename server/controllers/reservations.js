@@ -12,35 +12,35 @@ const attendMeetup = async (req, res) => {
     rsvpUser = user[0].id;
   }
   joi.validate(req.body, Validation.rsvpSchema,
-    Validation.validationOption, async (err, result) => {
-      const newReservation = [
-        uuid.v4(),
-        new Date(),
-        rsvpUser,
-        req.params.id,
-        result.answer,
-      ];
-      const sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
+    Validation.validationOption).then((result) => {
+    const newReservation = [
+      uuid.v4(),
+      new Date(),
+      rsvpUser,
+      req.params.id,
+      result.answer,
+    ];
+    const sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
       VALUES ($1,$2,$3,$4,$5) RETURNING *`;
 
-      const reservation = Database.executeQuery(sql, newReservation);
-      reservation.then((result) => {
-        if (result.rows.length) {
-          return res.status(201).json({
-            status: 201,
-            data: result.rows,
-          });
-        }
-
-        return res.status(400).json({
-          status: 400,
-          error: 'Failled to make reservation',
+    const reservation = Database.executeQuery(sql, newReservation);
+    reservation.then((rsvpResult) => {
+      if (rsvpResult.rows.length) {
+        return res.status(201).json({
+          status: 201,
+          data: rsvpResult.rows,
         });
-      }).catch(error => res.status(500).json({
-        status: 500,
-        error: `Internal server error ${error}`,
-      }));
-    });
+      }
+
+      return res.status(400).json({
+        status: 400,
+        error: 'Failled to make reservation',
+      });
+    }).catch(error => res.status(500).json({
+      status: 500,
+      error: `Internal server error ${error}`,
+    }));
+  }).catch(error => res.status(400).json({ status: 400, error: [...error.details] }));
 };
 
 export default attendMeetup;

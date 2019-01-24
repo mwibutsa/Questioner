@@ -2,7 +2,9 @@ import dotenv from 'dotenv';
 import { Pool } from 'pg';
 
 dotenv.config();
-
+if (process.env.NODE_ENV === 'test') {
+  process.env.PGDATABASE = 'test';
+}
 class Database {
   constructor() {
     this.pool = new Pool({

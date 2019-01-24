@@ -4,13 +4,7 @@ import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 const addMeetup = (req, res) => {
-  joi.validate(req.body, Validation.meetupSchema, Validation.validationOption, (err, result) => {
-    if (err) {
-      return res.status(400).json({
-        status: 400,
-        error: err.details[0].message,
-      });
-    }
+  joi.validate(req.body, Validation.meetupSchema, Validation.validationOption).then((result) => {
     const date = result.happeningOn.split('-');
     const newMeetup = [
       uuid.v4(),
@@ -21,8 +15,8 @@ const addMeetup = (req, res) => {
     ];
     const sql = 'INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
     const meetup = Database.executeQuery(sql, newMeetup);
-    meetup.then((result) => {
-      if (result.rows.length) {
+    meetup.then((insertedMeetup) => {
+      if (insertedMeetup.rows.length) {
         return res.status(200).json({
           status: 200,
           data: insertedMeetup.rows,
@@ -39,6 +33,9 @@ const addMeetup = (req, res) => {
         error: `Internal server error - ${error}`,
       });
     });
-  });
+  }).catch(error => res.status(400).json({
+    status: 400,
+    error: error.details[0].message,
+  }));
 };
 export default addMeetup;

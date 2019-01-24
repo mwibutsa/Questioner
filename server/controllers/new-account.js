@@ -6,14 +6,7 @@ import Validation from '../helpers/validation';
 
 
 const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption, (err, result) => {
-    if (err) {
-      return res.json({
-        status: 400,
-        error: err.details[0].message,
-      });
-    }
-
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption).then((result) => {
     const newUser = [
       uuid.v4(), // id
       result.firstname,
@@ -33,12 +26,11 @@ const registerUser = (req, res) => {
      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
 
     const user = Database.executeQuery(sql, newUser);
-    user.then((result) => {
-      console.log(result);
-      if (result.rows.length) {
+    user.then((userResult) => {
+      if (userResult.rows.length) {
         return res.status(201).json({
           status: 201,
-          data: result.rows,
+          data: userResult.rows,
         });
       }
 
@@ -50,6 +42,6 @@ const registerUser = (req, res) => {
       status: 500,
       error: `Internal server Error ${error}`,
     }));
-  });
+  }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
 };
 export default registerUser;
