@@ -1,21 +1,14 @@
 import Database from '../db/db-connection';
 
-const selectCommon = (tableName, id = false) => {
+const selectFrom = async (tableName, id = false) => {
   let sql = '';
   if (!id) {
     sql = `SELECT * FROM ${tableName}`;
   } else {
     sql = `SELECT * FROM ${tableName} WHERE id =`;
   }
-  Database.executeQuery(sql).then((result) => {
-    if (result.rows.length) {
-      return result;
-    }
-
-    return false;
-  }).catch(error => error.message);
-};
-
+  return Database.executeQuery(sql);
+}
 const selectDependent = (tableName, dependentColumnName, value) => {
   const sql = `SELECT * FROM ${tableName} WHERE ${dependentColumnName} = '${value}'`;
   Database.executeQuery(sql).then((result) => {
@@ -26,4 +19,4 @@ const selectDependent = (tableName, dependentColumnName, value) => {
     return false;
   }).catch(error => error.message);
 };
-export { selectCommon, selectDependent };
+export { selectFrom, selectDependent };
