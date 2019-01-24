@@ -43,6 +43,8 @@ app.use('/api/v1/questions', questions);
 app.use('/api/v1/users', users);
 app.use(pageNotFound);
 app.use(serverError);
-app.listen(app.get('port'));
+app.listen(app.get('port'),()=> {
+  console.log('server started on post 3000');
+});
 
 export default app;
