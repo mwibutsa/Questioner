@@ -15,6 +15,7 @@ const authenticateUser = (req, res) => {
     user.then((userResult) => {
       if (userResult.rows.length) {
         if (Helper.comparePassword(userAccount.password, userResult.rows[0].password)) {
+          // remove password
           const token = jsonWebToken.sign({ user: userResult.rows }, process.env.SECRETKEY);
           return res.status(202).json({ status: 202, data: userResult.rows, token });
         }

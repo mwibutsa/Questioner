@@ -31,8 +31,7 @@ export const processVote = (req, res, vote) => {
         if (result.rows.length) {
           const { rows: voter } = result;
           // the user have either upvoted or downvoted the same question
-          if ((voter[0].vote).trim() === voteMethod.trim()) { // user is trying the same vote
-            
+          if ((voter[0].vote).trim() === voteMethod.trim()) { // user is trying the same vote          
             // reduce the vote
             const updateQuestionVoteSql = `UPDATE question_table SET ${voteMethod}s
              = ${voteMethod}s -1 WHERE id = '${req.params.id}' RETURNING *`;

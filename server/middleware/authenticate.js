@@ -13,7 +13,7 @@ const verifyToken = (req, res, next) => {
     } else { // when token validation failled
       return res.status(403).json({
         status: 403,
-        error: 'Invalid username or password',
+        error: 'Invalid Token',
       });
     }
   } // when the token was not found
