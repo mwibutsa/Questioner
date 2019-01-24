@@ -7,7 +7,7 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 
 Questioner have UI templates which can be viewed from
 
-###Lists of API End points
+### Lists of API End points
 -GET/api/v1/meetups Fetch all metups
 -GET/api/v1/meetups/upcoming fetch all upcomming meetups
 -GET/api/v1/meetups/:id  fetch a specific meetup with the given id
@@ -56,16 +56,28 @@ The url of the app on heroku is this one
 Install git
 Install Node js
 For getting the files into your local machine open git bash and do git clone with repository url
-```$ git clone https://github.com/mwibutsa/questioner```
+```
+$ git clone https://github.com/mwibutsa/questioner
+```
 Navigate to the folder containing all code files by typing cd folder_name
-```$ cd questioner```
+```
+$ cd questioner
+```
 Install dependincies as they appear in package.json file by
-```$ npm install```
+```
+$ npm install
+```
 To start the server do
- ```$ npm start```
+ ```
+ $ npm start
+ ```
 To run the test do
-```$ npm test```
+```
+$ npm test
+```
 For eslint test do eslint file_name. For example this will test app.js
-```$ eslint app.js```
+```
+$ eslint app.js
+```
 
 
