@@ -11,5 +11,4 @@ router.get('/', getQuestions);
 router.patch('/:id/upvote', upvoteQuestion);
 router.patch('/:id/downvote', downvoteQuestion);
 router.post('/:id/comment', postComment);
-
 export default router;

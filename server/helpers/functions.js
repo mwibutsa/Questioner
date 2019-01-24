@@ -83,10 +83,10 @@ export const processVote = (req, res, vote) => {
             voteMethod
           ];
 
-          const saveVoteSql = `INSERT INTO voters_table (id,created_on,voted_by,quesion_id,vote) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`;
+          const saveVoteSql = `INSERT INTO voters_table (id,created_on,voted_by,quesion_id,vote) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
           Database.executeQuery(saveVoteSql,newVoter).then((savedVoter) => {
             // if(savedVoter.rows.length) {
-              console.log('New voter',saveVoteSql.rows);
+              console.log('New voter',savedVoter);
             // }
 
           }).catch(error => res.status(500).json({status: 500, error: `Server Error ${error}`}));
