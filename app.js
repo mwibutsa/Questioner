@@ -8,7 +8,7 @@ import logger from 'morgan';
 import meetups from './server/routes/meetups';
 import users from './server/routes/users';
 import questions from './server/routes/questions';
-import pageNotFound from './server/controllers/notfound';
+import { pageNotFound, serverError } from './server/controllers/notfound';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -42,6 +42,7 @@ app.use('/api/v1/meetups', meetups);
 app.use('/api/v1/questions', questions);
 app.use('/api/v1/users', users);
 app.use(pageNotFound);
+app.use(serverError);
 app.listen(app.get('port'));
 
 export default app;
