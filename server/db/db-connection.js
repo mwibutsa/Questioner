@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
+import 'babel-polyfill';
 
 dotenv.config();
 if (process.env.NODE_ENV === 'test') {

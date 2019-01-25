@@ -1,31 +1,21 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../app';
+import 'babel-polyfill';
 
 process.env.NODE_ENV = 'test';
 
 chai.should();
 chai.use(chaiHttp);
 
-describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
-  // describe('/GET /api/v1/comments',()=>{
-  //     it('Should get all comments',()=>{
-  //         chai.request(app).get('/api/v1/comments').end((err,res)=>{
-  //             res.should.have.status(200)
-  //             res.body.should.be.a('array');
-  //         });
-  //     });
-  // });
-
-  // describe('/GET /api/v1/users',()=>{
-  //     it('Should get all users',()=>{
-  //         chai.request(app).get('/api/v1/users').end((err,res)=>{
-  //             res.should.have.status(200)
-  //             res.body.should.be.a('array');
-  //         });
-  //     });
-  // });
-  // TEST GET MEETUP REQUEST
-
-
+describe('TESTING 404 NOT FOUND ERROR \n ---------------------------', () => {
+  it('It should hande 404 error', (done) => {
+    chai.request(app).get('/unexisting-page').send().then((res) => {
+      res.should.have.status(404);
+      res.body.should.have.property('status').eql(404);
+      res.body.should.have.property('error').eql('Page not found!');
+      done();
+    })
+      .catch(error => console.error(error));
+  });
 });
