@@ -19,7 +19,7 @@ describe('TEST GET ALL MEETUPS', () => {
   });
 });
 describe('TEST CREATE A MEETUP', () => {
-  beforeEach('Clear All meetups data',(done) => {
+  beforeEach('Clear All meetups data', (done) => {
     chai.request(app);
     Database.executeQuery('DELETE FROM meetup_table');
     done();
@@ -38,31 +38,31 @@ describe('TEST CREATE A MEETUP', () => {
       .catch((error) => { throw error; });
   });
 });
-describe('MEETUP', () => {
-  let loginToken = '';
-  before((done) => {
-    // get login token
-    chai.request(app).post('/api/v1/users/login').send({ email: 'admin@equestioner.rw', password: 'Password@1' }).then((res) => {
-      loginToken = res.body.token;
-      console.log(loginToken);
-      done();
-    })
-      .catch((error) => { throw error; });
+// describe('CREATE MEETUP', () => {
+//   let loginToken = '';
+//   before((done) => {
+//     // get login token
+//     chai.request(app).post('/api/v1/users/login').send({ email: 'admin@equestioner.rw', password: 'Password@1' }).then((res) => {
+//       loginToken = res.body.token;
+//       console.log(loginToken);
+//       done();
+//     })
+//       .catch((error) => { throw error; });
 
-  });
-  
-  it('Should create a new meetup', (done) => {
-    const newMeetup = {
-      topic: 'Test meetup',
-      location: 'Gakenke',
-      happeningOn: '28-08-2019',
-    };
-    chai.request(app).post('/api/v1/meetups').set('x-access-token', loginToken)
-      .send(newMeetup)
-      .then((res) => {
-        res.should.have.status(201);
-        done();
-      })
-      .catch((error) => { throw error; });
-  });
-});
+//   });
+
+//   it('Should create a new meetup', (done) => {
+//     const newMeetup = {
+//       topic: 'Test meetup',
+//       location: 'Gakenke',
+//       happeningOn: '28-08-2019',
+//     };
+//     chai.request(app).post('/api/v1/meetups').set('x-access-token', loginToken)
+//       .send(newMeetup)
+//       .then((res) => {
+//         res.should.have.status(201);
+//         done();
+//       })
+//       .catch((error) => { throw error; });
+//   });
+// });
