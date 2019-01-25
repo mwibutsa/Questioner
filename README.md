@@ -8,16 +8,11 @@ Crowd-source questions for a meetup. Questioner helps the meetup organizer prior
 Questioner have UI templates which can be viewed from
 
 ### Lists of API End points
--GET/api/v1/meetups Fetch all metups
--GET/api/v1/meetups/upcoming fetch all upcomming meetups
--GET/api/v1/meetups/:id  fetch a specific meetup with the given id
--fetch all questions
--create new meetup
--up vote a question with give id parameter
--down vote a question with give id parameter
--reserves a place to attend meetup with the given id
--GET/api/v1/questions/:id/comments
--POST/api/v1/questions/:id/comment
+- GET/api/v1/meetups Fetch all metups
+- GET/api/v1/meetups/upcoming fetch all upcomming meetups
+- GET/api/v1/meetups/:id  fetch a specific meetup with the given id
+- GET/api/v1/questions/:id/comments
+- POST/api/v1/questions/:id/comment
 - POST/api/v1/users/new-account
 - POST/api/v1/users/login
 
