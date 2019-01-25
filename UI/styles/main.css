@@ -186,6 +186,7 @@ button:hover,.button:hover{
 	background: rgb(216, 247, 255);
 	border: none;
 	border-radius: 5px;
+	padding-left: 5px;
 }
 .text-input:hover{
 	border-color: #007acc;
