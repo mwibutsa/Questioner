@@ -16,7 +16,7 @@ const registerUser = (req, res) => {
       result.username,
       result.phoneNumber,
       new Date(), // registered on
-      0, // is_admin
+      result.isAdmin || 0, // is_admin
       Helper.hashPassword(result.password, 12),
       'ABX#4454$', // token
       0, // confirmed

@@ -4,6 +4,7 @@ import app from '../../app';
 import 'babel-polyfill';
 
 process.env.NODE_ENV = 'test';
+process.env.PGDATABASE = 'test';
 
 chai.should();
 chai.use(chaiHttp);

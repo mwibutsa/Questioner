@@ -10,6 +10,7 @@ const Validator = {
     phoneNumber: joi.string().regex(/\d{10}/),
     password: joi.string().min(8).required(),
     cpassword: joi.string().min(8).required(),
+    isAdmin: joi.number().min(0).max(1),
   }),
   questionSchema: joi.object().keys({
     title: joi.string().required(),
