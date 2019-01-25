@@ -42,7 +42,7 @@ The url of the app on heroku is this one
 - up vote a question with give id parameter http://equestioner.herokuapp.com/api/v1/questions/<id>/upvote
 - down vote a question with give id parameter http://equestioner.herokuapp.com/api/v1/questions/<id>/dowvote
 - reserves a place to attend meetup with the given id http://equestioner.herokuapp.com/api/v1/meetups/<id>/rsvps
-- comments http://equestioner.herokuapp.com/api/v1/questions/<id>/commets
+- comments http://equestioner.herokuapp.com/api/v1/questions/<:id>/commets
 - creating new-account http://equestioner.herokuapp.com/api/v1/users/new-account
 - making login http://equestioner.herokuapp.com/api/v1/users/login
 
