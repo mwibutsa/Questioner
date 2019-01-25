@@ -25,11 +25,11 @@ Questioner have UI templates which can be viewed from
 - Testing Framework: Mocha with Chai
 
 ### Additional Tools
--JavaScript Es6 with Babel transpiler
--TravisCI for Continous Integration
--Istanbul and nyc for test coverage
--CodeClimate and Coveralls for badges
--Heroku for Deployment
+- JavaScript Es6 with Babel transpiler
+- TravisCI for Continous Integration
+- Istanbul and nyc for test coverage
+- CodeClimate and Coveralls for badges
+- Heroku for Deployment
 
 The url of the app on heroku is this one
 
