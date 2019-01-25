@@ -24,10 +24,10 @@ Questioner have UI templates which can be viewed from
 
 
 ### Technology tools used
--Server-side Framework: Node/Express JS
--Linting Library: ESlint
--Style Guide: Airbnb
--Testing Framework: Mocha with Chai
+- Server-side Framework: Node/Express JS
+- Linting Library: ESlint
+- Style Guide: Airbnb
+- Testing Framework: Mocha with Chai
 
 ### Additional Tools
 -JavaScript Es6 with Babel transpiler
@@ -39,21 +39,21 @@ Questioner have UI templates which can be viewed from
 The url of the app on heroku is this one
 
 *This is the list of all routes as on the heroku deployment*:
--Fetch all metups
--fetch all upcomming meetups
--fetch a specific meetup with the given id
--fetch all questions
--create new meetup
--up vote a question with give id parameter
--down vote a question with give id parameter
--reserves a place to attend meetup with the given id
--comments
--creating new-account
-- making login
+- Fetch all metups http://equestioner.herokuapp.com/api/v1/meetups
+- fetch all upcomming meetups http://equestioner.herokuapp.com/api/v1/meetups/upcoming
+- fetch a specific meetup with the given id http://equestioner.herokuapp.com/api/v1/meetups/<id>
+- fetch all questions http://equestioner.herokuapp.com/api/v1/meetups/<id>/questions
+- create new meetup http://equestioner.herokuapp.com/api/v1/meetups
+- up vote a question with give id parameter http://equestioner.herokuapp.com/api/v1/questions/<id>/upvote
+- down vote a question with give id parameter http://equestioner.herokuapp.com/api/v1/questions/<id>/dowvote
+- reserves a place to attend meetup with the given id http://equestioner.herokuapp.com/api/v1/meetups/<id>/rsvps
+- comments http://equestioner.herokuapp.com/api/v1/questions/<id>/commets
+- creating new-account http://equestioner.herokuapp.com/api/v1/users/new-account
+- making login http://equestioner.herokuapp.com/api/v1/users/login
 
 
 ### Setup Instruction
-Install git
+Install git 
 Install Node js
 For getting the files into your local machine open git bash and do git clone with repository url
 ```
