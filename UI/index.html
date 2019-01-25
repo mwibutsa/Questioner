@@ -19,40 +19,40 @@
         <!--Main page body-->
         <div class="main">
 
-            <!-- Navigation container-->
-            <div class="navigation">
-
-                <!--Navigation-->
-                <a href="#" class="site-icon"><h3>Questioner</h3></a>
-                                <!--Navigation-->
-                                <nav class="nav" id="mainNav">
-                                    <!-- Main navigation -->
-                                    <!-- site icon -->
-                                        
-                                    <ul>
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="meetups.html">Meetups</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                        <li><a href="user-profile.html">Profile</a></li>
-                                    </ul>
-                                    <!-- Emd of navigation links -->
-            
-                                <!-- navigation toggle icon visible on small devices -->
-                                
-                                <!-- end of  navigation toggle icon -->
-                            </nav>
-                            <div class="nav-icon" onclick="return showNavigation()">
-                                <div class="bar1"></div>
-                                <div class="bar2"></div>
-                                <div class="bar3"></div>
-                            </div>
-                <!--/Navigation-->
-            </div>
-            <!-- /Navigation container-->
-
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
                  <div class="page-header-container text-center">
+
+            <!-- Navigation container-->
+            <div class="navigation">
+
+                    <!--Navigation-->
+                    <a href="#" class="site-icon"><h3>Questioner</h3></a>
+                                    <!--Navigation-->
+                                    <nav class="nav" id="mainNav">
+                                        <!-- Main navigation -->
+                                        <!-- site icon -->
+                                            
+                                        <ul>
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="meetups.html">Meetups</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="user-profile.html">Profile</a></li>
+                                        </ul>
+                                        <!-- Emd of navigation links -->
+                
+                                    <!-- navigation toggle icon visible on small devices -->
+                                    
+                                    <!-- end of  navigation toggle icon -->
+                                </nav>
+                                <div class="nav-icon" onclick="return showNavigation()">
+                                    <div class="bar1"></div>
+                                    <div class="bar2"></div>
+                                    <div class="bar3"></div>
+                                </div>
+                    <!--/Navigation-->
+                </div>
+                <!-- /Navigation container-->
                      <p class="text-center">
                          <br>
                          <br>
@@ -73,14 +73,19 @@
                      </p>
                  </div>
                  <div class="center-self">
+                     <h3 class="text-center">Login to get started</h3>
                     <form action="#" method="post">
                         <div class="forn-input">
-                                <label for="email">Subscribe for Our Meetup events</label>
-
-                                <input type="text" name="username" id="username" class="text-input" required placeholder="Enter your email address">
-                            </div>
-                            <hr>
-                            <input type="submit" class="button" value="Subscribe" >
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="text-input" required placeholder="email or username">
+                       </div>
+                       <br>
+                       <div class="forn-input">
+                               <label for="password">Password</label>
+                               <input type="password" name="password" id="password" class="text-input" required placeholder="Password">
+                       </div>
+                       <br>
+                        <input type="submit" class="button" value="Login" >
                     </form>
                  </div>
             </div>
