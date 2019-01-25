@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
 import 'babel-polyfill';
+import uuid from 'uuid';
 
 dotenv.config();
 if (process.env.NODE_ENV === 'test') {
@@ -146,6 +147,28 @@ class Database {
     await this.executeQuery(this.resevationTable);
     await this.executeQuery(this.tagTable);
     await this.executeQuery(this.votersTable);
+    this.createDefaultAdmin();
+  }
+
+  async createDefaultAdmin() {
+    this.defaultAdmin = [
+      uuid.v4(),
+      'mwibutsa',
+      'milton',
+      'floribert',
+      'admin@equestioner.rw',
+      'admin',
+      '+250787740316',
+      new Date(),
+      1,
+      'Password@1',
+      '#fdsaadf',
+      0,
+    ];
+    this.adminSql = `INSERT INTO user_table (id,firstname,othername,
+      lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+    return this.executeQuery(this.adminSql, this.defaultAdmin);
   }
 }
 export default new Database();
