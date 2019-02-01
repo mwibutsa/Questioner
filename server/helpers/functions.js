@@ -15,76 +15,70 @@ export default function getToken(req) {
 
   return false;
 }
+export const searchFromDb = async (req, user) => {
+  const getVoters = `SELECT * FROM voters_table WHERE question_id = '${req.params.id}'
+  AND voted_by = '${user[0].id}'`;
+  const result = await Database.executeQuery(getVoters);
+  if (result.rows.length) {
+    return { found: true, data: result.rows[0] };
+  }
+  return { found: false, data: null };
+};
 
-export const processVote = (req, res, vote) => {
-  let voteMethod = vote;
-  const { user } = getToken(req);
-  const voteSql = `UPDATE question_table set ${voteMethod}s = ${voteMethod}s + $1 WHERE id = '${req.params.id}' RETURNING *`;
-  const recordUserSql = `INSERT INTO voters_table (id,created_on,voted_by,quesion_id,vote)
-    VALUES ($1,$2,$3,$4,$5) RETURNING *`;
-  const updateVoterSql = `UPDATE voters_table SET vote = '${voteMethod}' WHERE created_by = '${user[0].id}'
-  && question = '${req.params.id}' RETURNING *`;
-  const deleteUserFromVoters = `DELETE FROM voters_table WHERE created_by = '${user[0].id}' && question_id = '${req.params.id}'`;
-
-  const newVoter = [
-    uuid.v4(),
-    new Date(),
-    user[0].id,
-    req.params.id, // question a user have voted
-    voteMethod,
-  ];
-  // CHECK IF THE USER HAVE VOTED THE SAME QUESTION BEFORE
-  const checkSql = `SELECT * FROM voters_table WHERE voted_by = '${user[0].id}' `;
-  Database.executeQuery(checkSql).then(async (result) => {
-    if (result.rows.length) {
-      if (result.rows.vote === voteMethod) {
-        // delete the user from voters and reduce the voteMethod
-        await Database.executeQuery(deleteUserFromVoters);
-
-        // reduce vote
-        Database.executeQuery(voteSql, [-1]).then((updatedQuestion) => {
-          console.log('Update Quesition', updatedQuestion.rows);
-          if (updatedQuestion.rows.length) {
-            return res.status(201).json({
-              status: 201,
-              data: updatedQuestion.rows,
-            });
-          }
-        });
-      } else { // if user is not re-upvoting or re-downvoting ie(voted but want to change) shift the vote
-        voteMethod = (voteMethod === 'upvote') ? 'downvote' : 'upvote';
-        await Database.executeQuery(voteSql, [-1]); // reduce the vote
-        await Database.executeQuery(updateVoterSql); // shit voter
-
-        // update vote
-        Database.executeQuery(voteSql, [1]).then((votedQuestion) => {
-          if (votedQuestion.rows) {
-            return res.status(201).json({
-              status: 201,
-              dat: votedQuestion.rows,
-            });
-          }
-        }).catch(error => res.status(500).json({ status: 500, error }));
-      }
-    } else { // if the user was not found in the voters
-      // record the voter
-      await Database.executeQuery(recordUserSql, newVoter);
-      // vote and return the question
-
-      const voted = (voteMethod === 'upvote') ? Database.executeQuery(voteSql, [1]) : Database.executeQuery(voteSql, [-1]);
-      voted.then((voteResult) => {
-        console.log(voteResult);
-        if (voteResult.rows.length) {
-          return res.status(201).json({
-            status: 201,
-            data: voteResult.rows,
-          });
+export const processVote = async (req, res, vote) => {
+  // check if the user is in voters table
+  try {
+    const { user } = getToken(req);
+    // eslint-disable-next-line no-empty
+    const findUser = await searchFromDb(req, user);
+    if (!(findUser.found)) { // user is new voter
+      const newVoteSql = `UPDATE question_table SET ${vote}s = ${vote}s + 1
+      WHERE id = '${req.params.id}' RETURNING *`;
+      const registerVoterSql = `INSERT INTO voters_table (id,created_on,voted_by,question_id,vote 
+        ) VALUES ($1,$2,$3,$4,$5) RETURNING *`;
+      // TIME TO EXECUTE
+      const newVoter = [uuid.v4(), new Date(), user[0].id, req.params.id, vote];
+      Database.executeQuery(registerVoterSql, newVoter).catch(error => res.status(500)
+        .json({ status: 500, error: `Server error ${error}` }));
+      Database.executeQuery(newVoteSql).then((result) => {
+        if (result.rows) {
+          return res.status(201).json({ status: 201, data: result.rows });
         }
-
-        console.log(voteResult);
-      }).catch(error => console.log(error));
+      }).catch(error => res.status(500).json({ status: 500, error: `SERVER ERROR ${error}` }));
+    } else { // user is already a voter
+      // 1. user is toggling the same vote
+      const voter = await searchFromDb(req, user);
+      if ((voter.vote).trim() === vote.trim()) {
+        // update same vote and decrease by one
+        const updateVoter = `DELETE FROM voters_table WHERE question_id = '${req.params.id}'
+         AND voted_by = '${user.id}'`;
+        const reduceVotes = `UPDATE question_table SET ${vote}s = ${vote}s -1 WHERE id = '${req.params.id}'`;
+        Database.executeQuery(updateVoter).catch(error => res
+          .status(500).json({ status: 500, error: `Server ERROR ${error}` }));
+        Database.executeQuery(reduceVotes).then((result) => {
+          if (result.rows.length) {
+            return res.status(201).json({ status: 201, data: result.rows });
+          }
+        })
+          .catch(error => res.status(500).json({ status: 500, error: `Server error : ${error}` }));
+      } else { // 2. user is switching votes
+        // 1. update voters_table
+        const updateVoters = `UPDATE voters_table SET vote = '${vote}' WHERE question_id = '${req.params.id}'
+         AND voted_by = '${user.id}'`;
+        // 2. reduce previous vote
+        const nextVote = (vote === 'upvote') ? 'downvote' : 'upvote';
+        const reducePrev = `UPDATE question_table SET ${nextVote}s = ${nextVote} + 1, ${vote}s = ${vote}s -1
+        WHERE id = '${req.params.id}'`;
+        Database.executeQuery(updateVoters).catch(error => res.status(500).json({ status: 500, error: `Server error ${error}` }));
+        Database.executeQuery(reducePrev).then((result) => {
+          if (result.rows) {
+            return res.status(201).json({ status: 201, data: result.rows });
+          } return res.status(500).json({ status: 500, error: 'Failled to process vote' });
+        })
+          .catch(error => res.status(500).json({ status: 500, error: `Server error ${error}` }));
+      }
     }
-  }).catch((error) => {
-    console.log(error);
-  });
+  } catch (error) {
+    return res.status(500).json({ status: 500, error: `INTERNAL SERVER ERROR ${error}` });
+  }
 };

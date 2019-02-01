@@ -41,4 +41,4 @@ const isAdmin = (req, res, next) => {
     });
   }
 };
-export default { verifyToken, isAdmin };
+export { verifyToken, isAdmin };
