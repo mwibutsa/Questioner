@@ -3,6 +3,7 @@ import joi from 'joi';
 import Helper from '../helpers/helpers';
 import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
+import { isUnique } from '../helpers/functions';
 
 
 const registerUser = (req, res) => {
@@ -25,23 +26,39 @@ const registerUser = (req, res) => {
       lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
 
-    const user = Database.executeQuery(sql, newUser);
-    user.then((userResult) => {
-      if (userResult.rows.length) {
-        return res.status(201).json({
-          status: 201,
-          data: userResult.rows,
-        });
-      }
+    const unique = {
+      email: isUnique('user_table', 'email', newUser.email),
+      username: isUnique('user_table', 'username', newUser.username),
+    };
+    if (typeof unique.email === 'boolean' && typeof unique.username === 'boolean') {
+      if (unique.email && unique.username) {
+        const user = Database.executeQuery(sql, newUser);
+        user.then((userResult) => {
+          if (userResult.rows.length) {
+            return res.status(201).json({
+              status: 201,
+              data: userResult.rows,
+            });
+          }
 
-      return res.status(400).json({
-        status: 400,
-        error: 'Failled to save user details',
-      });
-    }).catch(error => res.status(500).json({
-      status: 500,
-      error: `Internal server Error ${error}`,
-    }));
+          return res.status(400).json({
+            status: 400,
+            error: 'Failled to save user details',
+          });
+        }).catch(error => res.status(500).json({
+          status: 500,
+          error: `Internal server Error ${error}`,
+        }));
+      } else if (!(unique.email)) {
+        return res.status(400)
+          .json({ status: 400, error: 'Email is already in use' });
+      } else if (!(unique.username)) {
+        return res.status(400)
+          .json({ status: 400, error: 'Username is already in use' });
+      }
+    } else {
+      return res.status(500).json({ status: 500, error: `Error: ${unique.email}, ${unique.username}` });
+    }
   }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
 };
 export default registerUser;

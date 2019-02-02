@@ -82,3 +82,13 @@ export const processVote = async (req, res, vote) => {
     return res.status(500).json({ status: 500, error: `INTERNAL SERVER ERROR ${error}` });
   }
 };
+export const isUnique = async (tableName, fieldName, value) => {
+  const sql = `SELECT * FROM ${tableName} WHERE ${fieldName} = '${value}'`;
+  try {
+    const { rows } = await Database.executeQuery(sql);
+    if (rows.length) return false;
+    return true;
+  } catch (error) {
+    return error;
+  }
+};

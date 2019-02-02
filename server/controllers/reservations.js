@@ -4,6 +4,12 @@ import Validation from '../helpers/validation';
 import Database from '../db/db-connection';
 import getToken from '../helpers/functions';
 
+const sameRsvp = async (userId, req) => {
+  const sql = `SELECT * FROM rsvp_table WHERE user_id = '${userId}' AND meetup_id = '${req.params.id}'`;
+  const { rows } = await Database.executeQuery(sql);
+  if (rows.length) return true;
+  return false;
+};
 
 const attendMeetup = async (req, res) => {
   let rsvpUser = '';
@@ -20,10 +26,18 @@ const attendMeetup = async (req, res) => {
       req.params.id,
       result.answer,
     ];
-    const sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
-      VALUES ($1,$2,$3,$4,$5) RETURNING *`;
-
-    const reservation = Database.executeQuery(sql, newReservation);
+    let sql = '';
+    let reservation = '';
+    if (!sameRsvp(rsvpUser, req)) {
+      sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
+        VALUES ($1,$2,$3,$4,$5) RETURNING *`;
+      reservation = Database.executeQuery(sql, newReservation);
+    } else {
+      sql = `UPDATE rsvp_table SET answer = '${result.answer}',
+       created_on = NOW() WHERE user_id = '${rsvpUser}' AND
+       meetup_id = '${req.params.id}' RETURNING *`;
+      reservation = Database.executeQuery(sql);
+    }
     reservation.then((rsvpResult) => {
       if (rsvpResult.rows.length) {
         return res.status(201).json({
