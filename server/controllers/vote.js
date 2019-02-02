@@ -1,6 +1,4 @@
-// import getToken from '../helpers/functions';
 import { processVote } from '../helpers/functions';
-
 
 const upvoteQuestion = (req, res) => {
   processVote(req, res, 'upvote');
