@@ -48,13 +48,13 @@ export const processVote = async (req, res, vote) => {
     } else { // user is already a voter
       // 1. user is toggling the same vote
       const voter = await searchFromDb(req, user);
-      if ((voter.vote).trim() === vote.trim()) {
+      if ((voter.data.vote).trim() === vote.trim()) {
         // update same vote and decrease by one
         const updateVoter = `DELETE FROM voters_table WHERE question_id = '${req.params.id}'
-         AND voted_by = '${user.id}'`;
-        const reduceVotes = `UPDATE question_table SET ${vote}s = ${vote}s -1 WHERE id = '${req.params.id}'`;
-        Database.executeQuery(updateVoter).catch(error => res
-          .status(500).json({ status: 500, error: `Server ERROR ${error}` }));
+         AND voted_by = '${user[0].id}'`;
+        const reduceVotes = `UPDATE question_table SET ${vote}s = ${vote}s -1 WHERE id = '${req.params.id}' 
+        RETURNING *`;
+        await Database.executeQuery(updateVoter);
         Database.executeQuery(reduceVotes).then((result) => {
           if (result.rows.length) {
             return res.status(201).json({ status: 201, data: result.rows });
@@ -64,12 +64,12 @@ export const processVote = async (req, res, vote) => {
       } else { // 2. user is switching votes
         // 1. update voters_table
         const updateVoters = `UPDATE voters_table SET vote = '${vote}' WHERE question_id = '${req.params.id}'
-         AND voted_by = '${user.id}'`;
+         AND voted_by = '${user[0].id}' RETURNING *`;
         // 2. reduce previous vote
         const nextVote = (vote === 'upvote') ? 'downvote' : 'upvote';
-        const reducePrev = `UPDATE question_table SET ${nextVote}s = ${nextVote} + 1, ${vote}s = ${vote}s -1
-        WHERE id = '${req.params.id}'`;
-        Database.executeQuery(updateVoters).catch(error => res.status(500).json({ status: 500, error: `Server error ${error}` }));
+        const reducePrev = `UPDATE question_table SET ${nextVote}s = ${nextVote}s - 1, ${vote}s = ${vote}s +1
+        WHERE id = '${req.params.id}' RETURNING *`;
+        await Database.executeQuery(updateVoters);
         Database.executeQuery(reducePrev).then((result) => {
           if (result.rows) {
             return res.status(201).json({ status: 201, data: result.rows });

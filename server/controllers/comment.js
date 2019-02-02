@@ -39,12 +39,8 @@ const postComment = (req, res) => {
           const newComment = [
             uuid.v4(), new Date(), getToken(req).user[0].id, req.params.id, postData.comment,
           ];
-          console.log(newComment);
-          // get comments from the database
-
           const comment = Database.executeQuery(sql, newComment);
           comment.then((savedComment) => {
-            console.log(savedComment);
             if (savedComment.rows.length) {
               return res.status(201).json({
                 status: 201,
