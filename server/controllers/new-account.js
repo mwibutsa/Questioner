@@ -34,7 +34,7 @@ const registerUser = (req, res) => {
       if (unique.email && unique.username) {
         const user = Database.executeQuery(sql, newUser);
         user.then((userResult) => {
-          if (userResult.rows.length) {
+          if (userResult.rows) {
             return res.status(201).json({
               status: 201,
               data: userResult.rows,
