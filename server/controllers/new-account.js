@@ -7,7 +7,7 @@ import { isUnique } from '../helpers/functions';
 
 
 const registerUser = (req, res) => {
-  joi.validate(req.body, Validation.userSchema, Validation.validationOption).then((result) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption).then(async (result) => {
     const newUser = [
       uuid.v4(), // id
       result.firstname,
@@ -27,8 +27,8 @@ const registerUser = (req, res) => {
      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
 
     const unique = {
-      email: isUnique('user_table', 'email', newUser.email),
-      username: isUnique('user_table', 'username', newUser.username),
+      email: await isUnique('user_table', 'email', newUser.email),
+      username: await isUnique('user_table', 'username', newUser.username),
     };
     if (typeof unique.email === 'boolean' && typeof unique.username === 'boolean') {
       if (unique.email && unique.username) {
