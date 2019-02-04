@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import favicon from 'serve-favicon';
 import path from 'path';
 import fileUpload from 'express-fileupload';
@@ -13,6 +14,7 @@ import { pageNotFound, serverError } from './server/controllers/notfound';
 const port = process.env.PORT || 3000;
 const app = express();
 
+app.use(cors())
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 app.use(session({
   resave: false,
