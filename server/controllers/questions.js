@@ -5,7 +5,7 @@ const getQuestions = async (req, res) => {
   const questions = Database.executeQuery(sql);
   questions.then((result) => {
     // return the result
-    if (result.rows.length) {
+    if (result.rows) {
       return res.status(200).json({
         status: 200,
         data: result.rows,

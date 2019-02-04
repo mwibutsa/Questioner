@@ -4,7 +4,7 @@ const getUpcomingMeetups = async (req, res) => {
   const sql = 'SELECT * FROM meetup_table WHERE happening_on > NOW()';
   const upcommingMeetups = Database.executeQuery(sql);
   upcommingMeetups.then((result) => {
-    if (result.rows.length) {
+    if (result.rows) {
       return res.status(200).json({
         status: 200,
         data: result.rows,

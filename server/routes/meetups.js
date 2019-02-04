@@ -7,12 +7,16 @@ import addQuestion from '../controllers/add-question';
 import attendMeetup from '../controllers/reservations';
 import getUpcomingMeetups from '../controllers/upcoming-meetups';
 import getQuestions from '../controllers/questions';
+import deleteMeetup from '../controllers/delete-meetup';
+import editMeetupt from '../controllers/edit-meetup';
 
 const router = express.Router();
 router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
 router.post('/:id/rsvps',verifyToken, attendMeetup);
 router.post('/:id/questions', verifyToken, addQuestion);
+router.put('/:id',verifyToken,isAdmin,editMeetupt);
+router.delete('/:id',verifyToken,isAdmin,deleteMeetup);
 router.post('/', verifyToken, isAdmin, addMeetup);
 router.get('/upcoming', getUpcomingMeetups);
 router.get('/:id', getMeetupById);
