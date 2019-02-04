@@ -1,27 +1,64 @@
-import joi from 'joi';
 import uuid from 'uuid';
-import users from '../models/user';
-import fs from 'fs';
-const registerUser = (req,res) => {
-    let newUser = {
-        id:uuid.v4(),
-        firstname:req.body.firstname,
-        lastname:req.body.lastname,
-        othername:req.body.lastname,
-        email:req.body.email,
-        phoneNumber:req.body.phoneNumber,
-        username:req.body.username,
-        registered: new Date(),
-        password:req.body.password,
-        cpassword:req.body.cpassword,
-        isAdmin:false
-    }
-users.push(newUser);
-fs.writeFileSync(path.resolve(__dirname,'../data/users.json'),JSON.stringify(users,null,2));
-res.json({
-    status:200,
-    data:users
-});
+import joi from 'joi';
+import Helper from '../helpers/helpers';
+import Database from '../db/db-connection';
+import Validation from '../helpers/validation';
+import { isUnique } from '../helpers/functions';
 
-}
+
+const registerUser = (req, res) => {
+  joi.validate(req.body, Validation.userSchema, Validation.validationOption).then((result) => {
+    const newUser = [
+      uuid.v4(), // id
+      result.firstname,
+      result.othername,
+      result.lastname,
+      result.email,
+      result.username,
+      result.phoneNumber,
+      new Date(), // registered on
+      0, // is_admin
+      Helper.hashPassword(result.password, 12),
+      'ABX#4454$', // token
+      0, // confirmed
+    ];
+    const sql = `INSERT INTO user_table (id,firstname,othername,
+      lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+
+    const unique = {
+      email: isUnique('user_table', 'email', newUser.email),
+      username: isUnique('user_table', 'username', newUser.username),
+    };
+    if (typeof unique.email === 'boolean' && typeof unique.username === 'boolean') {
+      if (unique.email && unique.username) {
+        const user = Database.executeQuery(sql, newUser);
+        user.then((userResult) => {
+          if (userResult.rows.length) {
+            return res.status(201).json({
+              status: 201,
+              data: userResult.rows,
+            });
+          }
+
+          return res.status(400).json({
+            status: 400,
+            error: 'Failled to save user details',
+          });
+        }).catch(error => res.status(500).json({
+          status: 500,
+          error: `Internal server Error ${error}`,
+        }));
+      } else if (!(unique.email)) {
+        return res.status(400)
+          .json({ status: 400, error: 'Email is already in use' });
+      } else if (!(unique.username)) {
+        return res.status(400)
+          .json({ status: 400, error: 'Username is already in use' });
+      }
+    } else {
+      return res.status(500).json({ status: 500, error: `Error: ${unique.email}, ${unique.username}` });
+    }
+  }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
+};
 export default registerUser;

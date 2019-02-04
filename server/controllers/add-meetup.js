@@ -1,31 +1,41 @@
-import fs from 'fs';
-import path from 'path';
-const pathToModel = path.resolve(__dirname,'../models/meetup.js');
-import meetups from '../models/meetup';
-let filePath = '';
+import uuid from 'uuid';
+import joi from 'joi';
+import Database from '../db/db-connection';
+import Validation from '../helpers/validation';
+
 const addMeetup = (req, res) => {
-  if(req.files){
-    const meetupImages = req.files.images;
-    filePath = '../../meetup-files/'+meetupImages.name;
-    meetupImages.mv(filePath,(error)=> {
-      if(error) res.json({
-        status:500,
-        error:error
+  joi.validate(req.body, Validation.meetupSchema, Validation.validationOption).then((result) => {
+    const date = result.happeningOn.split('-');
+    const newMeetup = [
+      uuid.v4(),
+      new Date(),
+      result.location,
+      result.topic,
+      new Date(date[2], date[1], date[0]),
+    ];
+    const sql = 'INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
+    const meetup = Database.executeQuery(sql, newMeetup);
+    meetup.then((insertedMeetup) => {
+      if (insertedMeetup.rows.length) {
+        return res.status(200).json({
+          status: 200,
+          data: insertedMeetup.rows,
+        });
+      }
+
+      return res.status(400).json({
+        status: 400,
+        error: ' Failled To save data in the database',
+      });
+    }).catch((error) => {
+      res.status(500).json({
+        status: 500,
+        error: `Internal server error - ${error}`,
       });
     });
-  }
-
-  let newMeetup = {
-    id: meetups.length + 1,
-    createdOn: new Date(),
-    images: filePath,
-    location:req.body.location,
-    topic: req.body.topic,
-    happeningOn: req.body.happeningOn,
-    tags: req.body.tags,
-  };
-  meetups.push(newMeetup);
-  fs.writeFileSync(path.resolve(__dirname,'../data/meetups.json'),JSON.stringify(meetups,null,2));
-  res.json({status:200,data:meetups});
+  }).catch(error => res.status(400).json({
+    status: 400,
+    error: error.details[0].message,
+  }));
 };
 export default addMeetup;

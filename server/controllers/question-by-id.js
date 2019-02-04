@@ -1,9 +1,9 @@
 import Database from '../db/db-connection';
 
-const getMeetupById = (req, res) => {
-  const sql = `SELECT * FROM meetup_table WHERE id = '${req.params.id}'`;
-  const meetup = Database.executeQuery(sql);
-  meetup.then((result) => {
+const getQuestionById = async (req, res) => {
+  const sql = `SELECT * FROM question_table WHERE id = '${req.params.id}'`;
+  const question = Database.executeQuery(sql);
+  question.then((result) => {
     if (result.rows.length) {
       return res.status(200).json({
         status: 200,
@@ -13,11 +13,11 @@ const getMeetupById = (req, res) => {
 
     return res.status(404).json({
       status: 404,
-      error: 'There is no meetup with that id',
+      error: 'No meetup with the given id',
     });
   }).catch(error => res.status(500).json({
     status: 500,
     error: `Internal server error ${error}`,
   }));
 };
-export default getMeetupById;
+export default getQuestionById;
