@@ -7,13 +7,14 @@
     <title>Questioner | New account</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script type="text/javascript" src="scripts/main.js"></script>
     <script src="scripts/register-user.js"></script>
 </head>
 <body>
    
      <!--Page wrapper-->
-    <div class="wrapper">
+    <div class="wrapper bg-img">
 
         <!--Main page body-->
         <div class="main">
@@ -23,34 +24,26 @@
 
             <!--Navigation-->
             <a href="#" class="site-icon"><h3>Questioner</h3></a>
-            <nav class="nav" id="mainNav">
-                <!-- Main navigation -->
-                <!-- site icon -->
-                    
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="meetups.html">Mettups</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#">Account</a>
-                        <ul>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="sign-up.html">SignUp</a></li>
-                            <li><a href="user-profile.html">Profile</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- Emd of navigation links -->
-
-                <!-- navigation toggle icon visible on small devices -->
-
-                <!-- end of  navigation toggle icon -->
-            </nav>
-            <div class="nav-icon" onclick="showNavigation();" id="toggleMenu">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
+                            <!--Navigation-->
+                            <nav class="nav" id="mainNav">
+                                <!-- Main navigation -->
+                                <!-- site icon -->
+                                    
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="meetups.html">Meetups</a></li>
+                                    <li><a href="login.html">Login</a></li>                                </ul>
+                                <!-- Emd of navigation links -->
+        
+                            <!-- navigation toggle icon visible on small devices -->
+                            <div class="nav-icon" onclick="return showNavigation()">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                            </div>
+        
+                            <!-- end of  navigation toggle icon -->
+                        </nav>
             <!--/Navigation-->
         </div>
             <!-- /Navigation container-->
@@ -61,7 +54,7 @@
                             <div class="form-header">
                                 <h1 class="text-center">Fill this form to create a new account</h1>
                             </div>
-                            <form action="" id="signup-form" method="POST" name="signUpForm" onsubmit="return registerUser(this)">
+                            <form id="signup-form" method="POST" action="login.html" name="signUpForm" onsubmit="return registerUser(this)">
 
                                 <div class="form-input">
                                     <label for="firstname">Firstname *</label><span class="error"></span><br>

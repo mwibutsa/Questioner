@@ -8,7 +8,7 @@ const getComment = (req, res) => {
   const sql = `SELECT * FROM comment_table  WHERE question = '${req.params.id}'`;
   const comments = Database.executeQuery(sql);
   comments.then((result) => {
-    if (result.rows.length) {
+    if (result.rows) {
       return res.status(200).json({
         status: 200,
         data: result.rows,
@@ -32,39 +32,41 @@ const postComment = (req, res) => {
   // check if the question exist
   const question = Database.executeQuery(checkQuestion);
   question.then((result) => {
-    if (result.rows.length) {
+    if (result.rows) {
     // validate comment
-      joi.validate(req.body, Validator.commentSchema, Validator.validationOption)
-        .then((postData) => {
-          const newComment = [
-            uuid.v4(), new Date(), getToken(req).user[0].id, req.params.id, postData.comment,
-          ];
-          const comment = Database.executeQuery(sql, newComment);
-          comment.then((savedComment) => {
-            if (savedComment.rows.length) {
-              return res.status(201).json({
-                status: 201,
-                data: savedComment.rows,
-              });
-            }
+      if (result.rows.length) {
+        joi.validate(req.body, Validator.commentSchema, Validator.validationOption)
+          .then((postData) => {
+            const newComment = [
+              uuid.v4(), new Date(), getToken(req).user[0].id, req.params.id, postData.comment,
+            ];
+            const comment = Database.executeQuery(sql, newComment);
+            comment.then((savedComment) => {
+              if (savedComment.rows.length) {
+                return res.status(201).json({
+                  status: 201,
+                  data: savedComment.rows,
+                });
+              }
 
-            return res.status(500).json({
+              return res.status(500).json({
+                status: 500,
+                error: 'Internal server error',
+              });
+            }).catch(error => res.status(500).json({
               status: 500,
-              error: 'Internal server error',
-            });
-          }).catch(error => res.status(500).json({
-            status: 500,
-            error: `internal server error: ${error.message}`,
+              error: `internal server error: ${error.message}`,
+            }));
+          }).catch(error => res.status(400).json({
+            status: 400,
+            error: `Input validation Error ${error}`,
           }));
-        }).catch(error => res.status(400).json({
+      } else {
+        return res.status(400).json({
           status: 400,
-          error: `Input validation Error ${error}`,
-        }));
-    } else {
-      return res.status(400).json({
-        status: 400,
-        error: 'You are trying to comment on a question which does not exist',
-      });
+          error: 'You are trying to comment on a question which does not exist',
+        });
+      }
     }
   }).catch(error => res.status(500).json({
     status: 500,

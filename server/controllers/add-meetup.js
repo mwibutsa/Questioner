@@ -16,11 +16,13 @@ const addMeetup = (req, res) => {
     const sql = 'INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
     const meetup = Database.executeQuery(sql, newMeetup);
     meetup.then((insertedMeetup) => {
-      if (insertedMeetup.rows.length) {
-        return res.status(200).json({
-          status: 200,
-          data: insertedMeetup.rows,
-        });
+      if (insertedMeetup.rows) {
+        if (insertedMeetup.rows.length) {
+          return res.status(200).json({
+            status: 200,
+            data: insertedMeetup.rows,
+          });
+        }
       }
 
       return res.status(400).json({

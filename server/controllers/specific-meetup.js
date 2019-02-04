@@ -4,7 +4,7 @@ const getMeetupById = (req, res) => {
   const sql = `SELECT * FROM meetup_table WHERE id = '${req.params.id}'`;
   const meetup = Database.executeQuery(sql);
   meetup.then((result) => {
-    if (result.rows.length) {
+    if (result.rows) {
       return res.status(200).json({
         status: 200,
         data: result.rows,

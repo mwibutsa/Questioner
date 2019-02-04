@@ -8,7 +8,7 @@ const selectFrom = async (tableName, id = false) => {
     sql = `SELECT * FROM ${tableName} WHERE id =`;
   }
   return Database.executeQuery(sql);
-}
+};
 const selectDependent = (tableName, dependentColumnName, value) => {
   const sql = `SELECT * FROM ${tableName} WHERE ${dependentColumnName} = '${value}'`;
   Database.executeQuery(sql).then((result) => {

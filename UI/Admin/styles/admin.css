@@ -9,8 +9,8 @@
     padding: 1%;
     box-shadow: 1px 2px 4px #333;
 }
-.wrapper{
-    background-image: none;
+body{
+    background: rgb(245, 240, 225);
 }
 .home-header{
     margin-top: 300px;
@@ -28,7 +28,7 @@
     width: 80%;
     margin-right: auto;
     margin-left: auto;
-    background: #888;
+    background: rgb(243, 236, 236);
     text-align: center;
 }
 .form-container{
@@ -44,3 +44,27 @@ form .button, form button{
 .form-container label{
     font-weight: bold;
 }
+.footer{
+    height: 30px;
+    margin-top: -30px;
+}
+.list-grid {
+    width: 80%;
+    margin: 1% auto 1% auto;
+    display: flex;
+    flex-basis: row;
+    border-bottom: 2px solid #333;
+}
+.list-grid div{
+    margin: 1% auto 1% auto;
+}
+.list-grid:hover{
+    background: rgb(250, 227, 227);
+}
+th {
+    border-bottom: 2px solid rgb(4, 65, 122)
+}
+/* .listGrid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+} */

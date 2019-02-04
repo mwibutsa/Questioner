@@ -7,7 +7,6 @@
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="../styles/main.css">
     <link rel="stylesheet" type="text/css" href="styles/admin.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <script type="text/javascript" src="../scripts/main.js"></script>
 </head>
 <body>
@@ -25,18 +24,12 @@
                 <nav class="nav" id="mainNav">
                     <!-- Main navigation -->
                     <!-- site icon -->
-                        <a href="#" class="site-icon">Questioner</h1></a>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="manage-meetups.html">Mettups</a></li>
-                        <li><a href="#">Account</a>
-                            <ul>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="logout.html">Logout</a></li>
-                                <li><a href="sign-up.html">SignUp</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <a href="#" class="site-icon"><h1>Questioner</h1></a>
+                        <ul>
+                            <li><a href="index.html">Manage Meetups</a></li>
+                            <li><a href="create-meetup.html">Create meetup</a></li>
+                            <li><a href="../login.html">Logout</a></li>
+                        </ul>
                     <!-- Emd of navigation links -->
 
                     <!-- navigation toggle icon visible on small devices -->
@@ -53,22 +46,66 @@
             <!-- /Navigation container-->
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
-            <div class="main-content">
-                 <div class="grid">
-                     <div class="card card-link">
-                            
-                                <img src="images/add_meetup.jpg" alt="Icon" width="100" height="100"><br>
-                            <a href="create-meetup.html">
-                                <span>Organize meetup</span>
-                            </a>
-                     </div>
-                     <div class="card card-link">
-                         <img src="images/manage_meetup.png" alt="Icon" width="100" height="100"><br>
-                            <a href="manage-meetups.html">
-                            <span>Manage meetup</span>
-                        </a>
-                 </div>
-                 </div>
+            <div class="main-content listGrid">
+                <br>
+                <h1 class="text-center">List of available meetups</h1>
+                <hr>
+               <div class="list-grid">
+                    <div class="meetup-topic heading">Meetup topic</div>
+                    <div class="happening-date heading">Happening Date</div>
+                    <div class="location heading">Location</div>
+                    <div class="meetup-tags heading">Tags</div>
+                    <div class="edit heading">Edit</div>
+                    <div class="delete heading">Delete</div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">Andela Open session</div>
+                    <div class="happening-date">28-02-2019</div>
+                    <div class="location">Telecom House Kigali</div>
+                    <div class="meetup-tags">#Programming,#Discussion</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">Andela Open session</div>
+                    <div class="happening-date">18-03-2019</div>
+                    <div class="location">Weswelle Foundation</div>
+                    <div class="meetup-tags">#Bootcamp,#programming</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">Google Developer Meetup</div>
+                    <div class="happening-date">28-04-2019</div>
+                    <div class="location">Telecom House Kigali</div>
+                    <div class="meetup-tags">#Programming,#Business</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">Andela Open session</div>
+                    <div class="happening-date">28-02-2019</div>
+                    <div class="location">Telecom House Kigali</div>
+                    <div class="meetup-tags">#Programming,#Discussion</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">Andela Open session</div>
+                    <div class="happening-date">18-03-2019</div>
+                    <div class="location">Weswelle Foundation</div>
+                    <div class="meetup-tags">#Bootcamp,#programming</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
+               <div class="list-grid">
+                    <div class="meetup-topic">University Of Rwanda Public Talk</div>
+                    <div class="happening-date">28-04-2019</div>
+                    <div class="location">Muhabura Block P504</div>
+                    <div class="meetup-tags">#Education,#Discussion</div>
+                    <div class="edit"><form method="put"><button type="submit">Edit</form></div>
+                    <div class="delete"><form method="delete"><button type="submit">Delete</form></div>
+               </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
