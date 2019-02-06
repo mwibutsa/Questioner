@@ -8,10 +8,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+   <script type="text/javascript" src="scripts/meetups.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/meetups.js"></script>
 </head>
-<body onload="onReady()">
+<body onload="getAllMeetups(); onReady(); ">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -54,48 +54,9 @@
             <br>
             <h1 class="text-center">Available Upcomming meetups</h1>
             <hr>
-            <div class="main-content grid">
-                <div class="meetup">
+            <div class="main-content grid" id="meetupContainer">
                 
-                    <div class="topic">ANDELA OPEN SESSION</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Telecom House Kigali</div>
-                    <br>
-                    <p class="extra">Happengin on 18-02-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
-                </div>
-                <div class="meetup">
-                    <div class="topic">Public Talk</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Muhabura Block p504</div>
-                    <br>
-                    <p class="extra">Happengin on 18-02-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
-                </div>
-
-                <div class="meetup">
-                    <div class="topic">GOOGLE DEVELOPER MEETUP</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Universtity Of rwanda (Kist) </div>
-                    <br>
-                    <p class="extra">Happengin on 28-01-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Programming</span><span>Tech</span><span>Discussions</span></div>
-                </div>
+                <h1 class="text-center">Loading ...</h1>
             </div>
                     <div class="modal-container" id="modal-container">
                         <div class="modal" id="myModal">
