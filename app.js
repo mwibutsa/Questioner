@@ -3,7 +3,6 @@ import cors from 'cors';
 import favicon from 'serve-favicon';
 import path from 'path';
 import fileUpload from 'express-fileupload';
-import session from 'express-session';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import meetups from './server/routes/meetups';
@@ -16,14 +15,6 @@ const app = express();
 
 app.use(cors())
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
-app.use(session({
-  resave: false,
-  saveUninitialized: true,
-  secret: '_2@0)1!9(',
-  cookie: {
-    secure: true,
-  },
-}));
 app.use(fileUpload());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,7 +22,7 @@ app.use(logger('dev'));
 
 app.set('port', port);
 app.get('/', (req, res) => {
-  res.json({
+  res.status(200).json({
     status: 200,
     data: [{
       appName: 'eQuestioner',

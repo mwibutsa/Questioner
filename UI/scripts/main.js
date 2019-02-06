@@ -11,7 +11,6 @@ function toggleCommentForm(){
                 commentForm[index].classList.toggle('show-comment');
             }
         })(i);
-        console.log(toggleButton,commentForm);
 
     }
 }
@@ -32,7 +31,6 @@ function showModal(){
            modal.style.display = "none";
        }
    }
-   console.log(buttons,modal,closeButton);
 }
 
 function showNavigation(){
@@ -71,7 +69,6 @@ function registerUser(form){
     var password = form.password.value;
     var cpassword = form.cpassword.value;
     users.push(new User(firstname,lastname,otheName,email,username,phoneNumber,password))
-    console.log(users);
     return false;
 }
 
