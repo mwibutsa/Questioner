@@ -8,8 +8,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+   <script type="text/javascript" src="scripts/main.js"></script>
    <script type="text/javascript" src="scripts/meetups.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
 </head>
 <body onload="getAllMeetups(); onReady(); ">
    
@@ -56,32 +56,8 @@
             <hr>
             <div class="main-content grid" id="meetupContainer">
                 
-                <h1 class="text-center">Loading ...</h1>
+                <h3 class="text-center">Loading ...</h3>
             </div>
-                    <div class="modal-container" id="modal-container">
-                        <div class="modal" id="myModal">
-                            
-                            <br>
-                            <hr>
-                            
-                            <div class="form-container">
-                                <div><button class="close button">Cancel</button></div><br>
-                                <h2 class="text-center">Will You be availabe to attend this session?</h2>
-                                <hr>
-                                <form action="meetup.html">
-                                    
-                                    <div class="form-input text-center">
-                                        <input type="radio" name="answer" id="yes" class="radio-input" required><label for="yes">Yes</label>&nbsp;&nbsp;
-                                        <input type="radio" name="answer" id="no" class="radio-input" required><label for="no">No</label>&nbsp;&nbsp;
-                                        <input type="radio" name="answer" id="maybe" class="radio-input" required><label for="maybe">Maybe</label>&nbsp;&nbsp;
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <button type="submit">Reserve</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <hr>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#all-meetups" class="text-center">View a full list of meetups</a>
             <!--END OF MAIN PAGE CONTENT-->
@@ -130,6 +106,5 @@
         </div>
     </footer>
     <!--/Footer-->
-    
 </body>
 </html>

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const getAllMeetups = async () => {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  const allMeetups = fetch('https://equestioner.herokuapp.com/api/v1/meetups');
+  const allMeetups = fetch('http://localhost:3000/api/v1/meetups');
   allMeetups
     .then(result => result.json())
     .then((meetups) => {
@@ -17,12 +17,22 @@ const getAllMeetups = async () => {
 <div class="location"><b>Location: </b>${meetup.location}</div>
 <br>
 <p class="extra">${meetup.happening_on}</p>
-<br>
-<div class="rsvp-form">
-<button class="toggle-reserve-form">Reserve Place</button>
-</div>
 <hr>
-<div class="tags"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
+<div class="tags text-center"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
+<hr>
+<div class="rsvp-form">
+<form onsubmit="return rsvps(this);" method="post">
+<br>
+<label>Will you attend this meetup? </label>
+<br>
+<input type = "hidden" value = "${meetup.id}" name="meetupId">
+<input type ="radio" name="answer" value = "Yes" required>Yes
+<input type ="radio" name="answer" value = "Maybe" required>Maybe
+<input type ="radio" name="answer" value = "No"> No
+<input class="toggle-reserve-form button" type="submit" value="RSVP">
+</form>
+<br>
+</div>
 </div>
 `;
         });
@@ -32,6 +42,20 @@ const getAllMeetups = async () => {
       meetupContainer[0].innerHTML = meetupCard;
     })
     .catch((error) => {
-          
+      meetupContainer[0].innerHTML = error.message();
     });
+};
+
+const rsvps = async (form) => {
+
+  const meetupId = form.meetupId.value;
+  const answer = form.answer.value;
+  const rsvpPromise = fetch(`http://localhost:3000/api/v1/meetups/${meetupId}/rsvps`, {
+    method: 'POST',
+    body: { answer: `${answer}` },
+  });
+
+  rsvpPromise.then(rsvpResult => rsvpResult.json()).then((rsvp) => {
+    alert(JSON.stringify(rsvp));
+  }).catch(error => alert(`Error => ${error.message}`));
 };

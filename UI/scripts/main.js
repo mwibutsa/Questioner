@@ -1,5 +1,4 @@
 function onReady() {
-  showModal();
 }
 function toggleCommentForm() {
   const toggleButton = document.getElementsByClassName('comment-toggle');
@@ -12,26 +11,6 @@ function toggleCommentForm() {
     }(i));
   }
 }
-function showModal() {
-  const buttons = document.getElementsByClassName('toggle-reserve-form');
-  const modal = document.getElementById('modal-container');
-  console.log(modal);
-  const closeButton = document.getElementsByClassName('close')[0];
-  for (i = 0; i < buttons.length; i++) {
-    buttons[i].onclick = function () {
-      modal.style.display = 'block';
-    };
-  }
-  closeButton.onclick = function () {
-    modal.style.display = 'none';
-  };
-  window.onclick = function (params) {
-    if (params.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
-}
-
 function showNavigation() {
   const menu = document.getElementById('mainNav');
   menu.classList.toggle('change');
