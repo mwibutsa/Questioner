@@ -5,19 +5,21 @@ import Validation from '../helpers/validation';
 import Helper from '../helpers/helpers';
 
 const authenticateUser = (req, res) => {
-  console.log('Test from fetch API', req.body);
   joi.validate(req.body, Validation.loginSchema, Validation.validationOption).then((result) => {
     const userAccount = {
       email: result.email,
       password: result.password,
     };
-    const sql = `SELECT * FROM user_table WHERE email = '${userAccount.email}'`;
+    const sql = `SELECT * FROM user_table WHERE email = '${userAccount.email}' OR username =
+     '${userAccount.email}'`;
     const user = Database.executeQuery(sql);
     user.then((userResult) => {
       if (userResult.rows.length) {
         if (Helper.comparePassword(userAccount.password, userResult.rows[0].password)) {
           const token = jsonWebToken.sign({ user: userResult.rows }, process.env.SECRETKEY);
-          return res.status(202).json({ status: 202, data: userResult.rows, token });
+          res.status(202).json({ status: 202, data: userResult.rows, token });
+        } else {
+          return res.status(403).json({ status: 403, error: 'Invalid username or password' });
         }
       } else {
         return res.status(403).json({ status: 403, error: 'Invalid username or password' });

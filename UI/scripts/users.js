@@ -1,16 +1,21 @@
 const myHeaders = new Headers();
-// myHeaders.append('Accept', 'application/json, text/plain, */*');
-myHeaders.append('Content-type', 'application/x-www-form-urlencoded');
+myHeaders.append('Accept', 'application/json');
+myHeaders.append('Content-type', 'application/json');
 const login = (form) => {
   const email = (form.username.value).trim();
   const password = (form.password.value).trim();
   const loginOptions = {
     method: 'POST',
     headers: myHeaders,
-    body: { email, password },
+    body: JSON.stringify({ email, password }),
   };
-  const userPromise = fetch('http://localhost:3000/api/v1/users/login', loginOptions);
-  userPromise.then(userResult => userResult.json()).then((user) => {
-    alert(JSON.stringify(user));
-  }).catch(error => alert(error));
+  fetch('../../api/v1/users/login', loginOptions)
+    .then(userResult => userResult.json()).then((user) => {
+      if (user.status === 202) {
+        window.localStorage.setItem('user-data', JSON.stringify(user));
+        window.location.replace('meetups.html');
+      } else {
+        alert('Failled to log in');
+      }
+    }).catch(error => alert(JSON.parse(error)));
 };

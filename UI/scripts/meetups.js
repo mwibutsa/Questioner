@@ -1,8 +1,11 @@
 /* eslint-disable no-undef */
+const myHeaders = new Headers();
+myHeaders.append('Accept', 'application/json');
+myHeaders.append('Content-type', 'application/json');
+myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
 const getAllMeetups = async () => {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  const allMeetups = fetch('http://localhost:3000/api/v1/meetups');
-  allMeetups
+  fetch('../../api/v1/meetups', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
     .then((meetups) => {
       let meetupCard = '';
@@ -29,7 +32,7 @@ const getAllMeetups = async () => {
 <input type ="radio" name="answer" value = "Yes" required>Yes
 <input type ="radio" name="answer" value = "Maybe" required>Maybe
 <input type ="radio" name="answer" value = "No"> No
-<input class="toggle-reserve-form button" type="submit" value="RSVP">
+<input class="button" type="submit" value="RSVP">
 </form>
 <br>
 </div>
@@ -47,15 +50,15 @@ const getAllMeetups = async () => {
 };
 
 const rsvps = async (form) => {
-
   const meetupId = form.meetupId.value;
   const answer = form.answer.value;
-  const rsvpPromise = fetch(`http://localhost:3000/api/v1/meetups/${meetupId}/rsvps`, {
+  const rsvpOptions = {
     method: 'POST',
-    body: { answer: `${answer}` },
-  });
-
-  rsvpPromise.then(rsvpResult => rsvpResult.json()).then((rsvp) => {
-    alert(JSON.stringify(rsvp));
-  }).catch(error => alert(`Error => ${error.message}`));
+    headers: myHeaders,
+    body: JSON.stringify({ answer }),
+  };
+  fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
+    .then(rsvpResult => rsvpResult.json()).then((rsvp) => {
+      alert(JSON.stringify(rsvp));
+    }).catch(error => alert(`Error => ${error.message}`));
 };

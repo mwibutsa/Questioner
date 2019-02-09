@@ -4,7 +4,6 @@ import favicon from 'serve-favicon';
 import path from 'path';
 import fileUpload from 'express-fileupload';
 import bodyParser from 'body-parser';
-import logger from 'morgan';
 import meetups from './server/routes/meetups';
 import users from './server/routes/users';
 import questions from './server/routes/questions';
@@ -14,7 +13,6 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
-app.use(logger());
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
 app.use(fileUpload());
 app.use(bodyParser.json());
