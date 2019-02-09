@@ -5,6 +5,7 @@ import Validation from '../helpers/validation';
 import Helper from '../helpers/helpers';
 
 const authenticateUser = (req, res) => {
+  console.log('Test from fetch API', req.body);
   joi.validate(req.body, Validation.loginSchema, Validation.validationOption).then((result) => {
     const userAccount = {
       email: result.email,
