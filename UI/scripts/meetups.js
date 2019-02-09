@@ -59,6 +59,12 @@ const rsvps = async (form) => {
   };
   fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
     .then(rsvpResult => rsvpResult.json()).then((rsvp) => {
-      alert(JSON.stringify(rsvp));
+      window.localStorage.setItem('current-meetup', meetupId);
+      window.location.replace('meetup.html');
     }).catch(error => alert(`Error => ${error.message}`));
+};
+
+const getMeetupById = async () => {
+const meetupId = window.localStorage.getItem('current-meetup');
+fetch(`../../api/v1/meetups/${meetupId}`);
 };
