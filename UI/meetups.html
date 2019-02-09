@@ -8,9 +8,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-    <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/main.js"></script>
+   <script type="text/javascript" src="scripts/meetups.js"></script>
 </head>
-<body onload="onReady()">
+<body onload="getAllMeetups(); onReady(); ">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -53,73 +54,10 @@
             <br>
             <h1 class="text-center">Available Upcomming meetups</h1>
             <hr>
-            <div class="main-content grid">
-                <div class="meetup">
+            <div class="main-content grid" id="meetupContainer">
                 
-                    <div class="topic">ANDELA OPEN SESSION</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Telecom House Kigali</div>
-                    <br>
-                    <p class="extra">Happengin on 18-02-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
-                </div>
-                <div class="meetup">
-                    <div class="topic">Public Talk</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Muhabura Block p504</div>
-                    <br>
-                    <p class="extra">Happengin on 18-02-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
-                </div>
-
-                <div class="meetup">
-                    <div class="topic">GOOGLE DEVELOPER MEETUP</div>
-                    <br>
-                    <div class="location"><b>Location: </b>Universtity Of rwanda (Kist) </div>
-                    <br>
-                    <p class="extra">Happengin on 28-01-2019</p>
-                    <br>
-                    <div class="rsvp-form">
-                        <button class="toggle-reserve-form">Reserve Place</button>
-                    </div>
-                    <hr>
-                    <div class="tags"><span>Programming</span><span>Tech</span><span>Discussions</span></div>
-                </div>
+                <h3 class="text-center">Loading ...</h3>
             </div>
-                    <div class="modal-container" id="modal-container">
-                        <div class="modal" id="myModal">
-                            
-                            <br>
-                            <hr>
-                            
-                            <div class="form-container">
-                                <div><button class="close button">Cancel</button></div><br>
-                                <h2 class="text-center">Will You be availabe to attend this session?</h2>
-                                <hr>
-                                <form action="meetup.html">
-                                    
-                                    <div class="form-input text-center">
-                                        <input type="radio" name="answer" id="yes" class="radio-input" required><label for="yes">Yes</label>&nbsp;&nbsp;
-                                        <input type="radio" name="answer" id="no" class="radio-input" required><label for="no">No</label>&nbsp;&nbsp;
-                                        <input type="radio" name="answer" id="maybe" class="radio-input" required><label for="maybe">Maybe</label>&nbsp;&nbsp;
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <button type="submit">Reserve</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <hr>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#all-meetups" class="text-center">View a full list of meetups</a>
             <!--END OF MAIN PAGE CONTENT-->
@@ -137,7 +75,7 @@
                 <hr>
                 <ul class="no-style">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="../UI/Admin/index.html">Admin Dashboard</a></li>
+                    <li><a href="/admin/dashboard.html">Admin Dashboard</a></li>
                     <li><a href="meetups.html">Meetups</a></li>
                     <li><a href="user-profile.html">Profile</a></li>
                 </ul>
@@ -168,6 +106,5 @@
         </div>
     </footer>
     <!--/Footer-->
-    
 </body>
 </html>

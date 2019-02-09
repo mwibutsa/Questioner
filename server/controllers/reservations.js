@@ -11,7 +11,7 @@ const sameRsvp = async (userId, req) => {
   return false;
 };
 
-const attendMeetup = async (req, res) => {
+const attendMeetup = (req, res) => {
   let rsvpUser = '';
   if (getToken(req)) {
     const { user } = getToken(req);
@@ -24,7 +24,7 @@ const attendMeetup = async (req, res) => {
     if (isValid.rows) {
       if (isValid.rows.length) {
         joi.validate(req.body, Validation.rsvpSchema,
-          Validation.validationOption).then((result) => {
+          Validation.validationOption).then(async (result) => {
           const newReservation = [
             uuid.v4(),
             new Date(),
@@ -34,8 +34,10 @@ const attendMeetup = async (req, res) => {
           ];
           let sql = '';
           let reservation = '';
-          if (!sameRsvp(rsvpUser, req)) {
-            sql = `INSERT INTO rsvp_table ( id,created_on,user_id,meetup_id,answer)
+          const sameRsvpValue = await sameRsvp(rsvpUser, req);
+          console.log('RSVP Value', sameRsvpValue);
+          if (!sameRsvpValue) {
+            sql = `INSERT INTO rsvp_table (id,created_on,user_id,meetup_id,answer)
             VALUES ($1,$2,$3,$4,$5) RETURNING *`;
             reservation = Database.executeQuery(sql, newReservation);
           } else {
@@ -45,16 +47,16 @@ const attendMeetup = async (req, res) => {
             reservation = Database.executeQuery(sql);
           }
           reservation.then((rsvpResult) => {
-            if (rsvpResult.rows.length) {
+            console.log('RSVP RESULT', rsvpResult);
+            if (rsvpResult.rows) {
               return res.status(201).json({
                 status: 201,
                 data: rsvpResult.rows,
               });
             }
-
             return res.status(400).json({
               status: 400,
-              error: 'Failled to make reservation',
+              error: `Failled to make reservation ${rsvpResult}`,
             });
           }).catch(error => res.status(500).json({
             status: 500,
@@ -63,7 +65,7 @@ const attendMeetup = async (req, res) => {
         }).catch(error => res.status(400).json({ status: 400, error: [...error.details] }));
       }
     } else {
-      return res.status(400).json({ status: 400, error: 'Can not rsvp to a non existing meetup' });
+      res.status(400).json({ status: 400, error: 'Can not rsvp to a non existing meetup' });
     }
   }).catch(error => res.status(500).json({ status: 500, error: `Server error ${error}` }));
 };
