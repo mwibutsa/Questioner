@@ -3,9 +3,79 @@ const myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
 myHeaders.append('Content-type', 'application/json');
 myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
-const getAllMeetups = async () => {
+
+const getMeetupById = async () => {
+  const meetupId = window.localStorage.getItem('current-meetup');
+  if (meetupId) {
+    fetch(`../../api/v1/meetups/${meetupId}`, { method: 'GET', headers: myHeaders })
+      .then(result => result.json())
+      .then((meetupResult) => {
+        if (meetupResult.data) {
+          if (meetupResult.data.length) {
+            // load meetup and it's questions as well as comments on each and every question
+            document.getElementById('meetup-topic').innerHTML = meetupResult.data[0].topic;
+            document.getElementById('meetupId').value = meetupResult.data[0].id;
+            // check if there are some questions
+            let questionHTML = '';
+            const commentHTML = { html: '' };
+            fetch(`../../api/v1/meetups/${meetupResult.data[0].id}/questions`,
+              { method: 'GET', headers: myHeaders }).then(result => result.json())
+              .then((questions) => {
+                if (questions.data.length) {
+                  questions.data.forEach(async (question) => {
+                    commentHTML.html = 'No comments';
+                    questionHTML += `
+            <div class="text-container">
+              <span class="votes">User</span>
+              <h3 class="question-title">${question.title}</h3>
+              <p class="question-body">     
+                ${question.body}
+              </p>
+              <div class="voting-form" >
+                  <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
+                      <input type="hidden" name="vote" value="upvote">
+                      <input type="hidden" name="questionId" value="${question.id}">
+                      <button type="submit"><b>${question.upvotes}upvote</b> <i class="fa fa-thumbs-o-up"></i></button>
+                  </form>
+                  <form  class="inline-form" method="PATCH" onsubmit="processVote(this);">
+                      <input type="hidden" name="vote" value="downvote">
+                      <input type="hidden" name="questionId" value="${question.id}">
+                      <button type="submit"><b>${question.downvotes}downvote</b> <i class="fa fa-thumbs-o-down"></i></button>
+                  </form>
+              </div>
+              <button class="comment-toggle" onclick ="toggleCommentForm()">Comment (<b>5</b>)</button>
+              <div class="form-container comment">
+                  <div id="commentHere">${commentHTML.html}</div>
+                  <div class="meetup-form">
+                      <form action="#" method="POST">
+                          <div class="form-input">
+                              <label for="question">Your Comment</label><br>
+                              <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
+                          </div>
+                          <input type="submit" value="Comment" class="button">
+                      </form>
+                  </div>
+              </div>
+            </div>`;
+                  });
+                  document.getElementById('asked-questions').innerHTML = questionHTML;
+                } else {
+                  document.getElementById('asked-questions').innerHTML = 'Be the first one to ask a question';
+                }
+              }).catch(error => alert(`Erro ${error}`));
+          } else {
+            // message 'No meetup with this id is found'
+            document.getElementById('meetup-topic').innerHTML = 'Reflesh the page';
+          }
+        } else {
+          // there was an error
+        }
+      }).catch(error => alert(JSON.stringify(error)));
+  }
+};
+const getAllMeetups = () => {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  fetch('../../api/v1/meetups', { method: 'GET', headers: myHeaders })
+  fetch('../../api/v1/meetups/upcoming', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
     .then((meetups) => {
       let meetupCard = '';
@@ -49,7 +119,7 @@ const getAllMeetups = async () => {
     });
 };
 
-const rsvps = async (form) => {
+const rsvps = (form) => {
   const meetupId = form.meetupId.value;
   const answer = form.answer.value;
   const rsvpOptions = {
@@ -63,8 +133,12 @@ const rsvps = async (form) => {
       window.location.replace('meetup.html');
     }).catch(error => alert(`Error => ${error.message}`));
 };
-
-const getMeetupById = async () => {
-const meetupId = window.localStorage.getItem('current-meetup');
-fetch(`../../api/v1/meetups/${meetupId}`);
-};
+function toggleCommentForm() {
+  const commentForm = document.getElementsByClassName('comment');
+  // eslint-disable-next-line no-plusplus
+  for (i = 0; i < commentForm.length; i++) {
+    ((index) => {
+      commentForm[index].classList.toggle('show-comment');
+    })(i);
+  }
+}

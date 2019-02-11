@@ -7,11 +7,11 @@
     <title>Questioner</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/meetups.js"></script>
+    <script type="text/javascript" src="scripts/questions.js"></script>
 </head>
-<body onload="toggleCommentForm();">
+<body onload="getMeetupById(); toggleCommentForm();">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -32,7 +32,7 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="meetups.html">Mettups</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="login.html">Logout</a></li>
                                     <li><a href="user-profile.html">Profile</a></li>
                                 </ul>
                                 <!-- Emd of navigation links -->
@@ -50,147 +50,41 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                    <div class="page-header-container text-center meetup-header">
-                            <p class="text-center">
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                      
-                                <h1 class="text-center" style="font-size:80px;">Welcome to Andela open Session</h1>
-                                <h3>
-                                    <p style="width:50%; margin-left:auto;margin-right:auto">
-                                       Crowd-source questions for a meetup. Questioner helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
-                                   </p>
-                                </h3>
-                                <br>
-                            </p>
+                <div class="meetup-header">
+                    <p class="text-center">
+                        <h1 id="meetup-topic" class="text-center" style="font-size:80px;">Welcome to Andela open Session</h1>
+                        <br>
+                    </p>
+                    <div class="form-container">
+                        <div class="meetup-form">
+                            <form method="POST" onsubmit ="askQuestion(this)">
+                                <div class="form-input">
+                                    <label for="title">Title:</label>
+                                    <input type="text" name="title" id="title" class="text-input" aria-required="true">
+                                </div>
+                                <div class="form-input">
+                                   <label for="question">Ask your question:</label><br>
+                                   <input type="hidden" name="meetupId" value="" id="meetupId">
+                                   <textarea name="body" rows="4" id="topic" class="textarea" required></textarea>
+                                </div>
+                                <input type="submit" value="Ask" class="button">
+                            </form>
                         </div>
+                   </div>
+
+                </div>
                  <!--MEET UP QUESTIONS SECTION -->
                  <section class="text-container">
 
-                     <div class="form-container">
-                         <div class="meetup-form">
-                             <form action="#" method="POST">
-                                 <div class="form-input">
-
-                                     <div class="form-input">
-                                         <label for="title">Title:</label>
-                                         <input type="text" name="title" id="title" class="text-input">
-                                    </div>
-                                    <label for="question">Ask your question:</label><br>
-                                    <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                 </div>
-                                 <input type="submit" value="Ask" class="button">
-                             </form>
-                         </div>
-                    </div>
                     <!--/ASK QUESTION FORM CONTAINER-->
 
                     <div class="text-container">
                         <br>
                         <h3>Asked Questions</h3>
-                        <br>
-                        <hr>
-                        <br>
 
                         <!--ASKED QUESTIONS -->
-                        <section>
-
-                                <div class="text-container">
-                                        <span class="votes">Mwibutsa</span>
-                                        <h3>Question about andela application</h3>
-                                        <p>     
-                                            Is it a good idea for a beginner programmer to join Andela in Nigeria?
-                                            </p>
-                
-                                            <div class="voting-form" >
-                                                <form class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit"><b>17</b> <i class="fa fa-thumbs-o-up"></i></button>
-                                                </form>
-                                                <form  class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit"><b>6</b> <i class="fa fa-thumbs-o-down"></i></button>
-                                                </form>
-                                            </div>
-                                            <button class="comment-toggle">Comment (<b>5</b>)</button>
-                                            <div class="form-container comment">
-                                                <div class="meetup-form">
-                                                    <form action="#" method="POST">
-                                                        <div class="form-input">
-                                                           <label for="question">Your Comment</label><br>
-                                                           <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                                        </div>
-                                                        <input type="submit" value="Comment" class="button">
-                                                    </form>
-                                                </div>
-                                                </div>
-                                </div>
-                                <hr>
-                                <div class="text-container">
-                                        <span class="votes">Nkunzi</span>
-                                        <h3>Question tobe answered by John</h3>
-                                        <p>
-                                            Hey John I would like to ask you the level on which you are among all the D levels of Andela. Thankyou
-                                        </p>
-                
-                                        <div class="voting-form" >
-                                            <form class="inline-form">
-                                                <input type="hidden" name="upvote" value="1">
-                                                <button type="submit"><b>7</b> <i class="fa fa-thumbs-o-up"></i></button>
-                                            </form>
-                                            <form  class="inline-form">
-                                                <input type="hidden" name="upvote" value="1">
-                                                <button type="submit"><b>4</b> <i class="fa fa-thumbs-o-down"></i></button>
-                                            </form>
-                                        </div>
-                                            </div>
-                                            <button class="comment-toggle">Comment (<b>5</b>)</button>
-                                            <div class="form-container comment">
-                                                <div class="meetup-form">
-                                                    <form action="#" method="POST">
-                                                        <div class="form-input">
-                                                           <label for="question">Your Comment</label><br>
-                                                           <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                                        </div>
-                                                        <input type="submit" value="Comment" class="button">
-                                                    </form>
-                                                </div>
-                                                </div>
-                                </div>
-                                <hr>
-                                <div class="text-container">
-                                        <span class="votes">Emmy</span>
-                                        <h3>My Question is addressed to Phillip Newman</h3>
-                                        <p>     
-                                            The quesion I want to ask you is about the founder of Andela and The way it makes money so that one ca rely upon it's sustainability
-                                            </p>
-                
-                                            <div class="voting-form" >
-                                                <form class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit"><b>2</b> <i class="fa fa-thumbs-o-up"></i></button>
-                                                </form>
-                                                <form  class="inline-form">
-                                                    <input type="hidden" name="upvote" value="1">
-                                                    <button type="submit"><b>3</b> <i class="fa fa-thumbs-o-down"></i></button>
-                                                </form>
-                                            </div>
-                                            <button class="comment-toggle">Comment (<b>1</b>)</button>
-                                            <div class="form-container comment">
-                                                <div class="meetup-form">
-                                                    <form action="#" method="POST">
-                                                        <div class="form-input">
-                                                           <label for="question">Your Comment</label><br>
-                                                           <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
-                                                        </div>
-                                                        <input type="submit" value="Comment" class="button">
-                                                    </form>
-                                                </div>
-                                                </div>
-                                </div>
+                        <section id="asked-questions">
+                            Loading questions ......
                         </section>
                 </div>
                 </section>

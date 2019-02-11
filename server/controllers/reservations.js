@@ -35,7 +35,6 @@ const attendMeetup = (req, res) => {
           let sql = '';
           let reservation = '';
           const sameRsvpValue = await sameRsvp(rsvpUser, req);
-          console.log('RSVP Value', sameRsvpValue);
           if (!sameRsvpValue) {
             sql = `INSERT INTO rsvp_table (id,created_on,user_id,meetup_id,answer)
             VALUES ($1,$2,$3,$4,$5) RETURNING *`;
@@ -47,7 +46,6 @@ const attendMeetup = (req, res) => {
             reservation = Database.executeQuery(sql);
           }
           reservation.then((rsvpResult) => {
-            console.log('RSVP RESULT', rsvpResult);
             if (rsvpResult.rows) {
               return res.status(201).json({
                 status: 201,
