@@ -5,6 +5,7 @@ dotenv.config();
 if (process.env.NODE_ENV === 'test') {
   process.env.PGDATABASE = 'test';
 }
+console.log('NODE TEST ENV', process.env.PGDATABASE);
 class Database {
   constructor() {
     this.pool = new Pool({

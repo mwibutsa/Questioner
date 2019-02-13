@@ -4,7 +4,7 @@ import uuid from 'uuid';
 import app from '../../app';
 
 process.env.NODE_ENV = 'test';
-
+console.log(' WHILE TESTING', process.env.PGDATABASE);
 chai.should();
 chai.use(chaiHttp);
 // get all users

@@ -15,7 +15,7 @@ const login = (form) => {
         window.localStorage.setItem('user-data', JSON.stringify(user));
         window.location.replace('meetups.html');
       } else {
-        alert('Failled to log in');
+        alert(JSON.stringify(user));
       }
     }).catch(error => alert(JSON.parse(error)));
 };

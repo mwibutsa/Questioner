@@ -45,7 +45,7 @@ describe('MEETUP TEST RESULTS \n ---------------------------', () => {
         happeningOn: new Date(2019, 3, 3),
         tags: ['programing', 'talent development', 'bootcamp induction'],
       };
-      chai.request(app).post('/api/v1/meetups').send(newMeetup).end((error, res) => {
+      chai.request(app).post('/api/v1/meetups').set('Authorization', `Bearer ${newMeetup}`).send(newMeetup).end((error, res) => {
         res.should.have.status(200);
         res.body.should.be.a('object');
         const meetup = res.body.data;
