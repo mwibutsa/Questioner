@@ -19,3 +19,8 @@ const login = (form) => {
       }
     }).catch(error => alert(JSON.parse(error)));
 };
+
+const signUp = (event) => {
+  event.preventDefault();
+  alert('hello');
+};

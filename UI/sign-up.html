@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script src="scripts/register-user.js"></script>
+    <script type="text/javascript" src="scripts/users.js"></script>
 </head>
 <body>
    
@@ -54,7 +54,7 @@
                             <div class="form-header">
                                 <h1 class="text-center">Fill this form to create a new account</h1>
                             </div>
-                            <form id="signup-form" method="POST" action="login.html" name="signUpForm" onsubmit="return registerUser(this)">
+                            <form id="signup-form" method="POST" onsubmit="return signUp()" name="register">
 
                                 <div class="form-input">
                                     <label for="firstname">Firstname *</label><span class="error"></span><br>
