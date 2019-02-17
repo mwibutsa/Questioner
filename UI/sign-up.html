@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script type="text/javascript" src="scripts/main.js"></script>
-    <script src="scripts/register-user.js"></script>
+    <script type="text/javascript" src="scripts/users.js"></script>
 </head>
 <body>
    
@@ -54,48 +54,48 @@
                             <div class="form-header">
                                 <h1 class="text-center">Fill this form to create a new account</h1>
                             </div>
-                            <form id="signup-form" method="POST" action="login.html" name="signUpForm" onsubmit="return registerUser(this)">
+                            <form id="signup-form" method="POST" name="register">
 
                                 <div class="form-input">
-                                    <label for="firstname">Firstname *</label><span class="error"></span><br>
-                                    <input type="text" name="firstname" id="firstname" class="text-input" required>
+                                    <label for="firstname">Firstname *</label><span class="error-span" id="firstname"></span><br>
+                                    <input type="text" name="firstname" id="firstname" class="text-input" >
                                </div>
 
                                <div class="form-input">
-                                    <label for="lastname">Lastname *</label><span class="error"></span><br>
-                                    <input type="text" name="lastname" id="lastname" class="text-input" required>
+                                    <label for="othername">Othername *</label><span class="error-span" id="othername"></span><br>
+                                    <input type="text" name="othername" id="othername" class="text-input" >
                                </div>
 
                                <div class="form-input">
-                                    <label for="othername">Other name </label><span class="error"></span><br>
-                                    <input type="text" name="otherName" id="othername" class="text-input">
+                                    <label for="lastname">Other name </label><span class="error-span" id="lastname"></span><br>
+                                    <input type="text" name="lastname" id="lastname" class="text-input">
                                </div>
 
                                <div class="form-input">
-                                    <label for="email">Email address *</label><span class="error"></span><br>
-                                    <input type="email" name="email" id="email" class="text-input" required>
+                                    <label for="email">Email address *</label><span class="error-span" id="email"></span><br>
+                                    <input type="email" name="email" class="text-input" >
                                </div>
 
                                <div class="form-input">
-                                    <label for="username">username *</label><span class="error"></span><br>
-                                    <input type="text" name="username" id="username" class="text-input" required>
+                                    <label for="username">username *</label><span class="error-span" id="username"></span><br>
+                                    <input type="text" name="username" class="text-input" >
                                </div>
 
                                <div class="form-input">
-                                    <label for="phoneNumber">Phone number *</label><span class="error"></span><br>
-                                    <input type="tel" name="phoneNumber" id="phoneNumber" class="text-input" required>
+                                    <label for="phoneNumber">Phone number *</label><span class="error-span" id="phoneNumber"></span><br>
+                                    <input type="tel" name="phoneNumber"  class="text-input" >
                                </div>
 
                                <div class="form-input">
-                                       <label for="password">Password *</label><span class="error"></span><br>
-                                       <input type="password" name="password" id="password" class="text-input" required>
+                                       <label for="password">Password *</label><span class="error-span" id="password"></span><br>
+                                       <input type="password" name="password" class="text-input" >
                                </div>
                                <div class="form-input">
-                                    <label for="password">Confirm Your Password *</label><span class="error"></span><br>
-                                    <input type="password" name="cpassword" id="cpassword" class="text-input" required>
+                                    <label for="password">Confirm Your Password *</label><span class="error-span" id="cpassword"></span><br>
+                                    <input type="password" name="cpassword"  class="text-input" >
                                 </div>
 
-                               <button type="submit" class="button">Sign up</button>
+                               <button class="button" onclick="signUp();">Sign up</button>
                                <span>Already have an account?&nbsp;</span> <a href="login.html" class="butto">Login</a>
                             </form>
                         </div>

@@ -1,5 +1,9 @@
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
+import uuid from 'uuid';
+import Helper from '../helpers/helpers';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'babel-polyfill';
 
 dotenv.config();
 if (process.env.NODE_ENV === 'test') {
@@ -16,7 +20,6 @@ class Database {
     });
 
     this.connect = async () => this.pool.connect();
-
 
     this.userTable = `
     CREATE TABLE IF NOT EXISTS user_table (
@@ -145,6 +148,31 @@ class Database {
     await this.executeQuery(this.resevationTable);
     await this.executeQuery(this.tagTable);
     await this.executeQuery(this.votersTable);
+  }
+
+  async createAdmin() {
+    try {
+      this.adminUser = [
+        uuid.v4(),
+        'Mwibutsa',
+        'Milton',
+        'Floribert',
+        'admin@questioner.com',
+        'admin',
+        '+250787740316',
+        new Date(),
+        1,
+        Helper.hashPassword('adMin@2019', 12),
+        'Ve23U4se8r',
+        1,
+      ];
+      this.sql = `INSERT INTO user_table (id,firstname,othername,
+        lastname,email,username,phone_number,registered,is_admin,password,token,confirmed)
+      VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`;
+      this.adminUser = await this.executeQuery(this.sql, this.adminUser);
+    } catch (error) {
+      return error;
+    }
   }
 }
 export default new Database();

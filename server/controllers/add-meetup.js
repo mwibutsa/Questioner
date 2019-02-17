@@ -4,6 +4,7 @@ import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 const addMeetup = (req, res) => {
+  console.log(req.body);
   joi.validate(req.body, Validation.meetupSchema, Validation.validationOption).then((result) => {
     const date = result.happeningOn.split('-');
     const newMeetup = [
