@@ -44,11 +44,13 @@ const signUp = () => {
     }).then(userResponse => userResponse.json()).then((user) => {
       if (user.data) {
         window.location.replace('login.html');
-      } else if (typeof user.error === 'array') {
+      } else if (typeof user.error !== 'string') {
         const erros = [...user.error];
         erros.forEach((err) => {
           document.getElementById(err.path).innerHTML = err.message;
         });
+      } else {
+        document.getElementById('account-error').innerHTML = `${user.error}`;
       }
     }).catch(error => alert(error));
   });
