@@ -20,7 +20,36 @@ const login = (form) => {
     }).catch(error => alert(JSON.parse(error)));
 };
 
-const signUp = (event) => {
-  event.preventDefault();
-  alert('hello');
+const signUp = () => {
+  const form = document.getElementById('signup-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const {
+      firstname, lastname, othername, email, username, password, cpassword, phoneNumber,
+    } = form;
+    const newUser = {
+      firstname: firstname.value,
+      lastname: lastname.value,
+      othername: othername.value,
+      email: email.value,
+      username: username.value,
+      password: password.value,
+      cpassword: cpassword.value,
+      phoneNumber: phoneNumber.value,
+    };
+    fetch('../api/v1/users/new-account', {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(newUser),
+    }).then(userResponse => userResponse.json()).then((user) => {
+      if (user.data) {
+        window.location.replace('login.html');
+      } else if (typeof user.error === 'array') {
+        const erros = [...user.error];
+        erros.forEach((err) => {
+          document.getElementById(err.path).innerHTML = err.message;
+        });
+      }
+    }).catch(error => alert(error));
+  });
 };

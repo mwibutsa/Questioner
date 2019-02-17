@@ -59,6 +59,6 @@ const registerUser = (req, res) => {
     } else {
       return res.status(500).json({ status: 500, error: `Error: ${unique.email}, ${unique.username}` });
     }
-  }).catch(error => res.status(404).json({ status: 404, error: [...error.details] }));
+  }).catch(error => res.status(404).json({ status: 404, error: error.details }));
 };
 export default registerUser;

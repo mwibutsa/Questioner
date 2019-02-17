@@ -5,7 +5,6 @@ import Validation from '../helpers/validation';
 import Helper from '../helpers/helpers';
 
 const authenticateUser = (req, res) => {
-  console.log(req.body);
   joi.validate(req.body, Validation.loginSchema, Validation.validationOption).then(async (result) => {
     const userAccount = {
       email: result.email,
