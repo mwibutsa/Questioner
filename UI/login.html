@@ -52,7 +52,8 @@
             <div class="main-content">
                  <div class="form-container">
                      <h2 class="text-center">Log into Your Account</h2>
-                     <form method="POST" onsubmit="login(this);">
+                     <div id="login-error" class="error-span text-center"></div>
+                     <form method="POST" id="loginForm">
                          <div class="forn-input">
                              <label for="username">Username</label>
                              <input type="email" name="username" id="username" class="text-input" required>
@@ -63,7 +64,7 @@
                                 <input type="password" name="password" id="password" class="text-input" required>
                         </div>
                         <br>
-                        <button type="submit" class="button">Login</button>
+                        <button onclick="login();" class="button">Login</button>
                         
                          &nbsp;  No Account? <a href="sign-up.html">Create Account</a>
                          <hr>
