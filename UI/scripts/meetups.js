@@ -75,7 +75,7 @@ const getMeetupById = async () => {
 };
 const getAllMeetups = () => {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  fetch('../../api/v1/meetups/upcoming', { method: 'GET', headers: myHeaders })
+  fetch('../../api/v1/meetups/', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
     .then((meetups) => {
       let meetupCard = '';
@@ -142,3 +142,32 @@ function toggleCommentForm() {
     })(i);
   }
 }
+const createMeetup = async () => {
+  const form = document.getElementById('meetupForm');
+  const {
+    topic, location, tag, happeningOn, meetupImage
+  } = form;
+  const newMeetup = {
+    topic: topic.value,
+    location: location.value,
+    happeningOn: happeningOn.value,
+  };
+  fetch('../api/v1/meetups', {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(newMeetup),
+  })
+    .then(result => result.json()).then((createdMeetup) => {
+      if (createdMeetup.data) {
+        window.location.reload();
+      } else if (typeof createdMeetup.error !== 'string') {
+        const erros = [...createdMeetup.error];
+        erros.forEach((err) => {
+          document.getElementById(err.path).innerHTML = err.message;
+        });
+      } else {
+        document.getElementById('meetup-error').innerHTML = `${createdMeetup.error}`;
+      }
+    })
+    .catch(error => alert(error));
+};
