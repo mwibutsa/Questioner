@@ -55,44 +55,44 @@
                                 <h1 class="text-center">Fill this form to create a new account</h1>
                             </div>
                             <form id="signup-form" method="POST" name="register">
-
+                                <div id="account-error" class="error-span"></div>
                                 <div class="form-input">
                                     <label for="firstname">Firstname *</label><span class="error-span" id="firstname"></span><br>
-                                    <input type="text" name="firstname" id="firstname" class="text-input" >
+                                    <input type="text" name="firstname" id="firstname" class="text-input"  required>
                                </div>
 
                                <div class="form-input">
                                     <label for="othername">Othername *</label><span class="error-span" id="othername"></span><br>
-                                    <input type="text" name="othername" id="othername" class="text-input" >
+                                    <input type="text" name="othername" id="othername" class="text-input"  required>
                                </div>
 
                                <div class="form-input">
                                     <label for="lastname">Other name </label><span class="error-span" id="lastname"></span><br>
-                                    <input type="text" name="lastname" id="lastname" class="text-input">
+                                    <input type="text" name="lastname" id="lastname" class="text-input" required>
                                </div>
 
                                <div class="form-input">
                                     <label for="email">Email address *</label><span class="error-span" id="email"></span><br>
-                                    <input type="email" name="email" class="text-input" >
+                                    <input type="email" name="email" class="text-input"  required>
                                </div>
 
                                <div class="form-input">
                                     <label for="username">username *</label><span class="error-span" id="username"></span><br>
-                                    <input type="text" name="username" class="text-input" >
+                                    <input type="text" name="username" class="text-input"  required>
                                </div>
 
                                <div class="form-input">
                                     <label for="phoneNumber">Phone number *</label><span class="error-span" id="phoneNumber"></span><br>
-                                    <input type="tel" name="phoneNumber"  class="text-input" >
+                                    <input type="tel" name="phoneNumber"  class="text-input"  required>
                                </div>
 
                                <div class="form-input">
                                        <label for="password">Password *</label><span class="error-span" id="password"></span><br>
-                                       <input type="password" name="password" class="text-input" >
+                                       <input type="password" name="password" class="text-input"  required>
                                </div>
                                <div class="form-input">
                                     <label for="password">Confirm Your Password *</label><span class="error-span" id="cpassword"></span><br>
-                                    <input type="password" name="cpassword"  class="text-input" >
+                                    <input type="password" name="cpassword"  class="text-input" required >
                                 </div>
 
                                <button class="button" onclick="signUp();">Sign up</button>

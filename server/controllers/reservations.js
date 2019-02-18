@@ -41,8 +41,8 @@ const attendMeetup = async (req, res) => {
             reservation = await Database.executeQuery(sql, newReservation);
           } else {
             sql = `UPDATE rsvp_table SET answer = '${result.answer}',
-           created_on = NOW() WHERE user_id = '${rsvpUser}' AND
-           meetup_id = '${req.params.id}' RETURNING *`;
+       created_on = NOW() WHERE user_id = '${rsvpUser}' AND
+       meetup_id = '${req.params.id}' RETURNING *`;
             reservation = await Database.executeQuery(sql);
           }
           if (reservation.rows) {

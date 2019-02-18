@@ -4,7 +4,6 @@ import Database from '../db/db-connection';
 import Validation from '../helpers/validation';
 
 const addMeetup = (req, res) => {
-  console.log(req.body);
   joi.validate(req.body, Validation.meetupSchema, Validation.validationOption).then((result) => {
     const date = result.happeningOn.split('-');
     const newMeetup = [
@@ -38,7 +37,7 @@ const addMeetup = (req, res) => {
     });
   }).catch(error => res.status(400).json({
     status: 400,
-    error: error.details[0].message,
+    error: error.details,
   }));
 };
 export default addMeetup;

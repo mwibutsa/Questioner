@@ -75,7 +75,7 @@ const getMeetupById = async () => {
 };
 const getAllMeetups = () => {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  fetch('../../api/v1/meetups/upcoming', { method: 'GET', headers: myHeaders })
+  fetch('../../api/v1/meetups/', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
     .then((meetups) => {
       let meetupCard = '';
@@ -94,7 +94,7 @@ const getAllMeetups = () => {
 <div class="tags text-center"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
 <hr>
 <div class="rsvp-form">
-<form onsubmit="return rsvps(this);" method="post">
+<form id="${meetup.id}" method="post">
 <br>
 <label>Will you attend this meetup? </label>
 <br>
@@ -102,7 +102,7 @@ const getAllMeetups = () => {
 <input type ="radio" name="answer" value = "Yes" required>Yes
 <input type ="radio" name="answer" value = "Maybe" required>Maybe
 <input type ="radio" name="answer" value = "No"> No
-<input class="button" type="submit" value="RSVP">
+<button onclick="rsvp(this)" name ="${meetup.id}">Rsvp</button>
 </form>
 <br>
 </div>
@@ -119,19 +119,27 @@ const getAllMeetups = () => {
     });
 };
 
-const rsvps = (form) => {
-  const meetupId = form.meetupId.value;
-  const answer = form.answer.value;
-  const rsvpOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: JSON.stringify({ answer }),
-  };
-  fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
-    .then(rsvpResult => rsvpResult.json()).then((rsvp) => {
-      window.localStorage.setItem('current-meetup', meetupId);
-      window.location.replace('meetup.html');
-    }).catch(error => alert(`Error => ${error.message}`));
+const rsvp = (button) => {
+  const form = document.getElementById(button.name);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const meetupId = form.meetupId.value;
+    const answer = form.answer.value;
+    const rsvpOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({ answer }),
+    };
+    fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
+      .then(rsvpResult => rsvpResult.json()).then((rsvps) => {
+        if (rsvps.data) {
+          window.localStorage.setItem('current-meetup', meetupId);
+          window.location.replace('meetup.html');
+        } else {
+          alert(JSON.stringify(rsvps));
+        }
+      }).catch(error => alert(`Error => ${error.message}`));
+  });
 };
 function toggleCommentForm() {
   const commentForm = document.getElementsByClassName('comment');
@@ -142,3 +150,32 @@ function toggleCommentForm() {
     })(i);
   }
 }
+const createMeetup = async () => {
+  const form = document.getElementById('meetupForm');
+  const {
+    topic, location, tag, happeningOn, meetupImage
+  } = form;
+  const newMeetup = {
+    topic: topic.value,
+    location: location.value,
+    happeningOn: happeningOn.value,
+  };
+  fetch('../api/v1/meetups', {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(newMeetup),
+  })
+    .then(result => result.json()).then((createdMeetup) => {
+      if (createdMeetup.data) {
+        window.location.reload();
+      } else if (typeof createdMeetup.error !== 'string') {
+        const erros = [...createdMeetup.error];
+        erros.forEach((err) => {
+          document.getElementById(err.path).innerHTML = err.message;
+        });
+      } else {
+        document.getElementById('meetup-error').innerHTML = `${createdMeetup.error}`;
+      }
+    })
+    .catch(error => alert(error));
+};
