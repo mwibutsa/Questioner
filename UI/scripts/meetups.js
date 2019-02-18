@@ -94,7 +94,7 @@ const getAllMeetups = () => {
 <div class="tags text-center"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
 <hr>
 <div class="rsvp-form">
-<form onsubmit="return rsvps(this);" method="post">
+<form id="${meetup.id}" method="post">
 <br>
 <label>Will you attend this meetup? </label>
 <br>
@@ -102,7 +102,7 @@ const getAllMeetups = () => {
 <input type ="radio" name="answer" value = "Yes" required>Yes
 <input type ="radio" name="answer" value = "Maybe" required>Maybe
 <input type ="radio" name="answer" value = "No"> No
-<input class="button" type="submit" value="RSVP">
+<button onclick="rsvp(this)" name ="${meetup.id}">Rsvp</button>
 </form>
 <br>
 </div>
@@ -119,19 +119,27 @@ const getAllMeetups = () => {
     });
 };
 
-const rsvps = (form) => {
-  const meetupId = form.meetupId.value;
-  const answer = form.answer.value;
-  const rsvpOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: JSON.stringify({ answer }),
-  };
-  fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
-    .then(rsvpResult => rsvpResult.json()).then((rsvp) => {
-      window.localStorage.setItem('current-meetup', meetupId);
-      window.location.replace('meetup.html');
-    }).catch(error => alert(`Error => ${error.message}`));
+const rsvp = (button) => {
+  const form = document.getElementById(button.name);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const meetupId = form.meetupId.value;
+    const answer = form.answer.value;
+    const rsvpOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify({ answer }),
+    };
+    fetch(`../../api/v1/meetups/${meetupId}/rsvps`, rsvpOptions)
+      .then(rsvpResult => rsvpResult.json()).then((rsvps) => {
+        if (rsvps.data) {
+          window.localStorage.setItem('current-meetup', meetupId);
+          window.location.replace('meetup.html');
+        } else {
+          alert(JSON.stringify(rsvps));
+        }
+      }).catch(error => alert(`Error => ${error.message}`));
+  });
 };
 function toggleCommentForm() {
   const commentForm = document.getElementsByClassName('comment');
