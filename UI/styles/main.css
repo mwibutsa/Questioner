@@ -482,3 +482,11 @@ hr{
 .error-span {
 	color: brown;
 }
+i {
+	font-size: 36px;
+	margin: 1%;
+	cursor: pointer;
+}
+i:hover{
+	background-color: rgb(195, 248, 237);
+}

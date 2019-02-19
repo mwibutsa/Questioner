@@ -11,7 +11,7 @@
     <script type="text/javascript" src="scripts/meetups.js"></script>
     <script type="text/javascript" src="scripts/questions.js"></script>
 </head>
-<body onload="getMeetupById(); toggleCommentForm();">
+<body onload="getMeetupById();">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -57,7 +57,7 @@
                     </p>
                     <div class="form-container">
                         <div class="meetup-form">
-                            <form method="POST" onsubmit ="askQuestion(this)">
+                            <form method="POST" id="question-form">
                                 <div class="form-input">
                                     <label for="title">Title:</label>
                                     <input type="text" name="title" id="title" class="text-input" aria-required="true">
@@ -67,7 +67,7 @@
                                    <input type="hidden" name="meetupId" value="" id="meetupId">
                                    <textarea name="body" rows="4" id="topic" class="textarea" required></textarea>
                                 </div>
-                                <input type="submit" value="Ask" class="button">
+                                <button onclick="askQuestion();">Ask</button>
                             </form>
                         </div>
                    </div>
@@ -135,6 +135,7 @@
         </div>
     </footer>
     <!--/Footer-->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
 </body>
 </html>

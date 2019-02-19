@@ -35,15 +35,15 @@ const getMeetupById = async () => {
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <button type="submit"><b>${question.upvotes}upvote</b> <i class="fa fa-thumbs-o-up"></i></button>
+         <i class="fa fa-thumbs-o-up" style="font-size:24px">${question.upvotes}</i>
                   </form>
                   <form  class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="downvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <button type="submit"><b>${question.downvotes}downvote</b> <i class="fa fa-thumbs-o-down"></i></button>
+                      <i class="fa fa-thumbs-o-down" style="font-size:24px">${question.downvotes}</i>
                   </form>
               </div>
-              <button class="comment-toggle" onclick ="toggleCommentForm()">Comment (<b>5</b>)</button>
+              <i class="fas fa-comment-dots" onclick="toggleCommentForm()"></i>
               <div class="form-container comment">
                   <div id="commentHere">${commentHTML.html}</div>
                   <div class="meetup-form">
@@ -52,7 +52,6 @@ const getMeetupById = async () => {
                               <label for="question">Your Comment</label><br>
                               <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
                           </div>
-                          <input type="submit" value="Comment" class="button">
                       </form>
                   </div>
               </div>
@@ -178,4 +177,23 @@ const createMeetup = async () => {
       }
     })
     .catch(error => alert(error));
+};
+const askQuestion = () => {
+  const form = document.getElementById('question-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const meetupId = form.meetupId.value;
+    const { title, body } = form;
+    const question = { title: title.value, body: body.value };
+    fetch(`../../api/v1/meetups/${meetupId}/questions`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(question),
+    }).then(result => result.json())
+      .then((postedQuestion) => {
+        title.value = '';
+        body.value = '';
+        getMeetupById();
+      }).catch(error => alert(error));
+  });
 };
