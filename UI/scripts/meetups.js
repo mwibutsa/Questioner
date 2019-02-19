@@ -30,8 +30,10 @@ const getMeetupById = async () => {
               <h3 class="question-title">${question.title}</h3>
               <p class="question-body">     
                 ${question.body}
-              </p>
+              </p><br>
+              <hr>
               <div class="voting-form" >
+              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')" name=""></i>
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
@@ -43,7 +45,7 @@ const getMeetupById = async () => {
                       <i class="fa fa-thumbs-o-down" style="font-size:24px">${question.downvotes}</i>
                   </form>
               </div>
-              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')" name=""></i>
+              <hr>
               <div class="comment comment-form" id="${question.id}">
                   <div id="commentHere">${commentHTML.html}</div>
                   <div class="meetup-form">

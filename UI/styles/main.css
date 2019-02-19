@@ -18,23 +18,25 @@ html,body{
 	background-image: url('images/amazing.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	clear: both;
 }
 .main{
 	padding-top: 50px;
 	height: 100%;
 	padding-bottom: 160px;
 	overflow: auto;
+	clear: both;
 }
 
 
 /*footer*/
 
 .footer{
-	height: 110px;
+	height: 130px;
 	width: 100%;
 	position: relative;
 	background:#007acc;
-	margin-top: -125px;
+	margin-top: -130px;
 	clear: both;
 	padding-top: 1%;
 	color: white;
