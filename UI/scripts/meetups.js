@@ -43,8 +43,8 @@ const getMeetupById = async () => {
                       <i class="fa fa-thumbs-o-down" style="font-size:24px">${question.downvotes}</i>
                   </form>
               </div>
-              <i class="fas fa-comment-dots" onclick="toggleCommentForm()"></i>
-              <div class="form-container comment">
+              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')" name=""></i>
+              <div class="comment comment-form" id="${question.id}">
                   <div id="commentHere">${commentHTML.html}</div>
                   <div class="meetup-form">
                       <form action="#" method="POST">
@@ -52,6 +52,7 @@ const getMeetupById = async () => {
                               <label for="question">Your Comment</label><br>
                               <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
                           </div>
+                          <button onclick="addComment()">Comment</button>
                       </form>
                   </div>
               </div>
@@ -140,19 +141,10 @@ const rsvp = (button) => {
       }).catch(error => alert(`Error => ${error.message}`));
   });
 };
-function toggleCommentForm() {
-  const commentForm = document.getElementsByClassName('comment');
-  // eslint-disable-next-line no-plusplus
-  for (i = 0; i < commentForm.length; i++) {
-    ((index) => {
-      commentForm[index].classList.toggle('show-comment');
-    })(i);
-  }
-}
 const createMeetup = async () => {
   const form = document.getElementById('meetupForm');
   const {
-    topic, location, tag, happeningOn, meetupImage
+    topic, location, tag, happeningOn, meetupImage,
   } = form;
   const newMeetup = {
     topic: topic.value,
@@ -185,15 +177,19 @@ const askQuestion = () => {
     const meetupId = form.meetupId.value;
     const { title, body } = form;
     const question = { title: title.value, body: body.value };
+    title.value = '';
+    body.value = '';
     fetch(`../../api/v1/meetups/${meetupId}/questions`, {
       method: 'POST',
       headers,
       body: JSON.stringify(question),
     }).then(result => result.json())
       .then((postedQuestion) => {
-        title.value = '';
-        body.value = '';
         getMeetupById();
       }).catch(error => alert(error));
   });
 };
+function toggleCommentForm(questionId) {
+  const commentForm = document.getElementById(questionId);
+  commentForm.classList.toggle('comment');
+}
