@@ -18,23 +18,25 @@ html,body{
 	background-image: url('images/amazing.jpeg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	clear: both;
 }
 .main{
 	padding-top: 50px;
 	height: 100%;
 	padding-bottom: 160px;
 	overflow: auto;
+	clear: both;
 }
 
 
 /*footer*/
 
 .footer{
-	height: 110px;
+	height: 130px;
 	width: 100%;
 	position: relative;
 	background:#007acc;
-	margin-top: -125px;
+	margin-top: -130px;
 	clear: both;
 	padding-top: 1%;
 	color: white;
@@ -82,7 +84,7 @@ padding: 5px;
 height: 35px;
 border: none;
 box-shadow: 1px 1px 1px #aaa;
-border-radius: 4px;
+border-radius: 1px;
 background: #007acc;
 color: white;
 font-size: 18px;
@@ -169,7 +171,7 @@ button:hover,.button:hover{
 	margin-right: auto;
 	background: #f5f2f2;
 	padding: 1%;
-	border-radius: 2%;
+	border-radius: 1%;
 	margin-top: 2%;
 }
 .form-input{
@@ -295,18 +297,6 @@ hr{
 .bold{
 	font-size: 24px;
 	line-height: 30px;
-}
-.votes{
-	padding: 5px;
-	background: rgb(189, 236, 77);
-	border-radius: 20%;
-	color:#333;
-	margin: 1%;
-	float: left;
-	font-size: 1.2rem;
-	font-weight: bold;
-
-
 }
 .grid-2-cols{
 	display: grid;
@@ -434,6 +424,9 @@ hr{
 }
 .comment{
 	display: none;
+	border-radius: 10%;
+	height: 80px;
+	transition: .45s all ease-in-out;
 }
 .comment-toggle{
 	cursor: pointer;
@@ -441,14 +434,10 @@ hr{
 	color: #e8eef1;
 	display: inline-block;
 	border-radius: 5%;
-	margin-left: 10%;
 	margin-top: 20px;
 }
 .comment-toggle:hover{
 	background: #13334D;
-}
-.show-comment{
-	display: block;
 }
 .prof-container {
 	width: 80%;
@@ -456,15 +445,6 @@ hr{
 }
 .heading{
     font-weight: bold;
-}
-.table {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	width: 80%;
-	margin: 1% auto 1% auto;
-	text-align: center;
-
-
 }
 .border-bottom {
 	border-bottom: 2px solid #13334D;
@@ -474,11 +454,34 @@ hr{
 	height: 300px;
 	color: black;
 }
-.bg-img{
+/* .bg-img{
 	background-image: url('../images/amazing.jpeg');
 	background-size: 100%;
 	background-repeat: no-repeat;
-}
+} */
 .error-span {
 	color: brown;
+}
+i {
+	font-size: 36px;
+	margin: 1%;
+	cursor: pointer;
+}
+i:hover{
+	color:#007acc;
+}
+.one-comment {
+	margin: 3px;
+	background: white;
+	padding: 1%;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+}
+.comment-area{
+	background-color: rgb(242, 251, 255);
+	margin-left: 3%;
+	border-radius: 10px;
+	padding: 2%;
+	text-align: justify;
 }

@@ -30,29 +30,32 @@ const getMeetupById = async () => {
               <h3 class="question-title">${question.title}</h3>
               <p class="question-body">     
                 ${question.body}
-              </p>
+              </p><br>
+              <hr>
               <div class="voting-form" >
+              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')" name=""></i>
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <button type="submit"><b>${question.upvotes}upvote</b> <i class="fa fa-thumbs-o-up"></i></button>
+                      <i class="fa fa-thumbs-o-up" style="font-size:24px" onclick="processVote(this)">${question.upvotes}</i>
                   </form>
                   <form  class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="downvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <button type="submit"><b>${question.downvotes}downvote</b> <i class="fa fa-thumbs-o-down"></i></button>
+                      <i class="fa fa-thumbs-o-down" style="font-size:24px" onclick="processVote(this)">${question.downvotes}</i>
                   </form>
               </div>
-              <button class="comment-toggle" onclick ="toggleCommentForm()">Comment (<b>5</b>)</button>
-              <div class="form-container comment">
-                  <div id="commentHere">${commentHTML.html}</div>
+              <hr>
+              <div class="comment comment-form" id="${question.id}">
+                    <h5 class="text-center">Comments</h5>
+                  <div id="comments-${question.id}" class="comment-area">${commentHTML.html}</div>
                   <div class="meetup-form">
-                      <form action="#" method="POST">
+                      <form id="form-${question.id}" method="POST">
                           <div class="form-input">
                               <label for="question">Your Comment</label><br>
-                              <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
+                              <textarea name="comment" rows="2" id="topic" class="textarea" required></textarea>
                           </div>
-                          <input type="submit" value="Comment" class="button">
+                          <button name ="${question.id}" onclick="addComment(this)">Comment</button>
                       </form>
                   </div>
               </div>
@@ -141,19 +144,10 @@ const rsvp = (button) => {
       }).catch(error => alert(`Error => ${error.message}`));
   });
 };
-function toggleCommentForm() {
-  const commentForm = document.getElementsByClassName('comment');
-  // eslint-disable-next-line no-plusplus
-  for (i = 0; i < commentForm.length; i++) {
-    ((index) => {
-      commentForm[index].classList.toggle('show-comment');
-    })(i);
-  }
-}
 const createMeetup = async () => {
   const form = document.getElementById('meetupForm');
   const {
-    topic, location, tag, happeningOn, meetupImage
+    topic, location, tag, happeningOn, meetupImage,
   } = form;
   const newMeetup = {
     topic: topic.value,
@@ -178,4 +172,70 @@ const createMeetup = async () => {
       }
     })
     .catch(error => alert(error));
+};
+const askQuestion = () => {
+  const form = document.getElementById('question-form');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const meetupId = form.meetupId.value;
+    const { title, body } = form;
+    const question = { title: title.value, body: body.value };
+    title.value = '';
+    body.value = '';
+    fetch(`../../api/v1/meetups/${meetupId}/questions`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(question),
+    }).then(result => result.json())
+      .then((postedQuestion) => {
+        getMeetupById();
+      }).catch(error => alert(error));
+  });
+};
+function toggleCommentForm(questionId) {
+  displayComments(questionId);
+  const commentForm = document.getElementById(questionId);
+  commentForm.classList.toggle('comment');
+}
+const addComment = (button) => {
+  const form = document.getElementById(`form-${button.name}`);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const { comment } = form;
+    const data = { comment: comment.value };
+    comment.value = '';
+    fetch(`../api/v1/questions/${button.name}/comment`,
+      {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data),
+      })
+      .then(result => result.json())
+      .then((commentResult) => {
+        if (commentResult.data) {
+          getMeetupById();
+        } else {
+          alert(JSON.stringify(commentResult));
+        }
+      }).catch(error => alert(error));
+  });
+};
+
+const displayComments = (questionId) => {
+  const commenteArea = document.getElementById(`comments-${questionId}`);
+  fetch(`../api/v1/questions/${questionId}/comments`, { method: 'GET', headers: myHeaders })
+    .then(result => result.json())
+    .then((commentResult) => {
+      if (commentResult.data) {
+        if (commentResult.data.length) {
+          let commentHTML = '';
+          commentResult.data.forEach((comment) => {
+            commentHTML += `<div class="one-comment">${comment.body}</div><br>`;
+          });
+          commenteArea.innerHTML = commentHTML;
+        } else {
+          commenteArea.innerHTML = 'Be the first one to comment on this Question';
+        }
+      }
+    }).catch(error => alert(error));
 };

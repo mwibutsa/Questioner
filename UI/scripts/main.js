@@ -1,16 +1,5 @@
 function onReady() {
 }
-function toggleCommentForm() {
-  const toggleButton = document.getElementsByClassName('comment-toggle');
-  const commentForm = document.getElementsByClassName('comment');
-  for (i = 0; i < toggleButton.length; i++) {
-    (function (index) {
-      toggleButton[index].onclick = function () {
-        commentForm[index].classList.toggle('show-comment');
-      };
-    }(i));
-  }
-}
 function showNavigation() {
   const menu = document.getElementById('mainNav');
   menu.classList.toggle('change');
