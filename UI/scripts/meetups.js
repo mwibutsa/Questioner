@@ -4,7 +4,7 @@ myHeaders.append('Accept', 'application/json');
 myHeaders.append('Content-type', 'application/json');
 myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
 
-const getMeetupById = async () => {
+function getMeetupById () {
   const meetupId = window.localStorage.getItem('current-meetup');
   if (meetupId) {
     fetch(`../../api/v1/meetups/${meetupId}`, { method: 'GET', headers: myHeaders })
@@ -75,8 +75,8 @@ const getMeetupById = async () => {
         }
       }).catch(error => alert(JSON.stringify(error)));
   }
-};
-const getAllMeetups = () => {
+}
+function getAllMeetups () {
   const meetupContainer = (document.getElementsByClassName('main-content'));
   fetch('../../api/v1/meetups/', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
@@ -120,9 +120,9 @@ const getAllMeetups = () => {
     .catch((error) => {
       meetupContainer[0].innerHTML = error.message();
     });
-};
+}
 
-const rsvp = (button) => {
+function rsvp (button) {
   const form = document.getElementById(button.name);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -143,8 +143,8 @@ const rsvp = (button) => {
         }
       }).catch(error => alert(`Error => ${error.message}`));
   });
-};
-const createMeetup = async () => {
+}
+function createMeetup(){
   const form = document.getElementById('meetupForm');
   const {
     topic, location, tag, happeningOn, meetupImage,
@@ -172,8 +172,8 @@ const createMeetup = async () => {
       }
     })
     .catch(error => alert(error));
-};
-const askQuestion = () => {
+}
+function askQuestion() {
   const form = document.getElementById('question-form');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -197,7 +197,7 @@ function toggleCommentForm(questionId) {
   const commentForm = document.getElementById(questionId);
   commentForm.classList.toggle('comment');
 }
-const addComment = (button) => {
+function addComment(button) {
   const form = document.getElementById(`form-${button.name}`);
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -219,9 +219,9 @@ const addComment = (button) => {
         }
       }).catch(error => alert(error));
   });
-};
+}
 
-const displayComments = (questionId) => {
+function displayComments (questionId) {
   const commenteArea = document.getElementById(`comments-${questionId}`);
   fetch(`../api/v1/questions/${questionId}/comments`, { method: 'GET', headers: myHeaders })
     .then(result => result.json())
@@ -238,4 +238,4 @@ const displayComments = (questionId) => {
         }
       }
     }).catch(error => alert(error));
-};
+}
