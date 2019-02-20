@@ -1,7 +1,7 @@
 const myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
 myHeaders.append('Content-type', 'application/json');
-const login = () => {
+function login() {
   const form = document.getElementById('loginForm');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -29,9 +29,9 @@ const login = () => {
         }
       }).catch(error => alert(JSON.stringify(error)));
   });
-};
+}
 
-const signUp = () => {
+function signUp (){
   const form = document.getElementById('signup-form');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -65,4 +65,4 @@ const signUp = () => {
       }
     }).catch(error => alert(error));
   });
-};
+}
