@@ -434,7 +434,6 @@ hr{
 	color: #e8eef1;
 	display: inline-block;
 	border-radius: 5%;
-	margin-left: 10%;
 	margin-top: 20px;
 }
 .comment-toggle:hover{
@@ -470,4 +469,19 @@ i {
 }
 i:hover{
 	color:#007acc;
+}
+.one-comment {
+	margin: 3px;
+	background: white;
+	padding: 1%;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+}
+.comment-area{
+	background-color: rgb(242, 251, 255);
+	margin-left: 3%;
+	border-radius: 10px;
+	padding: 2%;
+	text-align: justify;
 }

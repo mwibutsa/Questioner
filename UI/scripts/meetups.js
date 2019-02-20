@@ -37,24 +37,25 @@ const getMeetupById = async () => {
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-         <i class="fa fa-thumbs-o-up" style="font-size:24px">${question.upvotes}</i>
+                      <i class="fa fa-thumbs-o-up" style="font-size:24px" onclick="processVote(this)">${question.upvotes}</i>
                   </form>
                   <form  class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="downvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <i class="fa fa-thumbs-o-down" style="font-size:24px">${question.downvotes}</i>
+                      <i class="fa fa-thumbs-o-down" style="font-size:24px" onclick="processVote(this)">${question.downvotes}</i>
                   </form>
               </div>
               <hr>
               <div class="comment comment-form" id="${question.id}">
-                  <div id="commentHere">${commentHTML.html}</div>
+                    <h5 class="text-center">Comments</h5>
+                  <div id="comments-${question.id}" class="comment-area">${commentHTML.html}</div>
                   <div class="meetup-form">
-                      <form action="#" method="POST">
+                      <form id="form-${question.id}" method="POST">
                           <div class="form-input">
                               <label for="question">Your Comment</label><br>
-                              <textarea name="topic" rows="4" id="topic" class="textarea" required></textarea>
+                              <textarea name="comment" rows="2" id="topic" class="textarea" required></textarea>
                           </div>
-                          <button onclick="addComment()">Comment</button>
+                          <button name ="${question.id}" onclick="addComment(this)">Comment</button>
                       </form>
                   </div>
               </div>
@@ -192,6 +193,49 @@ const askQuestion = () => {
   });
 };
 function toggleCommentForm(questionId) {
+  displayComments(questionId);
   const commentForm = document.getElementById(questionId);
   commentForm.classList.toggle('comment');
 }
+const addComment = (button) => {
+  const form = document.getElementById(`form-${button.name}`);
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const { comment } = form;
+    const data = { comment: comment.value };
+    comment.value = '';
+    fetch(`../api/v1/questions/${button.name}/comment`,
+      {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data),
+      })
+      .then(result => result.json())
+      .then((commentResult) => {
+        if (commentResult.data) {
+          getMeetupById();
+        } else {
+          alert(JSON.stringify(commentResult));
+        }
+      }).catch(error => alert(error));
+  });
+};
+
+const displayComments = (questionId) => {
+  const commenteArea = document.getElementById(`comments-${questionId}`);
+  fetch(`../api/v1/questions/${questionId}/comments`, { method: 'GET', headers: myHeaders })
+    .then(result => result.json())
+    .then((commentResult) => {
+      if (commentResult.data) {
+        if (commentResult.data.length) {
+          let commentHTML = '';
+          commentResult.data.forEach((comment) => {
+            commentHTML += `<div class="one-comment">${comment.body}</div><br>`;
+          });
+          commenteArea.innerHTML = commentHTML;
+        } else {
+          commenteArea.innerHTML = 'Be the first one to comment on this Question';
+        }
+      }
+    }).catch(error => alert(error));
+};
