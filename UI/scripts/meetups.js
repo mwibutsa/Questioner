@@ -37,12 +37,12 @@ function getMeetupById () {
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <i class="fa fa-thumbs-o-up" style="font-size:24px" onclick="processVote(this)">${question.upvotes}</i>
+                      <i class="fa fa-thumbs-o-up" style="font-size:24px" onclick="processVotes('upvote','${question.id}')">${question.upvotes}</i>
                   </form>
-                  <form  class="inline-form" method="PATCH" onsubmit="processVote(this);">
+                  <form  class="inline-form" method="PATCH" onsubmit="processVotes(this);">
                       <input type="hidden" name="vote" value="downvote">
                       <input type="hidden" name="questionId" value="${question.id}">
-                      <i class="fa fa-thumbs-o-down" style="font-size:24px" onclick="processVote(this)">${question.downvotes}</i>
+                      <i class="fa fa-thumbs-o-down" style="font-size:24px" onclick="processVotes('downvote','${question.id}')">${question.downvotes}</i>
                   </form>
               </div>
               <hr>
@@ -238,4 +238,14 @@ function displayComments (questionId) {
         }
       }
     }).catch(error => alert(error));
+}
+function processVotes(voteMethod, questionId) {
+  fetch(`../../api/v1/questions/${questionId}/${voteMethod}`, { method: 'PATCH', headers: myHeaders })
+  .then((result) => result.json()).then((voted) => {
+    if(voted.data) {
+      getMeetupById();
+    } else {
+      alert(JSON.stringify(voted));
+    }
+  })
 }

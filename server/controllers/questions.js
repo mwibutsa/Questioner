@@ -1,7 +1,7 @@
 import Database from '../db/db-connection';
 
 const getQuestions = async (req, res) => {
-  const sql = `SELECT * FROM question_table WHERE meetup = '${req.params.id}'`;
+  const sql = `SELECT * FROM question_table WHERE meetup = '${req.params.id}' ORDER BY upvotes DESC, downvotes ASC`;
   const questions = Database.executeQuery(sql);
   questions.then((result) => {
     // return the result
