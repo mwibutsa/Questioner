@@ -17,8 +17,7 @@ import uuid from 'uuid';
             if (result.rows) {
               return res.status(201).json({ status: 201, data: result.rows });
             } else {
-              console.log(sql);
-              return res.status(500).json({ status: 500, error: `Server error OO`})
+              return res.status(500).json({ status: 500, error: `The Image was not uploaded`})
             }
           }).catch(error => res.status(500).json({ status: 500, error: `Server Error ${error}`}));
         }
