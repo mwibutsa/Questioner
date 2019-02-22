@@ -9,12 +9,14 @@ import getUpcomingMeetups from '../controllers/upcoming-meetups';
 import getQuestions from '../controllers/questions';
 import deleteMeetup from '../controllers/delete-meetup';
 import editMeetupt from '../controllers/edit-meetup';
+import addImage from '../controllers/add-image';
 
 const router = express.Router();
 router.get('/:id/questions', getQuestions);
 router.get('/', getMeetups);
 router.post('/:id/rsvps', verifyToken, attendMeetup);
 router.post('/:id/questions', verifyToken, addQuestion);
+router.post('/:id/images/add', verifyToken, addImage);
 router.put('/:id', verifyToken, isAdmin, editMeetupt);
 router.delete('/:id', verifyToken, isAdmin, deleteMeetup);
 router.post('/', verifyToken, isAdmin, addMeetup);
