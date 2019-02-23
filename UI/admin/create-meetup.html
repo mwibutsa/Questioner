@@ -51,22 +51,23 @@
                     <div class="form-container">
                         <div class="form-header">
                             <h1 class="text-center">Fill out this form to create a new meetup</h1>
+                            <h5 id="info"></h5>
                         </div>
                         <hr>
-                            <form id="meetupForm" method="POST" name="meetupForm">
+                            <form id="meetupForm" method="POST" name="meetupForm" enctype="multipart/form-data">
                                     <div id="meetup-error"></div>
                                     <div class="form-input">
-                                        <label for="topic">Topic*</label><span class="error-span" id="topic"></span><br>
+                                        <label for="topic">Topic * </label><span class="error-span" id="topic"></span><br>
                                         <input type="text" name="topic" id="topic" class="text-input" required>
                                    </div>
     
                                    <div class="form-input">
-                                        <label for="location">Location*</label><span class="error-span" id="location"></span><br>
+                                        <label for="location">Location * </label><span class="error-span" id="location"></span><br>
                                         <input type="text" name="location" id="location" class="text-input" required>
                                    </div>
     
                                    <div class="form-input">
-                                        <label for="happeningDate">Happening On*</label><span class="error-span" id="happeningOn"></span><br>
+                                        <label for="happeningDate">Happening On * </label><span class="error-span" id="happeningOn"></span><br>
                                         <input type="date" name="happeningOn" id="happeningOn" class="text-input" required>
                                    </div>
     

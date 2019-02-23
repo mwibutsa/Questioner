@@ -3,6 +3,10 @@ const myHeaders = new Headers();
 myHeaders.append('Accept', 'application/json');
 myHeaders.append('Content-type', 'application/json');
 myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
+const uploadHeaders = new Headers();
+uploadHeaders.append('Accept', 'application/json')
+// uploadHeaders.append('Content-Type', 'multipart/form-data');
+uploadHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
 
 function getMeetupById () {
   const meetupId = window.localStorage.getItem('current-meetup');
@@ -152,7 +156,9 @@ function createMeetup(){
 
   const data = new FormData();
   const myFile = meetupImage.files[0];
-  data.append('meetupImage', myFile , myFile.name);
+  if(myFile) {
+    data.append('meetupImage', myFile, myFile.name);
+  }
 
   const newMeetup = {
     topic: topic.value,
@@ -167,14 +173,17 @@ function createMeetup(){
   })
     .then(result => result.json()).then((createdMeetup) => {
       if (createdMeetup.data) {
-      fetch(`../../api/v1/meetups/${createdMeetup.data.id}/images/add`, {
+      fetch(`../../api/v1/meetups/${createdMeetup.data[0].id}/images/add`, {
         method: 'POST',
-        headers: myHeaders,
+        headers: uploadHeaders,
         body: data
       }).then((result) => result.json()).then((image) => {
-        alert(JSON.stringify(image.data));
+        if (image.data) {
+          document.getElementById('info').innerHTML = `<b>The Image Was Uploaded as ${image.data[0].url} </b>`;
+        } else {
+          alert (`Error : ${JSON.stringify(image)}`);
+        }
       }).catch(error => alert(error));
-        window.location.reload();
       } else if (typeof createdMeetup.error !== 'string') {
         const erros = [...createdMeetup.error];
         erros.forEach((err) => {
@@ -183,8 +192,12 @@ function createMeetup(){
       } else {
         document.getElementById('meetup-error').innerHTML = `${createdMeetup.error}`;
       }
+      topic.value = '';
+      location.value = '';
+      happeningOn.value = '';
+      meetupImage.value = '';
     })
-    .catch(error => alert(error));
+    .catch(error => alert(`Server Error ${error}`));
 }
 function askQuestion() {
   const form = document.getElementById('question-form');
