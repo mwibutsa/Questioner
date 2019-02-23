@@ -6,7 +6,6 @@ import uuid from 'uuid';
       return res.status(400).json({ status: 400, error: 'No file was Uploaded' });
     } else {
       const meetupImage = req.files.meetupImage;
-      const uploadedImagesPath = path.resolve(__dirname, '../../');
       meetupImage.mv(`UI/images/uploaded/${(new Date()).getTime()}-${meetupImage.name}`,(error) => {
         if (error) {
           return res.status(500).json({ status: 500, error: `Failled to upload image ${error}`});

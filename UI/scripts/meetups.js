@@ -149,11 +149,17 @@ function createMeetup(){
   const {
     topic, location, tag, happeningOn, meetupImage,
   } = form;
+
+  const data = new FormData();
+  const myFile = meetupImage.files[0];
+  data.append('meetupImage', myFile , myFile.name);
+
   const newMeetup = {
     topic: topic.value,
     location: location.value,
     happeningOn: happeningOn.value,
   };
+
   fetch('../api/v1/meetups', {
     method: 'POST',
     headers: myHeaders,
@@ -161,6 +167,13 @@ function createMeetup(){
   })
     .then(result => result.json()).then((createdMeetup) => {
       if (createdMeetup.data) {
+      fetch(`../../api/v1/meetups/${createdMeetup.data.id}/images/add`, {
+        method: 'POST',
+        headers: myHeaders,
+        body: data
+      }).then((result) => result.json()).then((image) => {
+        alert(JSON.stringify(image.data));
+      }).catch(error => alert(error));
         window.location.reload();
       } else if (typeof createdMeetup.error !== 'string') {
         const erros = [...createdMeetup.error];
