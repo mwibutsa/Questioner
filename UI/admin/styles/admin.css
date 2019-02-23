@@ -64,7 +64,8 @@ form .button, form button{
 th {
     border-bottom: 2px solid rgb(4, 65, 122)
 }
-/* .listGrid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-} */
+#info {
+    color: green;
+    opacity: .9;
+    transition: .45s all ease-in-out .3s;
+}

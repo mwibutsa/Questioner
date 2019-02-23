@@ -11,11 +11,10 @@ import { pageNotFound, serverError } from './server/controllers/notfound';
 
 const port = process.env.PORT || 3000;
 const app = express();
-
-console.log('Images Path',path.resolve(__dirname, '/UI/images/uploaded'));
+app.use(fileUpload());
 app.use(cors());
 app.use(favicon(path.resolve(__dirname, 'favicon.ico')));
-app.use(fileUpload());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, 'UI')));
