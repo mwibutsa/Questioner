@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 const myHeaders = new Headers();
+const user = (JSON.parse(localStorage.getItem('user-data'))).data[0];
 myHeaders.append('Accept', 'application/json');
 myHeaders.append('Content-type', 'application/json');
 myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
 const uploadHeaders = new Headers();
 uploadHeaders.append('Accept', 'application/json')
-// uploadHeaders.append('Content-Type', 'multipart/form-data');
 uploadHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
 
 function getMeetupById () {
@@ -29,15 +29,16 @@ function getMeetupById () {
                   questions.data.forEach(async (question) => {
                     commentHTML.html = 'No comments';
                     questionHTML += `
-            <div class="text-container">
-              <span class="votes">User</span>
+            <div class="text-container question-flex">
+              <div class="user-icon">${user.firstname}</div>
+              <div class="question-container">
               <h3 class="question-title">${question.title}</h3>
               <p class="question-body">     
                 ${question.body}
               </p><br>
               <hr>
               <div class="voting-form" >
-              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')" name=""></i>
+              <i class="far fa-comments"  style="font-size:24px" onclick="toggleCommentForm('${question.id}')"></i>
                   <form class="inline-form" method="PATCH" onsubmit="processVote(this);">
                       <input type="hidden" name="vote" value="upvote">
                       <input type="hidden" name="questionId" value="${question.id}">
@@ -63,7 +64,7 @@ function getMeetupById () {
                       </form>
                   </div>
               </div>
-            </div>`;
+            </div></div>`;
                   });
                   document.getElementById('asked-questions').innerHTML = questionHTML;
                 } else {

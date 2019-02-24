@@ -485,3 +485,19 @@ i:hover{
 	padding: 2%;
 	text-align: justify;
 }
+.question-flex {
+	display: grid;
+	grid-template-columns: 100px, 1fr;
+	grid-template-areas: "user-icon question";
+	grid-column-gap: 10px;
+}
+.user-icon {
+	grid-area: "user-icon";
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	background: #333;
+}
+.question-container {
+	grid-area: "question-container";
+}
