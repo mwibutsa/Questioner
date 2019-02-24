@@ -23,7 +23,7 @@ function login() {
           const erros = [...user.error];
           erros.forEach((err) => {
             document.getElementById('login-error').innerHTML += `${err.message}<br>`;
-          });
+          });   
         } else {
           document.getElementById('login-error').innerHTML = `${user.error}`;
         }

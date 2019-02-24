@@ -83,7 +83,7 @@ function getMeetupById () {
 }
 function getAllMeetups () {
   const meetupContainer = (document.getElementsByClassName('main-content'));
-  fetch('../../api/v1/meetups/', { method: 'GET', headers: myHeaders })
+  fetch('../../api/v1/meetups/upcoming', { method: 'GET', headers: myHeaders })
     .then(result => result.json())
     .then((meetups) => {
       let meetupCard = '';
@@ -97,7 +97,7 @@ function getAllMeetups () {
 <br>
 <div class="location"><b>Location: </b>${meetup.location}</div>
 <br>
-<p class="extra">${meetup.happening_on}</p>
+<p class="extra"><span>Happening on : </span>${meetup.happening_on}</p>
 <hr>
 <div class="tags text-center"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
 <hr>
