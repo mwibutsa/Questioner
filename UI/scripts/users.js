@@ -70,3 +70,20 @@ function signUp (){
     }).catch(error => alert(error));
   });
 }
+function showTopQuestions() {
+  myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
+  fetch('../../api/v1/questions/top-questions', {method: 'GET', headers: myHeaders})
+  .then(result => result.json()).then((topQuestions) => {
+    if (topQuestions.data) {
+      let topQuestionsHtml = '';
+      topQuestions.data.forEach((question) => {
+        topQuestionsHtml += `
+        <div class='text-container'>
+          <h1>Meetup</h1>
+          <p>${question.body}</p>
+        </div>`
+      });
+      document.getElementById('top-questions').innerHTML = topQuestionsHtml;
+    }
+  });
+}

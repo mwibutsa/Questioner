@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/users.js"></script>
 </head>
-<body>
+<body onload="showTopQuestions();">
    
      <!--Page wrapper-->
     <div class="wrapper">
@@ -50,11 +51,12 @@
 
             <!--THE MAIN PAGE CONTENT STARTS HERE-->
             <div class="main-content">
-                <br>
-                <br>
-                <br>
-                 <h2 class="text-center">No Questions Because You have not reserved place to attend any meetup</h2>
-                 <h3 class="text-center"><a href="meetups.html">Reserve Place</a></h3>
+                <div class="topQuestions" id="top-questions">
+                    <br>
+                    <br>
+                     <h2 class="text-center">No Questions Because You have not reserved place to attend any meetup</h2>
+                     <h3 class="text-center"><a href="meetups.html">Reserve Place</a></h3>
+                </div>
             </div>
             <!--END OF MAIN PAGE CONTENT-->
             
