@@ -18,7 +18,11 @@ function login() {
       .then((user) => {
         if (user.data) {
           window.localStorage.setItem('user-data', JSON.stringify(user));
-          window.location.replace('meetups.html');
+          if (user.data[0].is_admin == 1) {
+            window.location.replace('admin/dashboard.html');
+          } else {
+            window.location.replace('meetups.html');
+          }
         } else if (typeof user.error !== 'string') {
           const erros = [...user.error];
           erros.forEach((err) => {

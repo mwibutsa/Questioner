@@ -97,7 +97,7 @@ function getAllMeetups () {
 <br>
 <div class="location"><b>Location: </b>${meetup.location}</div>
 <br>
-<p class="extra"><span>Happening on : </span>${meetup.happening_on}</p>
+<p class="extra"><span>Happening on : </span>${(new Date(meetup.happening_on)).toString()}</p>
 <hr>
 <div class="tags text-center"><span>Bootcamp</span><span>Talent</span><span>Programming</span></div>
 <hr>
@@ -118,7 +118,7 @@ function getAllMeetups () {
 `;
         });
       } else {
-        meetupCard = 'No meetups are available';
+        meetupCard = 'No Upcoming meetups are available';
       }
       meetupContainer[0].innerHTML = meetupCard;
     })
