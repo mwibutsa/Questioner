@@ -79,7 +79,7 @@ function showTopQuestions() {
       topQuestions.data.forEach((question) => {
         topQuestionsHtml += `
         <div class='text-container'>
-          <h1>Meetup</h1>
+          <b>${question.title}</b>
           <p>${question.body}</p>
         </div>`
       });
