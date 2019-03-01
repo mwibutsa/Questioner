@@ -1,7 +1,7 @@
 import Database from '../db/db-connection';
 
 const getUserById = (req, res) => {
-const sql = `SELECT * FROM user_table WHERE id = '${eq.params.id}'`;
+const sql = `SELECT * FROM user_table WHERE id = '${req.params.id}'`;
 Database.executeQuery(sql)
 .then((user) => {
   if (user.rows) {
@@ -13,3 +13,4 @@ Database.executeQuery(sql)
 }).catch(error => res.status(200).json({ status: 500, error: `Server error :  ${error}` }));
 
 };
+export default getUserById;

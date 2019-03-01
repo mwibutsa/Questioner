@@ -78,12 +78,27 @@ function showTopQuestions() {
       let topQuestionsHtml = '';
       topQuestions.data.forEach((question) => {
         topQuestionsHtml += `
-        <div class='text-container'>
+        <div class='text-container' onMouseEnter= "showUserName('${question.id}','${question.created_by}');">
           <b>${question.title}</b>
           <p>${question.body}</p>
+          <p><small> <span id="${question.id}">
+          <script type="text/javascript">
+          showUserName('${question.id}','${question.created_by}');
+          </script>
+          </span></small></p>
         </div>`
       });
       document.getElementById('top-questions').innerHTML = topQuestionsHtml;
     }
   });
+}
+function showUserName(id, userId) {
+  const userNameArea = document.getElementById(id);
+  fetch(`../../api/v1/users/${userId}`, {method: 'GET', headers: myHeaders})
+  .then(result => result.json())
+  .then((user) => {
+    userNameArea.innerHTML ="Asked By : "+ user.data[0].firstname +" "+ user.data[0].lastname;
+  }).catch((error) => {
+    alert(JSON.stringify(error));
+  })
 }
