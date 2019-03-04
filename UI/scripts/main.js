@@ -1,5 +1,3 @@
-function onReady() {
-}
 function showNavigation() {
   const menu = document.getElementById('mainNav');
   menu.classList.toggle('change');

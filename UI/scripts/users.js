@@ -18,12 +18,16 @@ function login() {
       .then((user) => {
         if (user.data) {
           window.localStorage.setItem('user-data', JSON.stringify(user));
-          window.location.replace('meetups.html');
+          if (user.data[0].is_admin == 1) {
+            window.location.replace('admin/dashboard.html');
+          } else {
+            window.location.replace('meetups.html');
+          }
         } else if (typeof user.error !== 'string') {
           const erros = [...user.error];
           erros.forEach((err) => {
             document.getElementById('login-error').innerHTML += `${err.message}<br>`;
-          });
+          });   
         } else {
           document.getElementById('login-error').innerHTML = `${user.error}`;
         }
@@ -65,4 +69,36 @@ function signUp (){
       }
     }).catch(error => alert(error));
   });
+}
+function showTopQuestions() {
+  myHeaders.append('Authorization', `Bearer ${(JSON.parse(localStorage.getItem('user-data'))).token}`);
+  fetch('../../api/v1/questions/top-questions', {method: 'GET', headers: myHeaders})
+  .then(result => result.json()).then((topQuestions) => {
+    if (topQuestions.data) {
+      let topQuestionsHtml = '';
+      topQuestions.data.forEach((question) => {
+        topQuestionsHtml += `
+        <div class='text-container' onMouseEnter= "showUserName('${question.id}','${question.created_by}');">
+          <b>${question.title}</b>
+          <p>${question.body}</p>
+          <p><small> <span id="${question.id}">
+          <script type="text/javascript">
+          showUserName('${question.id}','${question.created_by}');
+          </script>
+          </span></small></p>
+        </div>`
+      });
+      document.getElementById('top-questions').innerHTML = topQuestionsHtml;
+    }
+  });
+}
+function showUserName(id, userId) {
+  const userNameArea = document.getElementById(id);
+  fetch(`../../api/v1/users/${userId}`, {method: 'GET', headers: myHeaders})
+  .then(result => result.json())
+  .then((user) => {
+    userNameArea.innerHTML ="Asked By : "+ user.data[0].firstname +" "+ user.data[0].lastname;
+  }).catch((error) => {
+    alert(JSON.stringify(error));
+  })
 }

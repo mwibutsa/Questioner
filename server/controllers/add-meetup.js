@@ -11,7 +11,7 @@ const addMeetup = (req, res) => {
       new Date(),
       result.location,
       result.topic,
-      new Date(date[2], date[1], date[0]),
+      new Date(date[0], date[1], date[2]),
     ];
     const sql = 'INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
     const meetup = Database.executeQuery(sql, newMeetup);

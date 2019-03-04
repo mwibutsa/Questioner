@@ -47,5 +47,5 @@ const deleteMeetup = (button) => {
     });
 };
 const editMeetup = () => {
-
+  
 };
