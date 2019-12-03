@@ -8,7 +8,8 @@
     "test": "NODE_ENV=test nyc mocha ./server/test/*.js --require babel-core/register --timeout 1000 --exit",
     "dev": "nodemon --require babel-core/register --require babel-polyfill ./app.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint *.js --fix"
+    "lint": "eslint *.js --fix",
+    "scss": "node-sass  --watch UI/scss -o UI/css"
   },
   "engines": {
     "node": "10.x"
@@ -57,8 +58,10 @@
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
+    "node-sass": "^4.13.0",
     "npm": "^6.5.0",
     "pg": "^7.7.1",
+    "sass": "^1.23.7",
     "serve-favicon": "^2.5.0",
     "uuid": "^3.3.2"
   }

@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Tauri&display=swap');
+
+$color-blue-nights: #353b48;
+$color-white: #ffffff;
+$color-light-gray: #f7f7ff;
+$black-text-color: #333;
+$color-dark-gray: #f1f1f1;
+
+$color-primary-blue: #0984e3;
+$color-secondary-blue: #00a8ff;
+$color-primary-grey: #a1a1a1;
+$color-secondary-grey: #f1f2f6;
+
+.text-center {
+  text-align: center;
+}
+html {
+  font-size: 10px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: $color-light-gray;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  color: $black-text-color;
+}
+.container {
+  min-height: 100%;
+}
+.clear-fix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+.main {
+  position: relative;
+  overflow: auto;
+  padding-bottom: 10rem;
+  min-height: 100%;
+  &__content {
+    text-align: center;
+    .services {
+      width: 80%;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+      text-align: center;
+      display: flex;
+      margin-bottom: 2rem;
+
+      &__title {
+        display: inline-block;
+        margin-top: 8rem;
+        text-align: center;
+        background: linear-gradient(
+          to right,
+          rgba($color-primary-blue, 1),
+          rgba($color-primary-grey, 1)
+        );
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        font-size: 3rem;
+
+        margin-bottom: 1rem;
+      }
+      &__box {
+        flex: 1;
+        padding: 1rem;
+        color: rgb(94, 94, 94);
+        margin: 0 1rem;
+        box-shadow: 0 0 0.2rem rgba(51, 51, 51, 0.2);
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        &-header {
+          text-transform: uppercase;
+          font-size: 1.3rem;
+          text-transform: uppercase;
+          margin: 2rem;
+          border-bottom: 0.2rem solid #d3d3d3;
+          padding-bottom: 1rem;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-primary-blue;
+          }
+        }
+        &-image {
+          img {
+            width: 100%;
+            height: 15rem;
+          }
+        }
+
+        &-content {
+          text-align: justify;
+          line-height: 2.5rem;
+          letter-spacing: 0.1rem;
+        }
+      }
+    }
+    &--header {
+      position: relative;
+      background: linear-gradient(
+        to top,
+        rgba($color-primary-blue, 0.9),
+        rgba($color-secondary-blue, 0.9)
+      );
+      // url(../Images/meetup.jpg);
+
+      height: 50vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: $black-text-color;
+      position: relative;
+      top: 5rem;
+
+      .header {
+        position: absolute;
+        top: 20%;
+        width: 50%;
+        left: 50%;
+        padding: 2rem;
+        color: $color-blue-nights;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+        text-align: justify;
+        letter-spacing: 0.2rem;
+        transform: translate(-50%, -10%);
+
+        &__info {
+          color: white;
+          font-weight: 300;
+          background: rgba($color: #000000, $alpha: 0.1);
+          padding: 2rem;
+          border-radius: 2rem;
+        }
+
+        &__button {
+          margin-top: 3rem;
+          display: inline-block;
+          width: 25rem;
+          border: 0.2rem solid #00b894;
+          border-radius: 10rem;
+          text-transform: uppercase;
+          text-decoration: none;
+          background: #00b894;
+          color: white;
+          height: 5rem;
+          transition: 0.5s;
+          font-weight: 500;
+          text-align: center;
+
+          &:hover {
+            box-shadow: 1px 2px 8px #303030;
+            transform: translateY(-0.2rem);
+          }
+          &:active {
+            box-shadow: 1px 1px 2px #1d1d1d;
+            transform: translateY(0.2rem);
+          }
+
+          &:hover span {
+            padding-left: 1rem;
+          }
+          &:hover span::after {
+            opacity: 1;
+          }
+          .arrow-span {
+            transition: all 0.3s;
+            height: 5rem;
+            line-height: 5rem;
+
+            &::after {
+              font-size: 3rem;
+              opacity: 0;
+              content: '\261E';
+              position: absolute;
+              backface-visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__nav {
+    background: $color-dark-gray;
+    height: 5rem;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
+    &-label {
+      float: left;
+      height: 5rem;
+      line-height: 5rem;
+      left: 10rem;
+      position: relative;
+      font-size: 3rem;
+      font-family: 'Taurin', sans-serif;
+
+      a {
+        text-decoration: none;
+        color: #40739e;
+
+        &:hover {
+          color: #429ce6;
+        }
+      }
+    }
+
+    .nav {
+      list-style-type: none;
+      float: right;
+      font-family: 'Tauri', sans-serif;
+      font-size: 1.2rem;
+
+      &__item {
+        display: inline-block;
+        height: 5rem;
+        line-height: 5rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0 2rem;
+
+        &:hover {
+          background: $color-light-gray;
+        }
+      }
+    }
+  }
+}
+
+// FOOTER
+.footer {
+  background: $color-blue-nights;
+  height: 20rem;
+  position: relative;
+  margin-top: -10rem;
+  clear: both;
+  color: $color-light-gray;
+
+  &__content {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+
+    &-title {
+      font-size: 1.3rem;
+      border-bottom: 0.3rem solid rgba($color: #434443, $alpha: 0.9);
+      margin: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    &-box {
+      flex: 1;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    &-info {
+      font-weight: 300;
+      line-height: 2.5rem;
+
+      li {
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: #00b894;
+        }
+      }
+    }
+  }
+}
