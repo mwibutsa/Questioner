@@ -1,31 +1,29 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../app';
+import 'babel-polyfill';
+import Database from '../db/db-connection';
 
 process.env.NODE_ENV = 'test';
 
 chai.should();
 chai.use(chaiHttp);
 
-describe('QUESTIONER TEST RESULTS \n ---------------------------', () => {
-  // describe('/GET /api/v1/comments',()=>{
-  //     it('Should get all comments',()=>{
-  //         chai.request(app).get('/api/v1/comments').end((err,res)=>{
-  //             res.should.have.status(200)
-  //             res.body.should.be.a('array');
-  //         });
-  //     });
-  // });
-
-  // describe('/GET /api/v1/users',()=>{
-  //     it('Should get all users',()=>{
-  //         chai.request(app).get('/api/v1/users').end((err,res)=>{
-  //             res.should.have.status(200)
-  //             res.body.should.be.a('array');
-  //         });
-  //     });
-  // });
-  // TEST GET MEETUP REQUEST
-
-
+describe('App test', () => {
+  beforeEach((done) => {
+    chai.request(app);
+    Database.executeQuery('DELETE  FROM user_table');
+    done();
+  });
+  describe('Test 404 error  \n ---------------------------', () => {
+    it('It should handle 404 Not found', (done) => {
+      chai.request(app).get('/not-found').then((res) => {
+        res.should.have.status(404);
+        res.body.should.be.a('object');
+        done();
+      }).catch((error) => {
+        console.error(error);
+      });
+    });
+  });
 });

@@ -11,16 +11,18 @@ const addMeetup = (req, res) => {
       new Date(),
       result.location,
       result.topic,
-      new Date(date[2], date[1], date[0]),
+      new Date(date[0], date[1], date[2]),
     ];
     const sql = 'INSERT INTO meetup_table (id,created_on,location,topic,happening_on) VALUES ($1,$2,$3,$4,$5) RETURNING *';
     const meetup = Database.executeQuery(sql, newMeetup);
     meetup.then((insertedMeetup) => {
-      if (insertedMeetup.rows.length) {
-        return res.status(200).json({
-          status: 200,
-          data: insertedMeetup.rows,
-        });
+      if (insertedMeetup.rows) {
+        if (insertedMeetup.rows.length) {
+          return res.status(200).json({
+            status: 200,
+            data: insertedMeetup.rows,
+          });
+        }
       }
 
       return res.status(400).json({
@@ -35,7 +37,7 @@ const addMeetup = (req, res) => {
     });
   }).catch(error => res.status(400).json({
     status: 400,
-    error: error.details[0].message,
+    error: error.details,
   }));
 };
 export default addMeetup;

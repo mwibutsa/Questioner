@@ -4,7 +4,7 @@ const getQuestionById = async (req, res) => {
   const sql = `SELECT * FROM question_table WHERE id = '${req.params.id}'`;
   const question = Database.executeQuery(sql);
   question.then((result) => {
-    if (result.rows.length) {
+    if (result.rows) {
       return res.status(200).json({
         status: 200,
         data: result.rows,

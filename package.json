@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-core/register --require babel-polyfill ./app.js",
-    "test": "nyc mocha ./server/test/*.js --compilers js:babel-core/register --timeout 10000 --exit",
+    "test": "NODE_ENV=test nyc mocha ./server/test/*.js --require babel-core/register --timeout 1000 --exit",
     "dev": "nodemon --require babel-core/register --require babel-polyfill ./app.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "lint": "eslint *.js --fix"
+    "lint": "eslint *.js --fix",
+    "scss": "node-sass  --watch UI/scss -o UI/css"
   },
   "engines": {
     "node": "10.x"
@@ -26,24 +27,28 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "chai-joi": "^2.0.3",
     "coveralls": "^3.0.2",
-    "eslint": "^5.12.1",
+    "eslint": "^5.13.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-react": "^7.12.4",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
-    "nyc": "^13.1.0",
+    "nyc": "^13.3.0",
     "rimraf": "^2.6.3"
   },
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "config": "^3.0.1",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-fileupload": "^1.1.1-alpha.1",
@@ -53,8 +58,10 @@
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
+    "node-sass": "^4.13.0",
     "npm": "^6.5.0",
     "pg": "^7.7.1",
+    "sass": "^1.23.7",
     "serve-favicon": "^2.5.0",
     "uuid": "^3.3.2"
   }
