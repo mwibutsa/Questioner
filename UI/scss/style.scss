@@ -350,7 +350,6 @@ body {
       float: right;
       font-family: 'Tauri', sans-serif;
       font-size: 1.2rem;
-      <<<<<<<head=======
       position: relative;
       right: 10rem;
       &__caret {
@@ -359,18 +358,18 @@ body {
         bottom: -0.5rem;
         color: #696969;
       }
-      >>>>>>>Refactor Langing page &__item {
+      &__item {
         display: inline-block;
         height: 5rem;
         line-height: 5rem;
         text-transform: uppercase;
         cursor: pointer;
         padding: 0 2rem;
-        <<<<<<< head ======= a {
+        a {
           text-decoration: none;
           color: $color-blue-nights;
         }
-        >>>>>>>Refactor Langing page &:hover {
+        &:hover {
           background: $color-light-gray;
         }
       }
