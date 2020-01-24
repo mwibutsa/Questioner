@@ -1,16 +1,135 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Tauri&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Marck+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import 'variables';
 
-$color-blue-nights: #353b48;
-$color-white: #ffffff;
-$color-light-gray: #f7f7ff;
-$black-text-color: #333;
-$color-dark-gray: #f1f1f1;
+// MEETUP
+.text-center {
+  text-align: center;
+}
 
-$color-primary-blue: #0984e3;
-$color-secondary-blue: #00a8ff;
-$color-primary-grey: #a1a1a1;
-$color-secondary-grey: #f1f2f6;
+.btn {
+  // padding: 1rem;
+  background: red;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &--small {
+    padding: 0.2rem;
+    border-radius: 4rem;
+    padding: 0.2rem 1rem;
+  }
+
+  &--yellow {
+    color: white;
+    background: rgb(218, 161, 5);
+
+    &:hover {
+      background: darken($color: rgb(218, 161, 5), $amount: 4);
+    }
+  }
+}
+
+.info {
+  color: #429ce6;
+}
+
+.meetup {
+  &__container {
+    padding: 7rem 10rem;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem;
+    padding: 2rem;
+    background: linear-gradient(to right bottom, #eeeeee, #fffefc, #f5f4f28c);
+  }
+
+  &__card {
+    padding: 1rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 0.2rem $color-primary-grey;
+    background: white;
+    transition: all ease-in 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: rgb(253, 250, 250);
+      transform: scale(1.1);
+      box-shadow: 0.1rem 0.1rem 0.8rem #40739e;
+    }
+
+    &-form {
+      background: rgba($color: #f1e6dc, $alpha: 0.6);
+      padding: 0.2rem 1rem;
+      border-radius: 10rem;
+    }
+    &-action {
+      margin: 1rem 0;
+
+      .btn {
+        float: right;
+        transform: translateY(-2px);
+        position: relative;
+      }
+
+      label {
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: small;
+        margin: 0 0.2rem;
+        border-right: 0.01rem solid rgba($color-primary-grey, 1);
+        text-align: center;
+        padding-right: 0.2rem;
+      }
+    }
+    &-title {
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      border-bottom: 0.3rem solid $color-primary-grey;
+      margin-bottom: 1rem;
+    }
+
+    &-body {
+      color: $color-primary-grey;
+      color: #696969;
+      line-height: 2.5rem;
+      padding: 1rem;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2rem;
+    }
+
+    &-extra {
+      background: #e5f6ff83;
+      color: rgb(63, 45, 47);
+      font-style: italic;
+      font-size: small;
+      margin: 1rem;
+    }
+  }
+
+  &__heading {
+    &--primary {
+      text-transform: uppercase;
+      background: linear-gradient(
+        to right,
+        $color-primary-blue,
+        $color-carrot-orange
+      );
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    font-size: 2.5rem;
+  }
+}
+
+/// Index page
 
 .text-center {
   text-align: center;
@@ -33,6 +152,10 @@ body {
   font-size: 1.6rem;
   font-family: 'Roboto', sans-serif;
   color: $black-text-color;
+}
+.caret {
+  height: 5rem;
+  width: 5rem;
 }
 .container {
   min-height: 100%;
@@ -227,16 +350,27 @@ body {
       float: right;
       font-family: 'Tauri', sans-serif;
       font-size: 1.2rem;
-
-      &__item {
+      <<<<<<<head=======
+      position: relative;
+      right: 10rem;
+      &__caret {
+        font-size: 3rem;
+        position: relative;
+        bottom: -0.5rem;
+        color: #696969;
+      }
+      >>>>>>>Refactor Langing page &__item {
         display: inline-block;
         height: 5rem;
         line-height: 5rem;
         text-transform: uppercase;
         cursor: pointer;
         padding: 0 2rem;
-
-        &:hover {
+        <<<<<<< head ======= a {
+          text-decoration: none;
+          color: $color-blue-nights;
+        }
+        >>>>>>>Refactor Langing page &:hover {
           background: $color-light-gray;
         }
       }
